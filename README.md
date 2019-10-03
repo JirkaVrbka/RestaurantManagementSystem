@@ -1,4 +1,4 @@
-# StockSystem
+# Restaurant Management System
 
 * Systém umí zaregistrovat podniky.
 * Systém po přihlášení automaticky detekuje podnik a roli.
