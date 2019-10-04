@@ -6,6 +6,15 @@ namespace DAL.Enums
 {
     public enum RolePermission
     {
-        //TODO zkus navrhnout nejake permissions
+        CanCreateOrder,
+        CanCloseOrder,
+        CanEndDay,
+        CanBuyIntoStock,
+        CanSetRole,
+        CanCreateRole,
+        CanSeeFinancialGraphs,
+        CanSeeStock,
+        CanSeeStockGraphs,
+        CanCreateItem
     }
 }
