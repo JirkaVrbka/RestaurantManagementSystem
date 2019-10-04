@@ -35,6 +35,7 @@ namespace Demo
             {
                 db.Companies.Add(company);
                 db.SaveChanges();
+                var x = 5;
             }
         }
 
@@ -108,7 +109,7 @@ namespace Demo
             };
             using (var db = new StockSystemDbContext())
             {
-                db.Persons.Add(persons);
+                db.Persons.AddRange(persons);
                 db.SaveChanges();
             }
 

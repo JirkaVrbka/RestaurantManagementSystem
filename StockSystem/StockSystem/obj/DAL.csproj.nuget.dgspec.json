@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\source\\repos\\StockSystem\\StockSystem\\DAL.csproj": {}
+    "C:\\Users\\David\\Documents\\GIT\\RestaurantManagementSystem\\StockSystem\\StockSystem\\DAL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\source\\repos\\StockSystem\\StockSystem\\DAL.csproj": {
+    "C:\\Users\\David\\Documents\\GIT\\RestaurantManagementSystem\\StockSystem\\StockSystem\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\source\\repos\\StockSystem\\StockSystem\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\David\\Documents\\GIT\\RestaurantManagementSystem\\StockSystem\\StockSystem\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\David\\source\\repos\\StockSystem\\StockSystem\\DAL.csproj",
+        "projectPath": "C:\\Users\\David\\Documents\\GIT\\RestaurantManagementSystem\\StockSystem\\StockSystem\\DAL.csproj",
         "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\source\\repos\\StockSystem\\StockSystem\\obj\\",
+        "outputPath": "C:\\Users\\David\\Documents\\GIT\\RestaurantManagementSystem\\StockSystem\\StockSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config",
