@@ -1,1 +1,14 @@
 C:\Users\David\source\repos\StockSystem\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\Demo.exe.config
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\Demo.exe
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\Demo.pdb
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\DAL.dll
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\EntityFramework.dll
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\DAL.pdb
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\EntityFramework.xml
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\obj\Debug\Demo.csproj.CopyComplete
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\obj\Debug\Demo.exe
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\obj\Debug\Demo.pdb

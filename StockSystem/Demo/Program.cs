@@ -34,6 +34,8 @@ namespace Demo
             {
                 db.Companies.Add(company);
                 db.SaveChanges();
+                db.Stocks.Add(CreateStock(db.Companies.First()));
+                db.SaveChanges();
             }
         }
 
