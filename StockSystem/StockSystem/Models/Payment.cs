@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DAL.Models
@@ -8,7 +9,9 @@ namespace DAL.Models
     public class Payment
     { 
         public int Id { get; set; }
-        public DateTime DateOfPayment { get; set; }
+        public DateTime? DateOfPayment { get; set; }
         public int Amount { get; set; }
+        [Required]
+        public virtual PaymentInfo PaymentInfo { get; set; }
     }
 }
