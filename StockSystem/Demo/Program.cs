@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,20 +23,17 @@ namespace Demo
         {
             var company = new Company();
 
-            company.Stock = CreateStock(company);
             company.ICO = 12345;
             company.Items = CreateItems(company);
             company.Location = "Brno";
             company.Roles = CreateRoles(company);
             company.Persons = CreatePersons(company);
             company.Name = "SomeCompany";
-            company.PaymentInfo = CreatePaymentInfo(company);
 
-            using (var db = new StockSystemDbContext())
+            using (var db = new RestaurantManagerDbContext())
             {
                 db.Companies.Add(company);
                 db.SaveChanges();
-                var x = 5;
             }
         }
 
@@ -43,10 +41,10 @@ namespace Demo
         {
             var stock = new Stock()
             {
-                Company = company
+                //Company = company
             };
 
-            using (var db = new StockSystemDbContext())
+            using (var db = new RestaurantManagerDbContext())
             {
                 db.Stocks.Add(stock);
                 db.SaveChanges();
@@ -70,7 +68,7 @@ namespace Demo
                 }
             };
 
-            using (var db = new StockSystemDbContext())
+            using (var db = new RestaurantManagerDbContext())
             {
                 db.Items.AddRange(items);
                 db.SaveChanges();
@@ -89,7 +87,7 @@ namespace Demo
                     Company = company
                 }
             };
-            using (var db = new StockSystemDbContext())
+            using (var db = new RestaurantManagerDbContext())
             {
                 db.Roles.AddRange(roles);
                 db.SaveChanges();
@@ -107,7 +105,7 @@ namespace Demo
                     FirstName = "Asdfg"
                 }
             };
-            using (var db = new StockSystemDbContext())
+            using (var db = new RestaurantManagerDbContext())
             {
                 db.Persons.AddRange(persons);
                 db.SaveChanges();
@@ -125,7 +123,7 @@ namespace Demo
                 DueDate = new DateTime()
             };
 
-            using (var db = new StockSystemDbContext())
+            using (var db = new RestaurantManagerDbContext())
             {
                 db.PaymentInfos.Add(info);
                 db.SaveChanges();
