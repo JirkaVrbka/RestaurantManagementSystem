@@ -14,3 +14,11 @@ StockSystem/RestaurantManager.Infrastucture/obj/
 StockSystem/StockSystem/obj/
 
 StockSystem/RestaurantManager.Infrastructure.EntityFramework/obj/
+
+StockSystem/StockSystem/bin/Debug/
+
+StockSystem/RestaurantManager.Infrastucture/bin/Debug/
+
+StockSystem/RestaurantManager.Infrastructure.EntityFramework/bin/Debug/
+
+StockSystem/Demo/bin/Debug/
