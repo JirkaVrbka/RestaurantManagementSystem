@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RestaurantManager.Infrastucture
+namespace RestaurantManager.Infrastructure
 {
     public interface IEntity
     {

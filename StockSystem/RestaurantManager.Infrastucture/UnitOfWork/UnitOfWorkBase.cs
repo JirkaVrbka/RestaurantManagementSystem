@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManager.Infrastucture.UnitOfWork
+namespace RestaurantManager.Infrastructure.UnitOfWork
 {
     public abstract class UnitOfWorkBase : IUnitOfWork
     {

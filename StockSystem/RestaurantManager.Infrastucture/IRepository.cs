@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManager.Infrastucture
+namespace RestaurantManager.Infrastructure
 {
     public interface IRepository<TEntity> where TEntity : class, IEntity, new()
     {

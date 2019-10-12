@@ -1,4 +1,4 @@
-﻿using RestaurantManager.Infrastucture.UnitOfWork;
+﻿using RestaurantManager.Infrastructure.UnitOfWork;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

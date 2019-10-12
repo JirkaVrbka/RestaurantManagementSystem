@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RestaurantManager.Infrastucture.UnitOfWork
+namespace RestaurantManager.Infrastructure.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -13,7 +13,7 @@ namespace RestaurantManager.Infrastucture.UnitOfWork
         Task Commit();
 
         /// <summary>
-        /// Registers an action, which is executed if and only if commit is succesfull.
+        /// Registers an action, which is executed if and only if commit is successful.
         /// </summary>
         void RegisterAction(Action action);
     }

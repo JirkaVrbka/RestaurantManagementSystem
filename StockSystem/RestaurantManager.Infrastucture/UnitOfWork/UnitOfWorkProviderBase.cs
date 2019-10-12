@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace RestaurantManager.Infrastucture.UnitOfWork
+namespace RestaurantManager.Infrastructure.UnitOfWork
 {
     public abstract class UnitOfWorkProviderBase :IUnitOfWorkProvider
     {

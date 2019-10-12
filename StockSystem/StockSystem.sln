@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "StockSystem\DAL.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{092B4C6F-E32D-410B-8C8C-B4B3B43721B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.Infrastucture", "RestaurantManager.Infrastucture\RestaurantManager.Infrastucture.csproj", "{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantManager.Infrastructure", "RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj", "{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.Infrastructure.EntityFramework", "RestaurantManager.Infrastructure.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj", "{9460100A-E846-4DE5-9E8C-573EB7BBE01C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantManager.Infrastructure.EntityFramework", "RestaurantManager.Infrastructure.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj", "{9460100A-E846-4DE5-9E8C-573EB7BBE01C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace RestaurantManager.Infrastucture.UnitOfWork
+namespace RestaurantManager.Infrastructure.UnitOfWork
 {
     public interface IUnitOfWorkProvider : IDisposable
     {
