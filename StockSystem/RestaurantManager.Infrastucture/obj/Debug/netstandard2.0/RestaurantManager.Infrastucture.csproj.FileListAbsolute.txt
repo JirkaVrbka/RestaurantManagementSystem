@@ -1,0 +1,8 @@
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\bin\Debug\netstandard2.0\RestaurantManager.Infrastucture.deps.json
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\bin\Debug\netstandard2.0\RestaurantManager.Infrastucture.dll
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\bin\Debug\netstandard2.0\RestaurantManager.Infrastucture.pdb
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\obj\Debug\netstandard2.0\RestaurantManager.Infrastucture.csprojAssemblyReference.cache
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\obj\Debug\netstandard2.0\RestaurantManager.Infrastucture.AssemblyInfoInputs.cache
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\obj\Debug\netstandard2.0\RestaurantManager.Infrastucture.AssemblyInfo.cs
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\obj\Debug\netstandard2.0\RestaurantManager.Infrastucture.dll
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastucture\obj\Debug\netstandard2.0\RestaurantManager.Infrastucture.pdb

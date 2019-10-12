@@ -15,8 +15,5 @@ namespace DAL.Models
         public virtual List<Item> Items { get; set; }
         public virtual List<Inventory> Inventories { get; set; }
         public DateTime? JoinDate { get; set; }
-
-        //public virtual Stock Stock { get; set; }
-        //public int StockId { get; set; }
     }
 }

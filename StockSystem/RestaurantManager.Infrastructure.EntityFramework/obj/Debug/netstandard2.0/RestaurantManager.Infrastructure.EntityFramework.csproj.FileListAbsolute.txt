@@ -1,0 +1,3 @@
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure.EntityFramework\obj\Debug\netstandard2.0\RestaurantManager.Infrastructure.EntityFramework.csprojAssemblyReference.cache
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure.EntityFramework\obj\Debug\netstandard2.0\RestaurantManager.Infrastructure.EntityFramework.AssemblyInfoInputs.cache
+C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure.EntityFramework\obj\Debug\netstandard2.0\RestaurantManager.Infrastructure.EntityFramework.AssemblyInfo.cs

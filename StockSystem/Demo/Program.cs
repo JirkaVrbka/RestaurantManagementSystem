@@ -6,13 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Enums;
 using DAL.Models;
+using RestaurantManager.Infrastructure.EntityFramework;
+using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
 using StockSystem;
 
 namespace Demo
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             CreateCompany();
 
@@ -133,5 +135,17 @@ namespace Demo
 
             return info;
         }
+
+        //public static PaymentInfo CreatePaymentInfoo(Company company)
+        //{
+        //    var info = new PaymentInfo()
+        //    {
+        //        Company = company,
+        //        Amount = 12000,
+        //        DueDate = new DateTime()
+        //    };
+
+        //    var repo = new EntityFrameworkRepository<PaymentInfo>(new EntityFrameworkUnitOfWorkProvider());
+        //}
     }
 }
