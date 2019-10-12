@@ -1,2 +1,0 @@
-C:\Users\David\source\repos\StockSystem\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
-C:\Users\David\Documents\GIT\RestaurantManagementSystem\StockSystem\Demo\obj\Debug\Demo.csprojAssemblyReference.cache
