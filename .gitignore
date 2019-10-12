@@ -2,3 +2,5 @@
 StockSystem/Demo/obj/Debug/
 
 StockSystem/StockSystem/obj/Debug/
+
+*.cache
