@@ -4,3 +4,13 @@ StockSystem/Demo/obj/Debug/
 StockSystem/StockSystem/obj/Debug/
 
 *.cache
+
+StockSystem/.vs/
+
+StockSystem/RestaurantManager.Infrastucture/obj/Debug/
+
+StockSystem/RestaurantManager.Infrastucture/obj/
+
+StockSystem/StockSystem/obj/
+
+StockSystem/RestaurantManager.Infrastructure.EntityFramework/obj/

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastucture.csproj" />
+    <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj" />
     <ProjectReference Include="..\StockSystem\DAL.csproj" />
   </ItemGroup>
 
