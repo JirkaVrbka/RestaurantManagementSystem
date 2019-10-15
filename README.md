@@ -1,5 +1,7 @@
 # Restaurant Management System
 
+Jiří Vrbka, David Sečkář
+
 * Systém umí zaregistrovat podniky.
 * Systém po přihlášení automaticky detekuje podnik a roli.
 * Majitel se může podívat na grafy výdělků v časovém období.
