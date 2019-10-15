@@ -62,6 +62,10 @@
       <Project>{9460100a-e846-4de5-9e8c-573eb7bbe01c}</Project>
       <Name>RestaurantManager.Infrastructure.EntityFramework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj">
+      <Project>{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}</Project>
+      <Name>RestaurantManager.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StockSystem\DAL.csproj">
       <Project>{995e1997-46f7-41fa-a289-092ccfcc6f2e}</Project>
       <Name>DAL</Name>
