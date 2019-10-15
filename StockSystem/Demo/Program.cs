@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL.Enums;
 using DAL.Models;
+using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.EntityFramework;
 using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
 using StockSystem;
@@ -16,9 +18,32 @@ namespace Demo
     {
         static void Main()
         {
-            CreateCompany();
+            CreateCompany2();
 
             
+        }
+
+        public static void CreateCompany2()
+        {
+            EntityFrameworkUnitOfWorkProvider provider = new EntityFrameworkUnitOfWorkProvider(DbContextGenerator);
+            provider.Create();
+            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
+
+            var company = new Company
+            {
+                ICO = 12345,
+                Location = "Praha",
+                Name = "Repository"
+            };
+
+            repository.Create(company);
+            provider.Dispose();
+        }
+
+        public static DbContext DbContextGenerator()
+        {
+            return new RestaurantManagerDbContext();
+            ;
         }
 
         public static void CreateCompany()
