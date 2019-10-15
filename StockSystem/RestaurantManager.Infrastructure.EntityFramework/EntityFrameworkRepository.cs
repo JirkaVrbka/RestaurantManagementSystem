@@ -22,11 +22,6 @@ namespace RestaurantManager.Infrastructure.EntityFramework
             this.provider = provider;
         }
 
-        public void Commit()
-        {
-            provider.GetUnitOfWorkInstance().Commit();
-        }
-
         public void Create(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);
