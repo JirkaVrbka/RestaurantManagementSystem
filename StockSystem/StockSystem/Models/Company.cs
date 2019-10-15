@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using RestaurantManager.Infrastructure;
 
 namespace DAL.Models
 {
-    public class Company
+    public class Company : IEntity
     {
         public string Name { get; set; }
+        [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Location { get; set; }
         public int ICO { get; set; }
