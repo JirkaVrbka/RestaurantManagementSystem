@@ -15,7 +15,7 @@ namespace RestaurantManager.Infrastructure.EntityFramework
         /// <summary>
         /// Gets the <see cref="DbContext"/>.
         /// </summary>
-        protected DbContext Context => ((EntityFrameworkUnitOfWork)provider.GetUnitOfWorkInstance()).Context;
+        protected DbContext Context => ((EntityFrameworkUnitOfWork)(provider.GetUnitOfWorkInstance())).Context;
 
         public EntityFrameworkRepository(IUnitOfWorkProvider provider)
         {
@@ -24,7 +24,6 @@ namespace RestaurantManager.Infrastructure.EntityFramework
 
         public void Create(TEntity entity)
         {
-            entity.Id = Guid.NewGuid();
             Context.Set<TEntity>().Add(entity);
         }
 
