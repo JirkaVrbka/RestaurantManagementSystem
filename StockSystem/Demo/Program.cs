@@ -23,21 +23,26 @@ namespace Demo
             
         }
 
-        public static void CreateCompany2()
+        public static async Task CreateCompany2()
         {
-            EntityFrameworkUnitOfWorkProvider provider = new EntityFrameworkUnitOfWorkProvider(DbContextGenerator);
-            provider.Create();
-            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
-
-            var company = new Company
+            using (var provider = new EntityFrameworkUnitOfWorkProvider(DbContextGenerator))
             {
-                ICO = 12345,
-                Location = "Praha",
-                Name = "Repository"
-            };
+                //provider.Create();
+                IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
+                using (var unitOfWork = provider.Create())
+                {
+                    var company = new Company
+                    {
+                        ICO = 12345,
+                        Location = "Praha",
+                        Name = "Repository"
+                    };
 
-            repository.Create(company);
-            provider.Dispose();
+                    repository.Create(company);
+                    await unitOfWork.Commit();
+                }
+            }
+
         }
 
         public static DbContext DbContextGenerator()
