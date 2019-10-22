@@ -41,8 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntityEnum\RolePermission.cs" />
-    <Compile Include="EntityEnum\Unit.cs" />
+    <Compile Include="EntityEnums\RolePermission.cs" />
+    <Compile Include="EntityEnums\Unit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
