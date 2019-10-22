@@ -1,4 +1,4 @@
-﻿namespace DemoEshop.Infrastructure.Query.Predicates.Operators
+﻿namespace RestaurantManager.Infrastructure.Query.Predicates.Operators
 {
     public enum ValueComparingOperator
     {

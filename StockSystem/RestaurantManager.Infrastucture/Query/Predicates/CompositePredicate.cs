@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using DemoEshop.Infrastructure.Query.Predicates.Operators;
+using RestaurantManager.Infrastructure.Query.Predicates.Operators;
 
-namespace DemoEshop.Infrastructure.Query.Predicates
+namespace RestaurantManager.Infrastructure.Query.Predicates
 {
     public class CompositePredicate : IPredicate
     {

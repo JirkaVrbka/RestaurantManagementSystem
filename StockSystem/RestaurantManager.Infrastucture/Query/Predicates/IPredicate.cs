@@ -1,4 +1,4 @@
-﻿namespace DemoEshop.Infrastructure.Query.Predicates
+﻿namespace RestaurantManager.Infrastructure.Query.Predicates
 {
     /// <summary>
     /// Empty interface defining query predicate.
