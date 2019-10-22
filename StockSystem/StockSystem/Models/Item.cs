@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
-using DAL.Enums;
+using RestaurantManager.DAL.Enums;
 
 namespace DAL.Models
 {
