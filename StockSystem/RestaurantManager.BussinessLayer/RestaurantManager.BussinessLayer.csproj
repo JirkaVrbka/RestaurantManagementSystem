@@ -44,6 +44,9 @@
     <Compile Include="DataTransferObjects\CompanyIdDto.cs" />
     <Compile Include="DataTransferObjects\DtoBase.cs" />
     <Compile Include="DataTransferObjects\ItemSellingInfoDto.cs" />
+    <Compile Include="DataTransferObjects\PaymentDto.cs" />
+    <Compile Include="DataTransferObjects\PaymentInfoDto.cs" />
+    <Compile Include="DataTransferObjects\RoleCreateDto.cs" />
     <Compile Include="DataTransferObjects\UserGetCompanyDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

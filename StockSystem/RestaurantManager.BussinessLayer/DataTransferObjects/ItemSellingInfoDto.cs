@@ -9,7 +9,6 @@ namespace RestaurantManager.BussinessLayer.DataTransferObjects
 {
     class ItemSellingInfoDto : DtoBase
     {
-
         public string Name { get; set; }
         public int SellPrice { get; set; }
         public Unit Unit { get; set; }

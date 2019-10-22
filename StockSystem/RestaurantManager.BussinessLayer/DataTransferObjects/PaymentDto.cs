@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace RestaurantManager.BussinessLayer.DataTransferObjects
 {
-    class UserGetCompanyDto
+    class PaymentDto : DtoBase
     {
-        public int CompanyId { get; set; }
+        public DateTime? DateOfPayment { get; set; }
+        public int Amount { get; set; }
     }
 }
