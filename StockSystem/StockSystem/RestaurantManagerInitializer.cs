@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Text;
+﻿using System.Data.Entity;
 using StockSystem;
 
-namespace DAL
+namespace RestaurantManager.DAL
 {
     class RestaurantManagerInitializer : DropCreateDatabaseAlways<RestaurantManagerDbContext>
     {

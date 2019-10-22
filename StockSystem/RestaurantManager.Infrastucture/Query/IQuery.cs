@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.Query.Predicates;
 
 namespace RestaurantManager.Infrastructure.Query

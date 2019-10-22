@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.Infrastructure.Query
 {

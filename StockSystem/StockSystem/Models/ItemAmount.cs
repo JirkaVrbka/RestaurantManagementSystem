@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using RestaurantManager.DAL.Enums;
+﻿using RestaurantManager.DAL.Enums;
 
-namespace DAL.Models
+namespace RestaurantManager.DAL.Models
 {
     public class ItemAmount
     {

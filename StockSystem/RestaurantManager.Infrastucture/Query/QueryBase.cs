@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.Query.Predicates;
 using RestaurantManager.Infrastructure.UnitOfWork;
 

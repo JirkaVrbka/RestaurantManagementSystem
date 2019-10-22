@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
-namespace DAL.Models
+namespace RestaurantManager.DAL.Models
 {
     public class Inventory
     {

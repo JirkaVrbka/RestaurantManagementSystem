@@ -1,8 +1,6 @@
 ﻿using RestaurantManager.Infrastructure.UnitOfWork;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RestaurantManager.Infrastructure.EntityFramework.UnitOfWork

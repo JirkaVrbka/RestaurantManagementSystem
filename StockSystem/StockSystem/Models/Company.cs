@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using RestaurantManager.Infrastructure;
 
-namespace DAL.Models
+namespace RestaurantManager.DAL.Models
 {
     public class Company : IEntity
     {

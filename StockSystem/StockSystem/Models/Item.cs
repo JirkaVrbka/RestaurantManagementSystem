@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 using RestaurantManager.DAL.Enums;
 
-namespace DAL.Models
+namespace RestaurantManager.DAL.Models
 {
     public class Item
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Data.Entity;
-using System.Runtime.InteropServices.ComTypes;
-using DAL;
-using DAL.Models;
+﻿using System.Data.Entity;
+using RestaurantManager.DAL;
+using RestaurantManager.DAL.Models;
 
 namespace StockSystem
 {

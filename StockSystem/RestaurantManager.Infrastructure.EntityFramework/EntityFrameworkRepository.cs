@@ -3,7 +3,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading.Tasks;
 using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
-using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.UnitOfWork;
 
 namespace RestaurantManager.Infrastructure.EntityFramework
