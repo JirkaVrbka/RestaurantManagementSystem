@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using RestaurantManager.Infrastructure;
 
-namespace DemoEshop.Infrastructure.Query
+namespace RestaurantManager.Infrastructure.Query
 {
     public class QueryResult<TEntity> where TEntity : IEntity
     {

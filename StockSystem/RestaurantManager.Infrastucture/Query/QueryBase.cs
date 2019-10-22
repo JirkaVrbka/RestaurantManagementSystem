@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using DemoEshop.Infrastructure.Query.Predicates;
-using DemoEshop.Infrastructure.UnitOfWork;
+using RestaurantManager.Infrastructure;
+using RestaurantManager.Infrastructure.Query.Predicates;
+using RestaurantManager.Infrastructure.UnitOfWork;
 
-namespace DemoEshop.Infrastructure.Query
+namespace RestaurantManager.Infrastructure.Query
 {
     public abstract class QueryBase<TEntity> : IQuery<TEntity> where TEntity : class, IEntity, new()
     {

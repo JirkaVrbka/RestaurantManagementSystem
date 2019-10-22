@@ -1,7 +1,8 @@
 ﻿using System.Threading.Tasks;
-using DemoEshop.Infrastructure.Query.Predicates;
+using RestaurantManager.Infrastructure;
+using RestaurantManager.Infrastructure.Query.Predicates;
 
-namespace DemoEshop.Infrastructure.Query
+namespace RestaurantManager.Infrastructure.Query
 {
     public interface IQuery<TEntity> where TEntity : class, IEntity, new()
     {
