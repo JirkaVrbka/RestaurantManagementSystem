@@ -11,6 +11,8 @@ namespace DAL.Models
         public int Id { get; set; }
         public DateTime? DateOfPayment { get; set; }
         public int Amount { get; set; }
+
+        public int PaymentInfoId { get; set; }
         [Required]
         public virtual PaymentInfo PaymentInfo { get; set; }
     }

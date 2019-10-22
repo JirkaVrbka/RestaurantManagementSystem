@@ -15,6 +15,7 @@ namespace DAL.Models
         public int SellPrice { get; set; }
         public virtual Unit Unit { get; set; }
         public int Amount { get; set; }
+        public int CompanyId { get; set; }
         [Required]
         public virtual Company Company { get; set; }
     }

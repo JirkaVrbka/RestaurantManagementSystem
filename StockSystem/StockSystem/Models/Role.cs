@@ -11,6 +11,7 @@ namespace DAL.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public virtual List<RolePermission> Permissions { get; set; }
+        public int CompanyId { get; set; }
         [Required]
         public virtual Company Company { get; set; }
     }

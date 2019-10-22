@@ -10,6 +10,7 @@ namespace DAL.Models
     {
         public int Id { get; set; }
         public virtual List<ItemAmount> Items { get; set; }
+        public int CompanyId { get; set; }
         [Required]
         public virtual Company Company { get; set; }
     }

@@ -13,6 +13,7 @@ namespace DAL.Models
         public int Amount { get; set; }
         public DateTime? DueDate { get; set; }
         public virtual List<Payment> Payments { get; set; }
+        public int CompanyId { get; set; }
         [Required]
         public virtual Company Company { get; set; }
     }
