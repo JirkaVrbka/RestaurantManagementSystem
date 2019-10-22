@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj" />
-    <ProjectReference Include="..\StockSystem\DAL.csproj" />
+    <ProjectReference Include="..\StockSystem\RestaurantManager.DAL.csproj" />
   </ItemGroup>
 
 </Project>
