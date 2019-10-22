@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=9.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,19 +45,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataTransferObjects\CompanyIdDto.cs" />
+    <Compile Include="DataTransferObjects\CompanyUsersFilterDto.cs" />
     <Compile Include="DataTransferObjects\DtoBase.cs" />
+    <Compile Include="DataTransferObjects\FilterDtoBase.cs" />
     <Compile Include="DataTransferObjects\ItemSellingInfoDto.cs" />
     <Compile Include="DataTransferObjects\PaymentDto.cs" />
     <Compile Include="DataTransferObjects\PaymentInfoDto.cs" />
     <Compile Include="DataTransferObjects\RoleCreateDto.cs" />
+    <Compile Include="DataTransferObjects\UserDto.cs" />
     <Compile Include="DataTransferObjects\UserGetCompanyDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryObjects\QueryObjectBase.cs" />
+    <Compile Include="QueryObjects\QueryResultDto.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj">
+      <Project>{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}</Project>
+      <Name>RestaurantManager.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
       <Project>{DFBCB7F1-E5E3-4968-A7A7-43D79D2AB65F}</Project>
       <Name>RestaurantManager.Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
