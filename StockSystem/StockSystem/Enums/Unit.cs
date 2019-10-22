@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DAL.Enums
+﻿namespace RestaurantManager.DAL.Enums
 {
     public enum Unit
     {
         Gram,
         Liter,
-        Mililiter,
+        Milliliter,
         Kilogram
     }
 }
