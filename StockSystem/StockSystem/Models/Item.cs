@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using RestaurantManager.DAL.Enums;
+﻿using RestaurantManager.DAL.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace RestaurantManager.DAL.Models
 {
@@ -7,7 +7,6 @@ namespace RestaurantManager.DAL.Models
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        
         public int BuyPrice { get; set; }
         public int SellPrice { get; set; }
         public virtual Unit Unit { get; set; }
