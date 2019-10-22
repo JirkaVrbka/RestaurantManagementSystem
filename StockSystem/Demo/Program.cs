@@ -33,7 +33,7 @@ namespace Demo
                 {
                     var company = new Company
                     {
-                        ICO = 12345,
+                        Ico = 12345,
                         Location = "Praha",
                         Name = "Repository"
                     };
@@ -55,7 +55,7 @@ namespace Demo
         {
             var company = new Company();
 
-            company.ICO = 12345;
+            company.Ico = 12345;
             company.Items = CreateItems(company);
             company.Location = "Brno";
             company.Roles = CreateRoles(company);
