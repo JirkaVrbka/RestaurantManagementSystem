@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj" />
+    <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj" />
   </ItemGroup>
 
 </Project>

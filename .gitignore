@@ -24,3 +24,7 @@ StockSystem/RestaurantManager.Infrastructure.EntityFramework/bin/Debug/
 StockSystem/Demo/bin/Debug/
 
 StockSystem/.idea/
+
+StockSystem/RestaurantManager.Utils/bin/Debug/
+
+StockSystem/RestaurantManager.Utils/obj/Debug/
