@@ -14,11 +14,9 @@ namespace Demo
 {
     class Program
     {
-        static void Main()
+        static async Task Main()
         {
-            CreateCompany2();
-
-            
+            await  CreateCompany2();
         }
 
         public static async Task CreateCompany2()
