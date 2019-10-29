@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Config\MappingConfig.cs" />
     <Compile Include="DataTransferObjects\CompanyIdDto.cs" />
+    <Compile Include="DataTransferObjects\CompanyUsersDto.cs" />
     <Compile Include="DataTransferObjects\CompanyUsersFilterDto.cs" />
     <Compile Include="DataTransferObjects\DtoBase.cs" />
     <Compile Include="DataTransferObjects\FilterDtoBase.cs" />
@@ -63,6 +64,10 @@
     <Compile Include="Services\CompanyService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantManager.Infrastructure.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj">
+      <Project>{9460100A-E846-4DE5-9E8C-573EB7BBE01C}</Project>
+      <Name>RestaurantManager.Infrastructure.EntityFramework</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj">
       <Project>{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}</Project>
       <Name>RestaurantManager.Infrastructure</Name>
