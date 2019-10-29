@@ -8,7 +8,6 @@ namespace RestaurantManager.BussinessLayer.DataTransferObjects
 {
     public class CompanyUsersDto : DtoBase
     {
-        //TODO this does error
         public List<UserDto> People { get; set; }
     }
 }
