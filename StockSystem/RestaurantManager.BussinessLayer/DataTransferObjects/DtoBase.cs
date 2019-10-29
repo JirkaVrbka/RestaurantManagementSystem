@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace RestaurantManager.BussinessLayer
 {
-    class DtoBase
+    public class DtoBase
     {
-        int Id { get; set; }
+        public int Id { get; set; }
     }
 }
