@@ -1,14 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestaurantManager.DAL.Models;
-using RestaurantManager.DAL.Tests.Config;
 using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.EntityFramework;
-using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
-using RestaurantManager.Infrastructure.UnitOfWork;
 
-namespace RestaurantManager.DAL.Tests
+namespace RestaurantManager.DAL.Tests.UnitTests
 {
     [TestClass]
     public class CompanyUnitTests : UnitTestsBase

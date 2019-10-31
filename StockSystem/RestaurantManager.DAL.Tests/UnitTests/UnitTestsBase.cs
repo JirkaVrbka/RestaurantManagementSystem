@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.DAL.Tests.Config;
@@ -11,7 +7,7 @@ using RestaurantManager.Infrastructure.EntityFramework;
 using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
 using RestaurantManager.Infrastructure.UnitOfWork;
 
-namespace RestaurantManager.DAL.Tests
+namespace RestaurantManager.DAL.Tests.UnitTests
 {
     public class UnitTestsBase
     {
@@ -47,7 +43,5 @@ namespace RestaurantManager.DAL.Tests
             repository.Create(defaultCompany);
             unitOfWork.Commit().Wait();
         }
-
-
     }
 }
