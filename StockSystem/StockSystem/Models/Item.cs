@@ -1,5 +1,6 @@
 ﻿using RestaurantManager.DAL.Enums;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
@@ -15,5 +16,8 @@ namespace RestaurantManager.DAL.Models
         public int CompanyId { get; set; }
         [Required]
         public virtual Company Company { get; set; }
+        [NotMapped]
+        public string TableName { get; } = nameof(Item);
+
     }
 }

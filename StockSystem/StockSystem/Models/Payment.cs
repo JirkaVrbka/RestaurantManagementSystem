@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
@@ -14,5 +15,7 @@ namespace RestaurantManager.DAL.Models
         public int PaymentInfoId { get; set; }
         [Required]
         public virtual PaymentInfo PaymentInfo { get; set; }
+        [NotMapped]
+        public string TableName { get; } = nameof(Payment);
     }
 }

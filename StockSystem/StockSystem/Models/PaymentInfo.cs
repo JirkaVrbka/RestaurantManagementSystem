@@ -16,5 +16,7 @@ namespace RestaurantManager.DAL.Models
         public int CompanyId { get; set; }
         [Required]
         public virtual Company Company { get; set; }
+        [NotMapped]
+        public string TableName { get; } = nameof(PaymentInfo);
     }
 }

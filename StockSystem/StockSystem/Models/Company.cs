@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
@@ -16,5 +17,7 @@ namespace RestaurantManager.DAL.Models
         public virtual List<Item> Items { get; set; }
         public virtual List<Inventory> Inventories { get; set; }
         public DateTime? JoinDate { get; set; }
+        [NotMapped]
+        public string TableName { get; } = nameof(Company);
     }
 }
