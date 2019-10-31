@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManager.BussinessLayer.DataTransferObjects
 {
-    class PaymentInfoDto
+    public class PaymentInfoDto
     {
         public int Id { get; set; }
         public int Amount { get; set; }

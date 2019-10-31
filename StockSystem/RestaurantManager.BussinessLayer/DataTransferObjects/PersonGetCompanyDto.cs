@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManager.BussinessLayer.DataTransferObjects
 {
-    class UserGetCompanyDto
+    class PersonGetCompanyDto
     {
         public int CompanyId { get; set; }
     }

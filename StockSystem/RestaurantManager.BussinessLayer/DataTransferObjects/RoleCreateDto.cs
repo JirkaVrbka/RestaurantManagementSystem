@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManager.BussinessLayer.DataTransferObjects
 {
-    class RoleCreateDto
+    public class RoleCreateDto
     {
         public string Name { get; set; }
         public virtual List<RolePermission> Permissions { get; set; }

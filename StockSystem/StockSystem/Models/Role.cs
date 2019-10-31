@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using RestaurantManager.DAL.Enums;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class Role
+    public class Role : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

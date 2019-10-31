@@ -1,14 +1,10 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using RestaurantManager.BussinessLayer.DataTransferObjects;
 using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.Query;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RestaurantManager.BussinessLayer.QueryObjects
+namespace RestaurantManager.BussinessLayer.QueryObjects.Common
 {
     public abstract class QueryObjectBase<TDto, TEntity, TFilter, TQuery>
         where TFilter : FilterDtoBase

@@ -1,9 +1,10 @@
 ﻿using RestaurantManager.DAL.Enums;
 using System.ComponentModel.DataAnnotations;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class Item
+    public class Item : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }

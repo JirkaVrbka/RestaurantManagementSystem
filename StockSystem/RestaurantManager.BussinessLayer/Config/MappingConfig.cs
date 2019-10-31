@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantManager.BussinessLayer.DataTransferObjects;
+using RestaurantManager.DAL.Models;
 
 namespace RestaurantManager.BussinessLayer.Config
 {
@@ -11,7 +13,15 @@ namespace RestaurantManager.BussinessLayer.Config
     {
         public static void ConfigureMapping(IMapperConfigurationExpression config)
         {
-            throw new NotImplementedException();
+            config.CreateMap<Company, CompanyIdDto>().ReverseMap();
+            config.CreateMap<Company, CompanyUsersDto>().ReverseMap();
+            config.CreateMap<Company, CompanyUsersFilterDto>().ReverseMap();
+            config.CreateMap<PaymentInfo, PaymentInfoDto>().ReverseMap();
+            config.CreateMap<Payment, PaymentDto>().ReverseMap();
+            config.CreateMap<Role, RoleCreateDto>().ReverseMap();
+            config.CreateMap<Person, PersonDto>().ReverseMap();
+            config.CreateMap<Person, PersonGetCompanyDto>().ReverseMap();
+            config.CreateMap<Item, ItemSellingInfoDto>().ReverseMap();
         }
     }
 }
