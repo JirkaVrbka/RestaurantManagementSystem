@@ -21,5 +21,10 @@ namespace StockSystem
         {
             Database.SetInitializer(new RestaurantManagerInitializer());
         }
+
+        public RestaurantManagerDbContext(string connectionString) : base(connectionString)
+        {
+            Database.SetInitializer(new RestaurantManagerInitializer());
+        }
     }
 }
