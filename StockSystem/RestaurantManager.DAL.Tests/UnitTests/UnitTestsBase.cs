@@ -11,17 +11,17 @@ namespace RestaurantManager.DAL.Tests.UnitTests
 {
     public class UnitTestsBase
     {
-        protected EntityFrameworkUnitOfWorkProvider provider;
-        protected IUnitOfWork unitOfWork;
-        protected Company defaultCompany;
+        protected EntityFrameworkUnitOfWorkProvider Provider;
+        protected IUnitOfWork UnitOfWork;
+        protected Company DefaultCompany;
 
 
         [TestInitialize]
         public void DbInitializer()
         {
-            provider = new EntityFrameworkUnitOfWorkProvider(TestInitializer.InitializeDbContext);
-            unitOfWork = provider.Create();
-            defaultCompany = new Company
+            Provider = new EntityFrameworkUnitOfWorkProvider(TestInitializer.InitializeDbContext);
+            UnitOfWork = Provider.Create();
+            DefaultCompany = new Company
             {
                 Ico = 1234,
                 JoinDate = DateTime.Now,
@@ -33,15 +33,15 @@ namespace RestaurantManager.DAL.Tests.UnitTests
         [TestCleanup]
         public void DbCleaner()
         {
-            provider.Dispose();
-            unitOfWork.Dispose();
+            Provider.Dispose();
+            UnitOfWork.Dispose();
         }
 
         private void CreateDefaultCompanyInDb()
         {
-            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
-            repository.Create(defaultCompany);
-            unitOfWork.Commit().Wait();
+            IRepository<Company> repository = new EntityFrameworkRepository<Company>(Provider);
+            repository.Create(DefaultCompany);
+            UnitOfWork.Commit().Wait();
         }
     }
 }

@@ -12,38 +12,38 @@ namespace RestaurantManager.DAL.Tests.UnitTests
         [TestMethod]
         public void CreateCompanyTest()
         {
-            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
+            IRepository<Company> repository = new EntityFrameworkRepository<Company>(Provider);
 
-            var dbCompany = repository.GetAsync(defaultCompany.Id).Result;
+            var dbCompany = repository.GetAsync(DefaultCompany.Id).Result;
             
-            Assert.AreEqual(defaultCompany.Name, dbCompany.Name);
-            Assert.AreEqual(defaultCompany.Ico, dbCompany.Ico);
-            Assert.AreEqual(defaultCompany.JoinDate.ToString(), dbCompany.JoinDate.ToString());
+            Assert.AreEqual(DefaultCompany.Name, dbCompany.Name);
+            Assert.AreEqual(DefaultCompany.Ico, dbCompany.Ico);
+            Assert.AreEqual(DefaultCompany.JoinDate.ToString(), dbCompany.JoinDate.ToString());
         }
 
         [TestMethod]
         public async Task UpdateCompanyTest()
         {
-            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
+            IRepository<Company> repository = new EntityFrameworkRepository<Company>(Provider);
 
-            defaultCompany.Name = "Karlova tovarna na cokoladu";
-            repository.Update(defaultCompany);
-            await unitOfWork.Commit();
-            var dbCompany = repository.GetAsync(defaultCompany.Id).Result;
+            DefaultCompany.Name = "Karlova tovarna na cokoladu";
+            repository.Update(DefaultCompany);
+            await UnitOfWork.Commit();
+            var dbCompany = repository.GetAsync(DefaultCompany.Id).Result;
 
-            Assert.AreEqual(defaultCompany.Name, dbCompany.Name);
-            Assert.AreEqual(defaultCompany.Ico, dbCompany.Ico);
-            Assert.AreEqual(defaultCompany.JoinDate.ToString(), dbCompany.JoinDate.ToString());
+            Assert.AreEqual(DefaultCompany.Name, dbCompany.Name);
+            Assert.AreEqual(DefaultCompany.Ico, dbCompany.Ico);
+            Assert.AreEqual(DefaultCompany.JoinDate.ToString(), dbCompany.JoinDate.ToString());
         }
 
         [TestMethod]
         public async Task DeleteCompanyTest()
         {
-            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
+            IRepository<Company> repository = new EntityFrameworkRepository<Company>(Provider);
 
-            repository.Delete(defaultCompany.Id);
-            await unitOfWork.Commit();
-            var dbCompany = await repository.GetAsync(defaultCompany.Id);
+            repository.Delete(DefaultCompany.Id);
+            await UnitOfWork.Commit();
+            var dbCompany = await repository.GetAsync(DefaultCompany.Id);
 
             Assert.AreEqual(null, dbCompany);
         }
