@@ -11,34 +11,8 @@ using RestaurantManager.Infrastructure.UnitOfWork;
 namespace RestaurantManager.DAL.Tests
 {
     [TestClass]
-    public class UnitTests
+    public class CompanyUnitTests : UnitTestsBase
     {
-        private EntityFrameworkUnitOfWorkProvider provider;
-        private IUnitOfWork unitOfWork;
-        private Company defaultCompany;
-
-
-        [TestInitialize]
-        public void DbInitializer()
-        {
-            provider = new EntityFrameworkUnitOfWorkProvider(TestInitializer.InitializeDbContext);
-            unitOfWork = provider.Create();
-            defaultCompany = new Company
-            {
-                Ico = 1234,
-                JoinDate = DateTime.Now,
-                Name = "Alfonz"
-            };
-            CreateDefaultCompanyInDb();
-        }
-
-        [TestCleanup]
-        public void DbCleaner()
-        {
-            provider.Dispose();
-            unitOfWork.Dispose();
-        }
-
         [TestMethod]
         public void CreateCompanyTest()
         {
@@ -76,13 +50,6 @@ namespace RestaurantManager.DAL.Tests
             var dbCompany = await repository.GetAsync(defaultCompany.Id);
 
             Assert.AreEqual(null, dbCompany);
-        }
-
-        private void CreateDefaultCompanyInDb()
-        {
-            IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
-            repository.Create(defaultCompany);
-            unitOfWork.Commit().Wait();
         }
     }
 }
