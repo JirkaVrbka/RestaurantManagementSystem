@@ -12,7 +12,7 @@ using RestaurantManager.Infrastructure.EntityFramework;
 namespace RestaurantManager.DAL.Tests.UnitTests
 {
     [TestClass]
-    public class ModelsUnitTest : UnitTestsBase
+    public class ModelsUnitTests : UnitTestsBase
     {
         [TestMethod]
         public async Task CreateComplexModelTest()

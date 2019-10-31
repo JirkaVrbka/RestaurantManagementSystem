@@ -59,7 +59,8 @@
     <Compile Include="Config\TestInitializer.cs" />
     <Compile Include="UnitTests\CompanyUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTests\ModelsUnitTest.cs" />
+    <Compile Include="UnitTests\ModelsUnitTests.cs" />
+    <Compile Include="UnitTests\QueryUnitTests.cs" />
     <Compile Include="UnitTests\UnitTestsBase.cs" />
   </ItemGroup>
   <ItemGroup>
