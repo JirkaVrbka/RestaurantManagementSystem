@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using StockSystem;
 
 namespace RestaurantManager.DAL.Models
 {
@@ -13,6 +14,6 @@ namespace RestaurantManager.DAL.Models
         [Required]
         public virtual Company Company { get; set; }
         [NotMapped]
-        public string TableName { get; } = nameof(Order);
+        public string TableName { get; } = nameof(RestaurantManagerDbContext.Orders);
     }
 }

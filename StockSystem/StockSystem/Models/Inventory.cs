@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.Infrastructure;
+using StockSystem;
 
 namespace RestaurantManager.DAL.Models
 {
@@ -16,6 +17,6 @@ namespace RestaurantManager.DAL.Models
         public virtual List<ItemAmount> BrokenItems { get; set; }
         public DateTime InventoryDate { get; set; }
         [NotMapped]
-        public string TableName { get; } = nameof(Inventory);
+        public string TableName { get; } = nameof(RestaurantManagerDbContext.Inventories);
     }
 }

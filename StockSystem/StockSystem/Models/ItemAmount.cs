@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.DAL.Enums;
 using RestaurantManager.Infrastructure;
+using StockSystem;
 
 namespace RestaurantManager.DAL.Models
 {
@@ -11,7 +12,7 @@ namespace RestaurantManager.DAL.Models
         public virtual Item Item { get; set; }
         public int Amount { get; set; }
         [NotMapped]
-        public string TableName { get; } = nameof(ItemAmount);
+        public string TableName { get; } = nameof(RestaurantManagerDbContext.ItemAmounts);
 
     }
 }
