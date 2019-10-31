@@ -59,6 +59,7 @@
     <Compile Include="Config\TestInitializer.cs" />
     <Compile Include="UnitTests\CompanyUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitTests\ModelsUnitTest.cs" />
     <Compile Include="UnitTests\UnitTestsBase.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj">
       <Project>{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}</Project>
       <Name>RestaurantManager.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
+      <Project>{DFBCB7F1-E5E3-4968-A7A7-43D79D2AB65F}</Project>
+      <Name>RestaurantManager.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\StockSystem\RestaurantManager.DAL.csproj">
       <Project>{995E1997-46F7-41FA-A289-092CCFCC6F2E}</Project>
