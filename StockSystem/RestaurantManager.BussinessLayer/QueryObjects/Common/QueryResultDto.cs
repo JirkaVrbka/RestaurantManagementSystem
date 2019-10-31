@@ -1,11 +1,8 @@
-﻿using RestaurantManager.BussinessLayer.DataTransferObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RestaurantManager.BussinessLayer.DataTransferObjects;
 
-namespace RestaurantManager.BussinessLayer.QueryObjects
+namespace RestaurantManager.BussinessLayer.QueryObjects.Common
 {
     public class QueryResultDto<TDto, TFilter> where TFilter : FilterDtoBase
     {
