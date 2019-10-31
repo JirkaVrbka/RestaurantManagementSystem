@@ -40,7 +40,7 @@ namespace RestaurantManager.DAL.Tests
         }
 
         [TestMethod]
-        public async Task CreateCompanyTest()
+        public void CreateCompanyTest()
         {
             IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
 
