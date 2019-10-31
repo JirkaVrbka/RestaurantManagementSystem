@@ -9,6 +9,5 @@ namespace RestaurantManager.DAL.Models
         public int ItemId { get; set; }
         public virtual Item Item { get; set; }
         public int Amount { get; set; }
-        public virtual Unit Unit { get; set; }
     }
 }
