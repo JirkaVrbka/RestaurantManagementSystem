@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using RestaurantManager.BussinessLayer.DataTransferObjects;
 using RestaurantManager.BussinessLayer.QueryObjects;
-using RestaurantManager.BussinessLayer.Services.Common;
+using RestaurantManager.BusinessLayer.Services.Common;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.EntityFramework;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestaurantManager.BussinessLayer.QueryObjects.Common;
 
-namespace RestaurantManager.BussinessLayer.Services
+namespace RestaurantManager.BusinessLayer.Services
 {
     class CompanyService<TEntity, TDto, TFilterDto> : CrudQueryServiceBase<TEntity, TDto, TFilterDto>
         where TEntity : Company, new()

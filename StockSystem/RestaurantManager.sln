@@ -11,13 +11,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantManager.Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantManager.Infrastructure.EntityFramework", "RestaurantManager.Infrastructure.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj", "{9460100A-E846-4DE5-9E8C-573EB7BBE01C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.BussinessLayer", "RestaurantManager.BussinessLayer\RestaurantManager.BussinessLayer.csproj", "{E3375237-AD89-4717-BB40-271BBD3698BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.BusinessLayer", "RestaurantManager.BussinessLayer\RestaurantManager.BusinessLayer.csproj", "{E3375237-AD89-4717-BB40-271BBD3698BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.Utils", "RestaurantManager.Utils\RestaurantManager.Utils.csproj", "{DFBCB7F1-E5E3-4968-A7A7-43D79D2AB65F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{72B547CB-225D-4471-9239-000406A14D58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.EntiryFramework.Tests", "RestaurantManager.DAL.Tests\RestaurantManager.EntiryFramework.Tests.csproj", "{492FACE7-40BC-4433-B1E0-BB9DDA716205}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantManager.BusinessLayer.Test", "RestaurantManager.BussinessLayer.Test\RestaurantManager.BusinessLayer.Test.csproj", "{2954FDCC-F7A7-4D1F-8A05-4705996E5B75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,12 +55,17 @@ Global
 		{492FACE7-40BC-4433-B1E0-BB9DDA716205}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492FACE7-40BC-4433-B1E0-BB9DDA716205}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492FACE7-40BC-4433-B1E0-BB9DDA716205}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2954FDCC-F7A7-4D1F-8A05-4705996E5B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2954FDCC-F7A7-4D1F-8A05-4705996E5B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2954FDCC-F7A7-4D1F-8A05-4705996E5B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2954FDCC-F7A7-4D1F-8A05-4705996E5B75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{492FACE7-40BC-4433-B1E0-BB9DDA716205} = {72B547CB-225D-4471-9239-000406A14D58}
+		{2954FDCC-F7A7-4D1F-8A05-4705996E5B75} = {72B547CB-225D-4471-9239-000406A14D58}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {867911D4-F9AC-441E-9320-5AFE76B4FAEC}

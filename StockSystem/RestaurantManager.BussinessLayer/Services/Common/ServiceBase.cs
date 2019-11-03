@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RestaurantManager.BussinessLayer.Services
+namespace RestaurantManager.BusinessLayer.Services.Common
 {
     public abstract class ServiceBase
     {

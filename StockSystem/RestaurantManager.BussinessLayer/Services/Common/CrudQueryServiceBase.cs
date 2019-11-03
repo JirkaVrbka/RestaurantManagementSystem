@@ -8,9 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantManager.BussinessLayer;
 using RestaurantManager.BussinessLayer.QueryObjects.Common;
 
-namespace RestaurantManager.BussinessLayer.Services.Common
+namespace RestaurantManager.BusinessLayer.Services.Common
 {
     public abstract class CrudQueryServiceBase<TEntity, TDto, TFilterDto> : ServiceBase
        where TFilterDto : FilterDtoBase, new()
