@@ -28,7 +28,6 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             var predicate = new SimplePredicate(nameof(Company.Name), ValueComparingOperator.StringContains, "Kolo");
             var actualQueryResult = await companyQuery.Where(predicate).ExecuteAsync();
             
-
             Assert.AreEqual(actualQueryResult, expectedQueryResult);
         }
 
