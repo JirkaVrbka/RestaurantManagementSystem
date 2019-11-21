@@ -48,8 +48,8 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             
 
             // create items in company 
-            IRepository<Item> repositoryItem = new EntityFrameworkRepository<Item>(Provider);
-            List<Item> items = new List<Item>
+            IRepository<StockItem> repositoryItem = new EntityFrameworkRepository<StockItem>(Provider);
+            List<StockItem> items = new List<StockItem>
             {
                 getItem(company, "vodka"),
                 getItem(company, "nespavost"),
@@ -63,7 +63,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             // create stock to company
             // check if itemAmount will be created 
             IRepository<Stock> repositoryStock = new EntityFrameworkRepository<Stock>(Provider);
-            var stock = getStock(company, new List<ItemAmount>
+            var stock = getStock(company, new List<MenuItemAmount>
             {
                 getItemAmount(items.First()),
                 getItemAmount(items.Last())
@@ -93,9 +93,9 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             };
         }
 
-        private Item getItem(Company company, string name)
+        private StockItem getItem(Company company, string name)
         {
-            return new Item
+            return new StockItem
             {
                 Company = company,
                 CompanyId = company.Id,
@@ -107,9 +107,9 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             };
         }
 
-        private ItemAmount getItemAmount(Item item)
+        private MenuItemAmount getItemAmount(StockItem item)
         {
-            return new ItemAmount
+            return new MenuItemAmount
             {
                 Item = item,
                 ItemId = item.Id,
@@ -117,7 +117,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             };
         }
 
-        private Order getOrder(Company company, List<ItemAmount> orderItemAmounts)
+        private Order getOrder(Company company, List<MenuItemAmount> orderItemAmounts)
         {
             return new Order
             {
@@ -191,7 +191,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             };
         }
 
-        private Stock getStock(Company company, List<ItemAmount> items)
+        private Stock getStock(Company company, List<MenuItemAmount> items)
         {
             return new Stock
             {

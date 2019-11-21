@@ -14,20 +14,20 @@ using RestaurantManager.Infrastructure.Query.Predicates.Operators;
 
 namespace RestaurantManager.BussinessLayer.QueryObjects
 {
-    public class ItemQueryObject : QueryObjectBase<ItemDto, Item, ItemFilterDto, IQuery<Item>>
+    public class ItemQueryObject : QueryObjectBase<ItemDto, StockItem, ItemFilterDto, IQuery<StockItem>>
     {
-        public ItemQueryObject(IMapper mapper, IQuery<Item> query) : base(mapper, query)
+        public ItemQueryObject(IMapper mapper, IQuery<StockItem> query) : base(mapper, query)
         {
         }
 
-        protected override IQuery<Item> ApplyWhereClause(IQuery<Item> query, ItemFilterDto filter)
+        protected override IQuery<StockItem> ApplyWhereClause(IQuery<StockItem> query, ItemFilterDto filter)
         {
             if (filter.ItemId == 0)
             {
                 return query;
             }
 
-            return query.Where(new SimplePredicate(nameof(Item.Id), ValueComparingOperator.Equal,
+            return query.Where(new SimplePredicate(nameof(StockItem.Id), ValueComparingOperator.Equal,
                 filter.ItemId));
         }
     }

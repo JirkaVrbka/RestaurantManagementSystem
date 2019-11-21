@@ -14,11 +14,16 @@ namespace RestaurantManager.DAL.Models
         public string Location { get; set; }
         public int Ico { get; set; }
         public virtual List<Person> Persons { get; set; }
-        public virtual List<Role> Roles { get; set; }
-        public virtual List<Item> Items { get; set; }
+        public virtual List<MenuItem> MenuItems { get; set; }
         public virtual List<Inventory> Inventories { get; set; }
+        public int InventoryId { get; set; }
+        public virtual Stock Stock { get; set; }
+        public int StockId { get; set; }
+        public int PaymentInfoId { get; set; }
+        public PaymentInfo PaymentInfo { get; set; }
         public DateTime? JoinDate { get; set; }
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Companies);
+        public int AmountOfTables { get; set; }
     }
 }

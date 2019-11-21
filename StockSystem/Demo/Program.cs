@@ -83,11 +83,11 @@ namespace Demo
             return stock;
         }
 
-        public static List<Item> CreateItems(Company company)
+        public static List<StockItem> CreateItems(Company company)
         {
-            var items =  new List<Item>()
+            var items =  new List<StockItem>()
             {
-                new Item()
+                new StockItem()
                 {
                     Company = company,
                     Name = "rohlik",

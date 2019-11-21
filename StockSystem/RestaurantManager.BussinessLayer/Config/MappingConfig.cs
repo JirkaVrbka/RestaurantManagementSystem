@@ -21,7 +21,7 @@ namespace RestaurantManager.BussinessLayer.Config
             config.CreateMap<Role, RoleCreateDto>().ReverseMap();
             config.CreateMap<Person, PersonDto>().ReverseMap();
             config.CreateMap<Person, PersonGetCompanyDto>().ReverseMap();
-            config.CreateMap<Item, ItemSellingInfoDto>().ReverseMap();
+            config.CreateMap<StockItem, ItemSellingInfoDto>().ReverseMap();
         }
     }
 }

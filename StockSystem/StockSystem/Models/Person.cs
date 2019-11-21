@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestaurantManager.DAL.Enums;
 using RestaurantManager.Infrastructure;
 using StockSystem;
 
@@ -11,12 +12,10 @@ namespace RestaurantManager.DAL.Models
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public virtual List<Role> Roles { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
         public string Password { get; set; }
-        public int CompanyId { get; set; }
-        [Required]
-        public virtual Company Company { get; set; }
-        [NotMapped]
+        public Role Role { get; set; }
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Persons);
     }
 }
