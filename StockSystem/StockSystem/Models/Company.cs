@@ -18,8 +18,8 @@ namespace RestaurantManager.DAL.Models
         public int InventoryId { get; set; }
         public virtual Stock Stock { get; set; }
         public int StockId { get; set; }
-        public int PaymentInfoId { get; set; }
-        public PaymentInfo PaymentInfo { get; set; }
+        public int PaymentId { get; set; }
+        public Payment Payment { get; set; }
         public DateTime? JoinDate { get; set; }
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Companies);
