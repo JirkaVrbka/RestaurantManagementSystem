@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using RestaurantManager.BussinessLayer.DataTransferObjects;
-using RestaurantManager.BussinessLayer.QueryObjects;
 using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.Query;
 using System;
@@ -10,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RestaurantManager.BussinessLayer;
 using RestaurantManager.BussinessLayer.QueryObjects.Common;
+using RestaurantManager.BussinessLayer.Services.Common;
 
 namespace RestaurantManager.BusinessLayer.Services.Common
 {
