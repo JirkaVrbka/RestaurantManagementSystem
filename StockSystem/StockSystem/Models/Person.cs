@@ -14,7 +14,7 @@ namespace RestaurantManager.DAL.Models
         public string LastName { get; set; }
         [EmailAddress]
         public string Email { get; set; }
-        public string Password { get; set; }
+        public string HashedPassword { get; set; }
         public Role Role { get; set; }
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Persons);
     }
