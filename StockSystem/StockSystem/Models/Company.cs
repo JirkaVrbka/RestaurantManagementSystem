@@ -11,7 +11,6 @@ namespace RestaurantManager.DAL.Models
         public string Name { get; set; }
         [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public string Location { get; set; }
         public int Ico { get; set; }
         public virtual List<Person> Persons { get; set; }
         public virtual List<MenuItem> MenuItems { get; set; }
