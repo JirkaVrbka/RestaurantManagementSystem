@@ -23,24 +23,16 @@ namespace RestaurantManager.DAL.Tests.UnitTests
 
             repositoryCompany.Create(company);
             await UnitOfWork.Commit();
-
-
-            // create roles in company
-            IRepository<Role> repositoryRoles = new EntityFrameworkRepository<Role>(Provider);
-            var roles = getBasicRoles(company, Enum.GetValues(typeof(RolePermission)).Cast<RolePermission>().ToList());
             
-            roles.ForEach(r => repositoryRoles.Create(r));
-            await UnitOfWork.Commit();
-
 
             // create employees
             IRepository<Person> repositoryPeople = new EntityFrameworkRepository<Person>(Provider);
             List<Person> people = new List<Person>
             {
-                getPerson(company, roles),
-                getPerson(company, roles),
-                getPerson(company, roles),
-                getPerson(company, roles)
+                getPerson(company, Role.Employee),
+                getPerson(company, Role.Employee),
+                getPerson(company, Role.Manager),
+                getPerson(company, Role.Owner)
             };
 
             people.ForEach(p => repositoryPeople.Create(p));
@@ -65,18 +57,18 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             IRepository<Stock> repositoryStock = new EntityFrameworkRepository<Stock>(Provider);
             var stock = getStock(company, new List<MenuItemAmount>
             {
-                getItemAmount(items.First()),
-                getItemAmount(items.Last())
+                //getItemAmount(items.First()),
+                //getItemAmount(items.Last())
             });
 
             repositoryStock.Create(stock);
             await UnitOfWork.Commit();
 
 
-            var dbCompany = repositoryCompany.GetAsync(company.Id, new string[]{ "Persons", "Items"}).Result;
+            var dbCompany = repositoryCompany.GetAsync(company.Id, new string[]{ "People", "Items"}).Result;
             
-            Assert.AreEqual(people.Count, dbCompany.Persons.Count);
-            Assert.AreEqual(items.Count, dbCompany.Items.Count);
+            Assert.AreEqual(people.Count, dbCompany.People.Count);
+            Assert.AreEqual(items.Count, dbCompany.MenuItems.Count);
         }
 
         private Company getCompany()
@@ -106,7 +98,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
                 Unit = Unit.Milliliter
             };
         }
-
+        /*
         private MenuItemAmount getItemAmount(StockItem item)
         {
             return new MenuItemAmount
@@ -115,7 +107,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
                 ItemId = item.Id,
                 Amount = 50
             };
-        }
+        }*/
 
         private Order getOrder(Company company, List<MenuItemAmount> orderItemAmounts)
         {
@@ -127,30 +119,18 @@ namespace RestaurantManager.DAL.Tests.UnitTests
             };
         }
 
-        private Payment getPayment(PaymentInfo paymentInfo)
+        private Payment getPayment(Company company)
         {
             return new Payment
             {
-                PaymentInfo = paymentInfo,
-                PaymentInfoId = paymentInfo.Id,
+                Company = company,
                 Amount = 10,
                 DateOfPayment = DateTime.Now
             };
         }
 
-        private PaymentInfo getPaymentInfo(Company company, List<Payment> payments)
-        {
-            return new PaymentInfo
-            {
-                Company = company,
-                CompanyId = company.Id,
-                Amount = 200,
-                DueDate = DateTime.Now.AddDays(10),
-                Payments = payments
-            };
-        }
 
-        private Person getPerson(Company company, List<Role> roles)
+        private Person getPerson(Company company, Role role)
         {
             return new Person
             {
@@ -159,35 +139,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
                 FirstName = "Jenda" + new Random().Next(100),
                 LastName = "Novak" + new Random().Next(100),
                 HashedPassword = "abc" + new Random().Next(10000000),
-                Roles = roles.ToList()
-            };
-        }
-
-        private List<Role> getBasicRoles(Company company, List<RolePermission> rolePermissions)
-        {
-            return new List<Role>()
-            {
-                new Role
-                {
-                    Company = company,
-                    CompanyId = company.Id,
-                    Name = "Pracant",
-                    Permissions = rolePermissions.GetRange(0,1)
-                },
-                new Role
-                {
-                    Company = company,
-                    CompanyId = company.Id,
-                    Name = "Veduci tej knapy",
-                    Permissions = rolePermissions.GetRange(0,2)
-                },
-                new Role
-                {
-                    Company = company,
-                    CompanyId = company.Id,
-                    Name = "Ten co nas vsechny plati",
-                    Permissions = rolePermissions
-                }
+                Role = role
             };
         }
 
@@ -195,9 +147,8 @@ namespace RestaurantManager.DAL.Tests.UnitTests
         {
             return new Stock
             {
-                Company = company,
                 CompanyId = company.Id,
-                Items = items
+                //Items = items
             };
         }
         [TestMethod]

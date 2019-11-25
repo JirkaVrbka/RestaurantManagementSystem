@@ -39,40 +39,35 @@ namespace RestaurantManager.DAL.Tests.UnitTests
                 {
                     Name = "Kolotoc",
                     Ico = 111,
-                    JoinDate = DateTime.Now,
-                    Location = "Prague"
+                    JoinDate = DateTime.Now
                     
                 },
                 new Company
                 {
                     Name = "Pekarna",
                     Ico = 111,
-                    JoinDate = DateTime.Now,
-                    Location = "Prague"
+                    JoinDate = DateTime.Now
 
                 },
                 new Company
                 {
                     Name = "Kolomaznik",
                     Ico = 111,
-                    JoinDate = DateTime.Now,
-                    Location = "Prague"
+                    JoinDate = DateTime.Now
 
                 },
                 new Company
                 {
                     Name = "Koliste",
                     Ico = 111,
-                    JoinDate = DateTime.Now,
-                    Location = "Prague"
+                    JoinDate = DateTime.Now
 
                 },
                 new Company
                 {
                     Name = "Lokomotiva",
                     Ico = 111,
-                    JoinDate = DateTime.Now,
-                    Location = "Prague"
+                    JoinDate = DateTime.Now
 
                 }
             };
