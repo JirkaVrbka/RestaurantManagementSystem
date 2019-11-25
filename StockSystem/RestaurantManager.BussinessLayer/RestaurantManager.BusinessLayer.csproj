@@ -35,6 +35,10 @@
       <HintPath>..\packages\AutoMapper.9.0.0\lib\net461\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.3.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,31 +49,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config\MappingConfig.cs" />
-    <Compile Include="DataTransferObjects\CompanyDto.cs" />
-    <Compile Include="DataTransferObjects\CompanyIdDto.cs" />
-    <Compile Include="DataTransferObjects\CompanyUsersDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\CompanyCreateDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\CompanyDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\CompanyIdDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\CompanyUsersDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\CompanyWithPeopleDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\OrderDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\PersonCreateDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\StockItemDto.cs" />
     <Compile Include="DataTransferObjects\Filters\CompanyUsersFilterDto.cs" />
     <Compile Include="DataTransferObjects\DtoBase.cs" />
     <Compile Include="DataTransferObjects\FilterDtoBase.cs" />
     <Compile Include="DataTransferObjects\Filters\CompanyFilterDto.cs" />
     <Compile Include="DataTransferObjects\Filters\InventoryFilterDto.cs" />
-    <Compile Include="DataTransferObjects\Filters\ItemAmountFilterDto.cs" />
-    <Compile Include="DataTransferObjects\Filters\ItemFilterDto.cs" />
+    <Compile Include="DataTransferObjects\Filters\MenuItemAmountFilterDto.cs" />
+    <Compile Include="DataTransferObjects\Filters\MenuItemFilterDto.cs" />
+    <Compile Include="DataTransferObjects\Filters\OrderFilterDto.cs" />
     <Compile Include="DataTransferObjects\Filters\PaymentFilterDto.cs" />
-    <Compile Include="DataTransferObjects\Filters\PaymentInfoFilterDto.cs" />
     <Compile Include="DataTransferObjects\Filters\PersonFilterDto.cs" />
     <Compile Include="DataTransferObjects\Filters\RoleFilterDto.cs" />
     <Compile Include="DataTransferObjects\Filters\StockFilterDto.cs" />
-    <Compile Include="DataTransferObjects\InventoryDto.cs" />
-    <Compile Include="DataTransferObjects\ItemAmountDto.cs" />
-    <Compile Include="DataTransferObjects\ItemDto.cs" />
-    <Compile Include="DataTransferObjects\ItemSellingInfoDto.cs" />
-    <Compile Include="DataTransferObjects\PaymentDto.cs" />
-    <Compile Include="DataTransferObjects\PaymentInfoDto.cs" />
-    <Compile Include="DataTransferObjects\RoleCreateDto.cs" />
-    <Compile Include="DataTransferObjects\PersonDto.cs" />
-    <Compile Include="DataTransferObjects\PersonGetCompanyDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\InventoryDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\MenuItemAmountDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\MenuItemDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\ItemSellingInfoDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\PaymentDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\PersonDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\PersonGetCompanyDto.cs" />
+    <Compile Include="DataTransferObjects\Filters\StockItemFilterDto.cs" />
     <Compile Include="DataTransferObjects\StockDto.cs" />
+    <Compile Include="Facades\CompanyFacade.cs" />
+    <Compile Include="Facades\FacadeBase.cs" />
+    <Compile Include="Facades\PersonFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
     <Compile Include="QueryObjects\Common\QueryObjectBase.cs" />
@@ -77,10 +88,8 @@
     <Compile Include="QueryObjects\InventoryQueryObject.cs" />
     <Compile Include="QueryObjects\ItemAmountQueryObject.cs" />
     <Compile Include="QueryObjects\ItemQueryObject.cs" />
-    <Compile Include="QueryObjects\PaymentInfoQueryObject.cs" />
     <Compile Include="QueryObjects\PaymentQueryObject.cs" />
     <Compile Include="QueryObjects\PersonQueryObject.cs" />
-    <Compile Include="QueryObjects\RoleQueryObject.cs" />
     <Compile Include="QueryObjects\StockQueryObject.cs" />
     <Compile Include="Services\Common\CrudQueryServiceBase.cs" />
     <Compile Include="Services\Common\ServiceBase.cs" />
@@ -89,7 +98,6 @@
     <Compile Include="Services\MenuItemAmountService.cs" />
     <Compile Include="Services\MenuItemService.cs" />
     <Compile Include="Services\OrderService.cs" />
-    <Compile Include="Services\PaymentInfoService.cs" />
     <Compile Include="Services\PaymentService.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="Services\StockItemService.cs" />

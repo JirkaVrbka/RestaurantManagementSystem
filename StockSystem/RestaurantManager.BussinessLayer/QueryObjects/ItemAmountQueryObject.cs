@@ -9,20 +9,20 @@ using RestaurantManager.Infrastructure.Query.Predicates.Operators;
 
 namespace RestaurantManager.BusinessLayer.QueryObjects
 {
-    public class ItemAmountQueryObject : QueryObjectBase<ItemAmountDto, MenuItemAmount, ItemAmountFilterDto, IQuery<MenuItemAmount>>
+    public class ItemAmountQueryObject : QueryObjectBase<MenuItemAmountDto, MenuItemAmount, MenuItemAmountFilterDto, IQuery<MenuItemAmount>>
     {
         public ItemAmountQueryObject(IMapper mapper, IQuery<MenuItemAmount> query) : base(mapper, query)
         {
         }
 
-        protected override IQuery<MenuItemAmount> ApplyWhereClause(IQuery<MenuItemAmount> query, ItemAmountFilterDto filter)
+        protected override IQuery<MenuItemAmount> ApplyWhereClause(IQuery<MenuItemAmount> query, MenuItemAmountFilterDto filter)
         {
             if (filter.ItemId == 0)
             {
                 return query;
             }
 
-            return query.Where(new SimplePredicate(nameof(MenuItemAmount.ItemId), ValueComparingOperator.Equal,
+            return query.Where(new SimplePredicate(nameof(MenuItemAmount.MenuItemId), ValueComparingOperator.Equal,
                 filter.ItemId));
         }
     }

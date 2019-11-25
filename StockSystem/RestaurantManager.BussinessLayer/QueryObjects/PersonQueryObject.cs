@@ -17,13 +17,13 @@ namespace RestaurantManager.BusinessLayer.QueryObjects
 
         protected override IQuery<Person> ApplyWhereClause(IQuery<Person> query, PersonFilterDto filter)
         {
-            if (string.IsNullOrEmpty(filter.Name))
+            if (string.IsNullOrEmpty(filter.Email))
             {
                 return query;
             }
 
-            return query.Where(new SimplePredicate(nameof(Person.FirstName), ValueComparingOperator.Equal,
-                filter.Name));
+            return query.Where(new SimplePredicate(nameof(Person.Email), ValueComparingOperator.Equal,
+                filter.Email));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RestaurantManager.BusinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects.Dtos;
 using RestaurantManager.BusinessLayer.DataTransferObjects.Filters;
 using RestaurantManager.BusinessLayer.QueryObjects.Common;
 using RestaurantManager.DAL.Models;
@@ -17,12 +18,12 @@ namespace RestaurantManager.BusinessLayer.QueryObjects
 
         protected override IQuery<Company> ApplyWhereClause(IQuery<Company> query, CompanyFilterDto filter)
         {
-            if (string.IsNullOrEmpty(filter.Name))
+            if (filter.Ico < 0)
             {
                 return query;
             }
 
-            return query.Where(new SimplePredicate(nameof(Company.Name), ValueComparingOperator.Equal, filter.Name));
+            return query.Where(new SimplePredicate(nameof(Company.Ico), ValueComparingOperator.Equal, filter.Ico));
         }
     }
 }
