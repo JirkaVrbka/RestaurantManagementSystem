@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace RestaurantManager.BussinessLayer.DataTransferObjects
+namespace RestaurantManager.BusinessLayer.DataTransferObjects
 {
     public class CompanyDto : DtoBase
     {

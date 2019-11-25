@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestaurantManager.BussinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects.Filters;
+using RestaurantManager.DAL.Enums;
 using RestaurantManager.DAL.Models;
 
-namespace RestaurantManager.BussinessLayer.Config
+namespace RestaurantManager.BusinessLayer.Config
 {
     public class MappingConfig
     {
