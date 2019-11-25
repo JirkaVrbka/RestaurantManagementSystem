@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace RestaurantManager.BusinessLayer.DataTransferObjects
+namespace RestaurantManager.BusinessLayer.DataTransferObjects.Dtos
 {
     public class CompanyUsersDto : DtoBase
     {

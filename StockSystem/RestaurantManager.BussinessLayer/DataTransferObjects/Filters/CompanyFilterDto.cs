@@ -2,6 +2,6 @@
 {
     public class CompanyFilterDto : FilterDtoBase
     {
-        public string Name { get; set; }
+        public int Ico { get; set; }
     }
 }
