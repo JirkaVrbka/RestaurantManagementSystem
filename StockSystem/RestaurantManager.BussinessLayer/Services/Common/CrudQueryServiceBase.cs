@@ -1,15 +1,9 @@
-﻿using AutoMapper;
-using RestaurantManager.BussinessLayer.DataTransferObjects;
+﻿using System.Threading.Tasks;
+using AutoMapper;
+using RestaurantManager.BusinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.QueryObjects.Common;
 using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.Query;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestaurantManager.BussinessLayer;
-using RestaurantManager.BussinessLayer.QueryObjects.Common;
-using RestaurantManager.BussinessLayer.Services.Common;
 
 namespace RestaurantManager.BusinessLayer.Services.Common
 {

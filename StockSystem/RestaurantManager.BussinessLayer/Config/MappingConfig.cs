@@ -1,13 +1,11 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RestaurantManager.BussinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects.Dtos;
+using RestaurantManager.BusinessLayer.DataTransferObjects.Filters;
+using RestaurantManager.DAL.Enums;
 using RestaurantManager.DAL.Models;
 
-namespace RestaurantManager.BussinessLayer.Config
+namespace RestaurantManager.BusinessLayer.Config
 {
     public class MappingConfig
     {
@@ -15,10 +13,13 @@ namespace RestaurantManager.BussinessLayer.Config
         {
             config.CreateMap<Company, CompanyIdDto>().ReverseMap();
             config.CreateMap<Company, CompanyUsersDto>().ReverseMap();
+            config.CreateMap<Company, CompanyCreateDto>().ReverseMap();
+            config.CreateMap<Company, CompanyWithPeopleDto>().ReverseMap();
             config.CreateMap<Company, CompanyUsersFilterDto>().ReverseMap();
-            config.CreateMap<PaymentInfo, PaymentInfoDto>().ReverseMap();
+            config.CreateMap<MenuItemAmount, MenuItemAmountDto>().ReverseMap();
+            config.CreateMap<MenuItem, MenuItemDto>().ReverseMap();
             config.CreateMap<Payment, PaymentDto>().ReverseMap();
-            config.CreateMap<Role, RoleCreateDto>().ReverseMap();
+            config.CreateMap<Person, PersonCreateDto>().ReverseMap();
             config.CreateMap<Person, PersonDto>().ReverseMap();
             config.CreateMap<Person, PersonGetCompanyDto>().ReverseMap();
             config.CreateMap<StockItem, ItemSellingInfoDto>().ReverseMap();

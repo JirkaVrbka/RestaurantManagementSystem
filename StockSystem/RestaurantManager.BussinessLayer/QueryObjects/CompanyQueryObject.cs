@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
-using RestaurantManager.BussinessLayer.DataTransferObjects;
-using RestaurantManager.BussinessLayer.DataTransferObjects.Filters;
-using RestaurantManager.BussinessLayer.QueryObjects.Common;
+﻿using AutoMapper;
+using RestaurantManager.BusinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects.Dtos;
+using RestaurantManager.BusinessLayer.DataTransferObjects.Filters;
+using RestaurantManager.BusinessLayer.QueryObjects.Common;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.Infrastructure.Query;
 using RestaurantManager.Infrastructure.Query.Predicates;
 using RestaurantManager.Infrastructure.Query.Predicates.Operators;
 
-namespace RestaurantManager.BussinessLayer.QueryObjects
+namespace RestaurantManager.BusinessLayer.QueryObjects
 {
     public class CompanyQueryObject : QueryObjectBase<CompanyDto, Company, CompanyFilterDto, IQuery<Company>>
     {
@@ -22,12 +18,12 @@ namespace RestaurantManager.BussinessLayer.QueryObjects
 
         protected override IQuery<Company> ApplyWhereClause(IQuery<Company> query, CompanyFilterDto filter)
         {
-            if (string.IsNullOrEmpty(filter.Name))
+            if (filter.Ico < 0)
             {
                 return query;
             }
 
-            return query.Where(new SimplePredicate(nameof(Company.Name), ValueComparingOperator.Equal, filter.Name));
+            return query.Where(new SimplePredicate(nameof(Company.Ico), ValueComparingOperator.Equal, filter.Ico));
         }
     }
 }

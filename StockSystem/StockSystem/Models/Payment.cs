@@ -6,12 +6,16 @@ using StockSystem;
 
 namespace RestaurantManager.DAL.Models
 {
-    //TODO rozdelil jsem payment na payment info a pak jednotlive platby, kdzytak to checkni jestli to tak sedi
     public class Payment : IEntity
-    { 
+    {
         public int Id { get; set; }
-        public DateTime? DateOfPayment { get; set; }
+        public int CompanyId { get; set; }
+        public Company Company { get; set; }
         public int Amount { get; set; }
+        public int ReceivedAmount { get; set; }
+        public string VariableNumber { get; set; }
+        public DateTime? DateOfPayment { get; set; }
+        public DateTime? DueDate { get; set; }
 
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Payments);

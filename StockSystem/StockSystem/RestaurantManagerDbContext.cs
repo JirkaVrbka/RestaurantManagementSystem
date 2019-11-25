@@ -14,7 +14,6 @@ namespace StockSystem
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Stock> Stocks { get; set; }
-        public DbSet<PaymentInfo> PaymentInfos { get; set; }
 
         public DbSet<MenuItem> MenuItems { get; set; }
 

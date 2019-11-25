@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace RestaurantManager.BussinessLayer.Services.Common
+namespace RestaurantManager.BusinessLayer.Services.Common
 {
     public abstract class ServiceBase
     {

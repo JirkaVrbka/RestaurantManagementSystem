@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RestaurantManager.BussinessLayer.DataTransferObjects;
+using RestaurantManager.BusinessLayer.DataTransferObjects;
 using RestaurantManager.DAL.Models;
 
 namespace RestaurantManager.BusinessLayer.Test

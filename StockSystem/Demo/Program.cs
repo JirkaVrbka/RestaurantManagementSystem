@@ -16,7 +16,7 @@ namespace Demo
     {
         static async Task Main()
         {
-            await  CreateCompany2();
+            await CreateCompany2();
         }
 
         public static async Task CreateCompany2()
@@ -30,7 +30,6 @@ namespace Demo
                     var company = new Company
                     {
                         Ico = 12345,
-                        Location = "Praha",
                         Name = "Repository"
                     };
 
@@ -52,10 +51,8 @@ namespace Demo
             var company = new Company();
 
             company.Ico = 12345;
-            company.Items = CreateItems(company);
-            company.Location = "Brno";
-            company.Roles = CreateRoles(company);
-            company.Persons = CreatePersons(company);
+            company.StockItems = CreateItems(company);
+            company.People = CreatePersons(company);
             company.Name = "SomeCompany";
 
             using (var db = new RestaurantManagerDbContext())
@@ -107,24 +104,6 @@ namespace Demo
             return items;
         }
 
-        public static List<Role> CreateRoles(Company company)
-        {
-            var roles = new List<Role>()
-            {
-                new Role()
-                {
-                    Name = "Manager",
-                    Company = company
-                }
-            };
-            using (var db = new RestaurantManagerDbContext())
-            {
-                db.Roles.AddRange(roles);
-                db.SaveChanges();
-            }
-
-            return roles;
-        }
 
         public static List<Person> CreatePersons(Company company)
         {
@@ -142,24 +121,6 @@ namespace Demo
             }
 
             return persons;
-        }
-
-        public static PaymentInfo CreatePaymentInfo(Company company)
-        {
-            var info = new PaymentInfo()
-            {
-                Company = company,
-                Amount = 12000,
-                DueDate = new DateTime()
-            };
-
-            using (var db = new RestaurantManagerDbContext())
-            {
-                db.PaymentInfos.Add(info);
-                db.SaveChanges();
-            }
-
-            return info;
         }
 
         //public static PaymentInfo CreatePaymentInfoo(Company company)
