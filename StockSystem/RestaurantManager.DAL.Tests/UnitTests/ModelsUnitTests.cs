@@ -158,7 +158,7 @@ namespace RestaurantManager.DAL.Tests.UnitTests
                 CompanyId = company.Id,
                 FirstName = "Jenda" + new Random().Next(100),
                 LastName = "Novak" + new Random().Next(100),
-                Password = "abc" + new Random().Next(10000000),
+                HashedPassword = "abc" + new Random().Next(10000000),
                 Roles = roles.ToList()
             };
         }
