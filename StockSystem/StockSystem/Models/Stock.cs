@@ -9,6 +9,8 @@ namespace RestaurantManager.DAL.Models
     public class Stock : IEntity
     {
         public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public virtual Company Company { get; set; }
         public virtual List<StockItem> Items { get; set; }
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Stocks);

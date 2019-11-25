@@ -12,17 +12,13 @@ namespace RestaurantManager.DAL.Models
         [System.ComponentModel.DataAnnotations.Schema.DatabaseGenerated(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int Ico { get; set; }
-        public virtual List<Person> Persons { get; set; }
+        public virtual List<Person> People { get; set; }
         public virtual List<MenuItem> MenuItems { get; set; }
         public virtual List<Inventory> Inventories { get; set; }
-        public int InventoryId { get; set; }
-        public virtual Stock Stock { get; set; }
-        public int StockId { get; set; }
-        public int PaymentId { get; set; }
-        public Payment Payment { get; set; }
+        public virtual List<StockItem> StockItems { get; set; }
+        public List<Payment> Payments { get; set; }
         public DateTime? JoinDate { get; set; }
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Companies);
-        public int AmountOfTables { get; set; }
     }
 }

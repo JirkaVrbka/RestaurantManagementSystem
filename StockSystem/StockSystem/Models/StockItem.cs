@@ -9,6 +9,8 @@ namespace RestaurantManager.DAL.Models
     public class StockItem : IEntity
     {
         public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public Company Company { get; set; }
         public string Name { get; set; }
         public int BuyPrice { get; set; }
         public int SellPrice { get; set; }

@@ -8,8 +8,9 @@ namespace RestaurantManager.DAL.Models
 {
     public class Payment : IEntity
     {
-        [ForeignKey("Company")]
         public int Id { get; set; }
+        public int CompanyId { get; set; }
+        public Company Company { get; set; }
         public int Amount { get; set; }
         public int ReceivedAmount { get; set; }
         public string VariableNumber { get; set; }
