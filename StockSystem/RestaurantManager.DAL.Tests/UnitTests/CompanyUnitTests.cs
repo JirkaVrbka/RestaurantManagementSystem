@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RestaurantManager.DAL.Models;
-using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.EntityFramework;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Tests.UnitTests
 {

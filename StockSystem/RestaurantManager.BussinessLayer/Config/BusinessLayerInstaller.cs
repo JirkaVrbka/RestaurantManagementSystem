@@ -19,7 +19,7 @@ namespace RestaurantManager.BusinessLayer.Config
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            new EntityFrameworkInstaller().Install(container, store);
+            //new EntityFrameworkInstaller().Install(container, store);
 
             container.Register(
                 Classes.FromThisAssembly()

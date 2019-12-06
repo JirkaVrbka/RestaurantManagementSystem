@@ -1,0 +1,4 @@
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure\bin\Debug\RestaurantManager.Infrastructure.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure\bin\Debug\RestaurantManager.Infrastructure.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure\obj\Debug\RestaurantManager.Infrastructure.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastructure\obj\Debug\RestaurantManager.Infrastructure.pdb

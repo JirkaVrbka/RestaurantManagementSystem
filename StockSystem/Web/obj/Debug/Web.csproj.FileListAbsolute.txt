@@ -161,3 +161,13 @@ C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\Res
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\AutoMapper.pdb
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\AutoMapper.xml
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.Infrastructure.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\Castle.Core.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\Castle.Windsor.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.Infrastructure.EntityFramework.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\Castle.Core.xml
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\Castle.Windsor.xml
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.Infrastructure.EntityFramework.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\EntityFramework.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.DAL.dll.config
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\EntityFramework.xml
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.Infrastructure.EntityFramework.dll.config

@@ -58,9 +58,17 @@
       <Project>{E3375237-AD89-4717-BB40-271BBD3698BB}</Project>
       <Name>RestaurantManager.BusinessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StockSystem\RestaurantManager.DAL.csproj">
-      <Project>{995E1997-46F7-41FA-A289-092CCFCC6F2E}</Project>
+    <ProjectReference Include="..\RestaurantManager.DAL\RestaurantManager.DAL.csproj">
+      <Project>{6e169b51-e72e-4465-9546-bb849b86fc3b}</Project>
       <Name>RestaurantManager.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Infrastracture.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj">
+      <Project>{c110a896-d4e0-4502-b07b-11097c84f124}</Project>
+      <Name>RestaurantManager.Infrastructure.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Infrastructure\RestaurantManager.Infrastructure.csproj">
+      <Project>{47d77a9c-e444-4af1-b72f-58b7a019b67d}</Project>
+      <Name>RestaurantManager.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

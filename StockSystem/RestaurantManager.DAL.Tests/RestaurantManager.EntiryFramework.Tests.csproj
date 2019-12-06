@@ -68,21 +68,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RestaurantManager.Infrastructure.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj">
-      <Project>{9460100A-E846-4DE5-9E8C-573EB7BBE01C}</Project>
+    <ProjectReference Include="..\RestaurantManager.DAL\RestaurantManager.DAL.csproj">
+      <Project>{6e169b51-e72e-4465-9546-bb849b86fc3b}</Project>
+      <Name>RestaurantManager.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Infrastracture.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj">
+      <Project>{c110a896-d4e0-4502-b07b-11097c84f124}</Project>
       <Name>RestaurantManager.Infrastructure.EntityFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj">
-      <Project>{C5D1DDC4-F0D1-4CEC-92E2-982719CF229E}</Project>
+    <ProjectReference Include="..\RestaurantManager.Infrastructure\RestaurantManager.Infrastructure.csproj">
+      <Project>{47d77a9c-e444-4af1-b72f-58b7a019b67d}</Project>
       <Name>RestaurantManager.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
       <Project>{DFBCB7F1-E5E3-4968-A7A7-43D79D2AB65F}</Project>
       <Name>RestaurantManager.Utils</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StockSystem\RestaurantManager.DAL.csproj">
-      <Project>{995E1997-46F7-41FA-A289-092CCFCC6F2E}</Project>
-      <Name>RestaurantManager.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

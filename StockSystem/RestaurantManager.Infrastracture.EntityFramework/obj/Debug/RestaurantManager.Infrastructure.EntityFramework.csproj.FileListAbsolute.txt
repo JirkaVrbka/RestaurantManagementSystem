@@ -1,0 +1,13 @@
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.csprojAssemblyReference.cache
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\RestaurantManager.Infrastructure.EntityFramework.dll.config
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\RestaurantManager.Infrastructure.EntityFramework.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\RestaurantManager.Infrastructure.EntityFramework.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\EntityFramework.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\RestaurantManager.Infrastructure.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\RestaurantManager.Infrastructure.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\EntityFramework.xml
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.csproj.CopyComplete
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.dll
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.pdb

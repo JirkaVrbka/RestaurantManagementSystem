@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
+using RestaurantManager.BusinessLayer.Config;
 using Web.App_Start.Windsor;
 
 namespace Web

@@ -7,8 +7,6 @@ using RestaurantManager.DAL;
 using RestaurantManager.DAL.Enums;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.Infrastructure;
-using RestaurantManager.Infrastructure.EntityFramework;
-using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
 
 namespace Demo
 {
