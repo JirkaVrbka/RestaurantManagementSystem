@@ -14,7 +14,7 @@ namespace Web.Controllers
         // GET: Owner
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [Authorize(Roles = "Owner, Manager")]
@@ -44,7 +44,7 @@ namespace Web.Controllers
                 }
             };
 
-            return View(menuItems);
+            return View("MenuItems",menuItems);
         }
 
         [Authorize(Roles = "Owner, Manager")]
@@ -78,7 +78,7 @@ namespace Web.Controllers
                 }
             };
 
-            return View(itemsTest);
+            return View("Stock",itemsTest);
         }
 
         [Authorize(Roles = "Owner")]
@@ -107,7 +107,7 @@ namespace Web.Controllers
                     LastName = "Wick"
                 }
             };
-            return View(Employees());
+            return View("Employees",Employees());
         }
 
         [Authorize(Roles = "Owner")]
@@ -131,7 +131,7 @@ namespace Web.Controllers
                 }
             };
 
-            return View(paymentsTest);
+            return View("Payments",paymentsTest);
         }
 
         [Authorize(Roles = "Owner")]
@@ -143,7 +143,7 @@ namespace Web.Controllers
                 Ico = 12345,
                 Location = "Brno"
             };
-            return View(companyTest);
+            return View("MyCompany",companyTest);
         }
 
         [Authorize]
@@ -155,13 +155,13 @@ namespace Web.Controllers
                 LastName = "Smith",
                 Email = "jsmith@email.com"
             };
-            return View(accountTest);
+            return View("MyAccount",accountTest);
         }
 
         [Authorize]
         public ActionResult About()
         {
-            return View();
+            return View("About");
         }
     }
 }

@@ -27,7 +27,7 @@ namespace Web.Controllers
 
         public ActionResult Login()
         {
-            return View();
+            return View("Login");
         }
 
         [HttpPost]
@@ -59,7 +59,7 @@ namespace Web.Controllers
             }
 
             ModelState.AddModelError("", "Wrong username or password!");
-            return View();
+            return View("Login");
         }
 
         public ActionResult RedirectToRegister()
@@ -69,7 +69,7 @@ namespace Web.Controllers
 
         public ActionResult Register()
         {
-            return View();
+            return View("Register");
         }
 
         [HttpPost]
