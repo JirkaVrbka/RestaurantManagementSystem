@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.DAL.Enums;
 using RestaurantManager.Infrastructure;
-using StockSystem;
 
 namespace RestaurantManager.DAL.Models
 {

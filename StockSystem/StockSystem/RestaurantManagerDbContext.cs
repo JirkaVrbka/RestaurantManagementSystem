@@ -1,8 +1,8 @@
 ﻿using System.Data.Entity;
-using RestaurantManager.DAL;
+using RestaurantManager.DAL.Config;
 using RestaurantManager.DAL.Models;
 
-namespace StockSystem
+namespace RestaurantManager.DAL
 {
     public class RestaurantManagerDbContext : DbContext
     {
@@ -17,7 +17,7 @@ namespace StockSystem
 
         public DbSet<MenuItem> MenuItems { get; set; }
 
-        public RestaurantManagerDbContext() : base("RestaurantManager")
+        public RestaurantManagerDbContext() : base(EntityFrameworkInstaller.ConnectionString)
         {
             Database.SetInitializer(new RestaurantManagerInitializer());
         }

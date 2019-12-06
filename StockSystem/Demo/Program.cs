@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
+using RestaurantManager.DAL;
 using RestaurantManager.DAL.Enums;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.Infrastructure;
 using RestaurantManager.Infrastructure.EntityFramework;
 using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
-using StockSystem;
 
 namespace Demo
 {
@@ -21,22 +21,22 @@ namespace Demo
 
         public static async Task CreateCompany2()
         {
-            using (var provider = new EntityFrameworkUnitOfWorkProvider(DbContextGenerator))
-            {
-                //provider.Create();
-                IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
-                using (var unitOfWork = provider.Create())
-                {
-                    var company = new Company
-                    {
-                        Ico = 12345,
-                        Name = "Repository"
-                    };
+            //using (var provider = new EntityFrameworkUnitOfWorkProvider(DbContextGenerator))
+            //{
+            //    //provider.Create();
+            //    IRepository<Company> repository = new EntityFrameworkRepository<Company>(provider);
+            //    using (var unitOfWork = provider.Create())
+            //    {
+            //        var company = new Company
+            //        {
+            //            Ico = 12345,
+            //            Name = "Repository"
+            //        };
 
-                    repository.Create(company);
-                    await unitOfWork.Commit();
-                }
-            }
+            //        repository.Create(company);
+            //        await unitOfWork.Commit();
+            //    }
+            //}
 
         }
 

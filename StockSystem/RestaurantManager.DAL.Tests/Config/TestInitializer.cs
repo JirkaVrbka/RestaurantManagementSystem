@@ -4,7 +4,6 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StockSystem;
 
 namespace RestaurantManager.DAL.Tests.Config
 {

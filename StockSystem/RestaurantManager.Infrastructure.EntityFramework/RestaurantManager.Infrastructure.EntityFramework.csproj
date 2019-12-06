@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Castle.Windsor" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\RestaurantManager.Infrastucture\RestaurantManager.Infrastructure.csproj" />
-    <ProjectReference Include="..\StockSystem\RestaurantManager.DAL.csproj" />
   </ItemGroup>
 
 </Project>

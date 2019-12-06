@@ -45,10 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.4.0\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -120,7 +127,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Windsor\PresentationLayerInstaller.cs" />
+    <Compile Include="App_Start\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Global.asax.cs">
@@ -128,6 +138,7 @@
     </Compile>
     <Compile Include="Models\CompanyModel.cs" />
     <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\MenuItemModel.cs" />
     <Compile Include="Models\MyAccountModel.cs" />
     <Compile Include="Models\PaymentModel.cs" />
@@ -178,11 +189,13 @@
     <Content Include="Views\Owner\Employees.cshtml" />
     <Content Include="Views\Owner\Stock.cshtml" />
     <Content Include="Views\Owner\MenuItems.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Employee\" />
-    <Folder Include="Views\Manager\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -198,6 +211,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantManager.BussinessLayer\RestaurantManager.BusinessLayer.csproj">
+      <Project>{e3375237-ad89-4717-bb40-271bbd3698bb}</Project>
+      <Name>RestaurantManager.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
       <Project>{DFBCB7F1-E5E3-4968-A7A7-43D79D2AB65F}</Project>
       <Name>RestaurantManager.Utils</Name>

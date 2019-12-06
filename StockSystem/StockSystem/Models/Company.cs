@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using RestaurantManager.Infrastructure;
-using StockSystem;
 
 namespace RestaurantManager.DAL.Models
 {
