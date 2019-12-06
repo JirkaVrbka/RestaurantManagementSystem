@@ -22,9 +22,15 @@
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Menu", "MenuItems", "Home")</li>
                 <li>@Html.ActionLink("Stock", "Stock", "Home")</li>
-                <li>@Html.ActionLink("Statistics", "Statistics", "Home")</li>
-                <li>@Html.ActionLink("Payments", "Payments", "Home")</li>
-                <li>@Html.ActionLink("My Company", "MyCompany", "Home")</li>
+
+                @if (Session["Role"].ToString() == "Owner")
+                {
+                    <li>@Html.ActionLink("Statistics", "Statistics", "Home")</li>
+                    <li>@Html.ActionLink("Payments", "Payments", "Home")</li>
+                    <li>@Html.ActionLink("My Company", "MyCompany", "Home")</li>
+                }
+
+
                 <li>@Html.ActionLink("My account", "MyAccount", "Home")</li>
                 <li>@Html.ActionLink("About", "About", "Home")</li>
             </ul>

@@ -4,14 +4,14 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h2>Welcome, @User.Identity.Name!</h2>
+<h2>Welcome, @Session["Role"]!</h2>
 
-@if (User.IsInRole("Owner"))
+@*@if (Session["Role"] == "Owner")
 {
     <p class="lead">You can manage our products and see info about customers</p>
 }
 else
 {
     <p class="lead">Check out our offer at products section...</p>
-}  
+}*@  
 

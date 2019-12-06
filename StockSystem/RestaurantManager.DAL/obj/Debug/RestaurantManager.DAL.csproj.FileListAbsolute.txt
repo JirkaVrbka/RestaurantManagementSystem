@@ -20,3 +20,4 @@ C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantM
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.DAL\obj\Debug\RestaurantManager.DAL.csproj.CopyComplete
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.DAL\obj\Debug\RestaurantManager.DAL.dll
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.DAL\obj\Debug\RestaurantManager.DAL.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.DAL\obj\Debug\RestaurantManager.DAL.csproj.CoreCompileInputs.cache

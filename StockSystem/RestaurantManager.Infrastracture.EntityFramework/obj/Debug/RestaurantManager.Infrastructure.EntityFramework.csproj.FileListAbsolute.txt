@@ -11,3 +11,4 @@ C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantM
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.csproj.CopyComplete
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.dll
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.pdb
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastructure.EntityFramework.csproj.CoreCompileInputs.cache

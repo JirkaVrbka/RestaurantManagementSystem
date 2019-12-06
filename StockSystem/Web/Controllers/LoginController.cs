@@ -44,13 +44,16 @@ namespace Web.Controllers
             if (success)
             {
                 Session["Id"] = person.Id;
-                var authTicket = new FormsAuthenticationTicket(1, model.Email, DateTime.Now,
-                    DateTime.Now.AddMinutes(30), false, person.Role.ToString());
-                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                HttpContext.Response.Cookies.Add(authCookie);
+                Session["Role"] = person.Role.ToString();
 
-                var x = User.IsInRole("Owner");
+                //var authTicket = new FormsAuthenticationTicket(1, model.Email, DateTime.Now,
+                //    DateTime.Now.AddMinutes(30), false, person.Role.ToString());
+                //System.Web.HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(new FormsIdentity(authTicket), roles);
+                //string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+                //var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+                //HttpContext.Response.Cookies.Add(authCookie);
+
+                //var x = User.IsInRole("Owner");
 
                 return RedirectToAction("Index", "Home");
             }

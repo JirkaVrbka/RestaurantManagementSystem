@@ -171,3 +171,4 @@ C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\Ent
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.DAL.dll.config
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\EntityFramework.xml
 C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\bin\RestaurantManager.Infrastructure.EntityFramework.dll.config
+C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\Web\obj\Debug\Web.csproj.CoreCompileInputs.cache
