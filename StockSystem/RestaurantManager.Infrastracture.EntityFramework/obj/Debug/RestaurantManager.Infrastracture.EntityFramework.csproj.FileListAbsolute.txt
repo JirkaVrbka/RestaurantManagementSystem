@@ -1,1 +1,0 @@
-C:\Users\seckar\Documents\GIT\RestaurantManagementSystem\StockSystem\RestaurantManager.Infrastracture.EntityFramework\obj\Debug\RestaurantManager.Infrastracture.EntityFramework.csprojAssemblyReference.cache

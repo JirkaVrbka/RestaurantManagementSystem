@@ -42,3 +42,15 @@ StockSystem/RestaurantManager.BussinessLayer.Test/bin/Debug/
 StockSystem/RestaurantManager.BussinessLayer.Test/obj/Debug/
 
 StockSystem/Web/obj/Debug/
+
+StockSystem/RestaurantManager.DAL/bin/Debug/
+
+StockSystem/RestaurantManager.DAL/obj/Debug/
+
+StockSystem/RestaurantManager.Infrastracture.EntityFramework/bin/Debug/
+
+StockSystem/RestaurantManager.Infrastracture.EntityFramework/obj/Debug/
+
+StockSystem/RestaurantManager.Infrastructure/bin/Debug/
+
+StockSystem/RestaurantManager.Infrastructure/obj/Debug/
