@@ -17,7 +17,7 @@ namespace RestaurantManager.BusinessLayer.Services
 {
     public class CompanyService : CrudQueryServiceBase<Company, CompanyDto, CompanyFilterDto>
     {
-        protected CompanyService(IMapper mapper, IRepository<Company> repository, QueryObjectBase<CompanyDto, Company, CompanyFilterDto, IQuery<Company>> query) : base(mapper, repository, query)
+        public CompanyService(IMapper mapper, IRepository<Company> repository, QueryObjectBase<CompanyDto, Company, CompanyFilterDto, IQuery<Company>> query) : base(mapper, repository, query)
         {
         }
 

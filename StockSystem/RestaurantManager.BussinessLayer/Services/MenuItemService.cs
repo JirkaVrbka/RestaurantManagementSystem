@@ -11,7 +11,7 @@ using RestaurantManager.Infrastructure.Query;
 
 namespace RestaurantManager.BusinessLayer.Services
 {
-    class MenuItemService : CrudQueryServiceBase<MenuItem, MenuItemDto, MenuItemFilterDto>
+    public class MenuItemService : CrudQueryServiceBase<MenuItem, MenuItemDto, MenuItemFilterDto>
     {
         public MenuItemService(IMapper mapper, IRepository<MenuItem> repository, QueryObjectBase<MenuItemDto, MenuItem, MenuItemFilterDto, IQuery<MenuItem>> query) : base(mapper, repository, query)
         {

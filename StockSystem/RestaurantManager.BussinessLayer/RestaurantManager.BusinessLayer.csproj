@@ -64,6 +64,7 @@
     <Compile Include="DataTransferObjects\Dtos\CompanyIdDto.cs" />
     <Compile Include="DataTransferObjects\Dtos\CompanyUsersDto.cs" />
     <Compile Include="DataTransferObjects\Dtos\CompanyWithPeopleDto.cs" />
+    <Compile Include="DataTransferObjects\Dtos\CustomerCreateDto.cs" />
     <Compile Include="DataTransferObjects\Dtos\OrderDto.cs" />
     <Compile Include="DataTransferObjects\Dtos\PersonCreateDto.cs" />
     <Compile Include="DataTransferObjects\Dtos\StockItemDto.cs" />

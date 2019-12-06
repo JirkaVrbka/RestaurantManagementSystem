@@ -10,7 +10,7 @@ using RestaurantManager.Infrastructure.Query;
 
 namespace RestaurantManager.BusinessLayer.Services
 {
-    class PaymentService : CrudQueryServiceBase<Payment, PaymentDto, PaymentFilterDto>
+    public class PaymentService : CrudQueryServiceBase<Payment, PaymentDto, PaymentFilterDto>
     {
         public PaymentService(IMapper mapper, IRepository<Payment> repository, QueryObjectBase<PaymentDto, Payment, PaymentFilterDto, IQuery<Payment>> query) : base(mapper, repository, query)
         {

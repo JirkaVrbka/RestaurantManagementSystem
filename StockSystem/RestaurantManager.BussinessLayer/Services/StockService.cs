@@ -10,7 +10,7 @@ using RestaurantManager.Infrastructure.Query;
 
 namespace RestaurantManager.BusinessLayer.Services
 {
-    class StockService : CrudQueryServiceBase<Stock, StockDto, StockFilterDto>
+    public class StockService : CrudQueryServiceBase<Stock, StockDto, StockFilterDto>
     {
         public StockService(IMapper mapper, IRepository<Stock> repository,
             QueryObjectBase<StockDto, Stock, StockFilterDto, IQuery<Stock>> query) : base(mapper, repository, query)

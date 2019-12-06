@@ -11,7 +11,7 @@ using RestaurantManager.Infrastructure.Query;
 
 namespace RestaurantManager.BusinessLayer.Services
 {
-    class InventoryService: CrudQueryServiceBase<Inventory, InventoryDto, InventoryFilterDto>
+    public class InventoryService: CrudQueryServiceBase<Inventory, InventoryDto, InventoryFilterDto>
     {
         public InventoryService(IMapper mapper, IRepository<Inventory> repository, QueryObjectBase<InventoryDto, Inventory, InventoryFilterDto, IQuery<Inventory>> query) : base(mapper, repository, query)
         {

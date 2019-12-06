@@ -129,10 +129,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Windsor\PresentationLayerInstaller.cs" />
     <Compile Include="App_Start\Windsor\WindsorControllerFactory.cs" />
-    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\ManagerController.cs" />
-    <Compile Include="Controllers\OwnerController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,22 +175,18 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_OwnerLayout.cshtml" />
-    <Content Include="Views\Shared\_ManagerLayout.cshtml" />
-    <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
-    <Content Include="Views\Owner\Index.cshtml" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Owner\About.cshtml" />
-    <Content Include="Views\Owner\MyAccount.cshtml" />
-    <Content Include="Views\Owner\MyCompany.cshtml" />
-    <Content Include="Views\Owner\Payments.cshtml" />
-    <Content Include="Views\Owner\Employees.cshtml" />
-    <Content Include="Views\Owner\Stock.cshtml" />
-    <Content Include="Views\Owner\MenuItems.cshtml" />
-    <Content Include="Views\Login\Register.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
-    <Content Include="Views\Manager\Index.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\MyAccount.cshtml" />
+    <Content Include="Views\Home\MyCompany.cshtml" />
+    <Content Include="Views\Home\Payments.cshtml" />
+    <Content Include="Views\Home\Employees.cshtml" />
+    <Content Include="Views\Home\Stock.cshtml" />
+    <Content Include="Views\Home\MenuItems.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
