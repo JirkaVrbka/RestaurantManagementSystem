@@ -187,6 +187,8 @@
     <Content Include="Views\Home\MenuItems.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Home\Statistics.cshtml" />
+    <Content Include="Views\Login\RegisterCompany.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -208,6 +210,10 @@
     <ProjectReference Include="..\RestaurantManager.BussinessLayer\RestaurantManager.BusinessLayer.csproj">
       <Project>{e3375237-ad89-4717-bb40-271bbd3698bb}</Project>
       <Name>RestaurantManager.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Infrastracture.EntityFramework\RestaurantManager.Infrastructure.EntityFramework.csproj">
+      <Project>{C110A896-D4E0-4502-B07B-11097C84F124}</Project>
+      <Name>RestaurantManager.Infrastructure.EntityFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
       <Project>{DFBCB7F1-E5E3-4968-A7A7-43D79D2AB65F}</Project>

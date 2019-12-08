@@ -17,7 +17,7 @@ namespace Web.Controllers
             return View("Index");
         }
 
-        [Authorize(Roles = "Owner, Manager")]
+        //[Authorize(Roles = "Owner, Manager")]
         public ActionResult MenuItems()
         {
             var menuItems = new List<MenuItemModel>()
@@ -47,7 +47,7 @@ namespace Web.Controllers
             return View("MenuItems",menuItems);
         }
 
-        [Authorize(Roles = "Owner, Manager")]
+        //[Authorize(Roles = "Owner, Manager")]
         public ActionResult Stock()
         {
             var itemsTest = new List<StockItemModel>()
@@ -81,13 +81,13 @@ namespace Web.Controllers
             return View("Stock",itemsTest);
         }
 
-        [Authorize(Roles = "Owner")]
+        //[Authorize(Roles = "Owner")]
         public ActionResult Statistics()
         {
-            return View();
+            return View("Statistics");
         }
 
-        [Authorize(Roles = "Owner")]
+        //[Authorize(Roles = "Owner")]
         public ActionResult Employees()
         {
             var employeesTest = new List<EmployeeModel>()
@@ -107,10 +107,10 @@ namespace Web.Controllers
                     LastName = "Wick"
                 }
             };
-            return View("Employees",Employees());
+            return View("Employees", employeesTest);
         }
 
-        [Authorize(Roles = "Owner")]
+        //[Authorize(Roles = "Owner")]
         public ActionResult Payments()
         {
             var paymentsTest = new List<PaymentModel>()
@@ -134,7 +134,7 @@ namespace Web.Controllers
             return View("Payments",paymentsTest);
         }
 
-        [Authorize(Roles = "Owner")]
+        //[Authorize(Roles = "Owner")]
         public ActionResult MyCompany()
         {
             var companyTest = new CompanyModel()
@@ -146,7 +146,7 @@ namespace Web.Controllers
             return View("MyCompany",companyTest);
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult MyAccount()
         {
             var accountTest = new MyAccountModel()
@@ -158,7 +158,7 @@ namespace Web.Controllers
             return View("MyAccount",accountTest);
         }
 
-        [Authorize]
+        //[Authorize]
         public ActionResult About()
         {
             return View("About");

@@ -13,10 +13,10 @@ namespace RestaurantManager.BusinessLayer.Facades
 {
     public class CompanyFacade : FacadeBase
     {
-        private CompanyService companyService;
+        private CompanyService _companyService;
         public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService) : base(unitOfWorkProvider)
         {
-            this.companyService = companyService;
+            this._companyService = companyService;
         }
 
         public async Task<int> RegisterCompany(CompanyCreateDto companyCreateDto)
@@ -25,7 +25,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 try
                 {
-                    var id = await companyService.RegisterCompanyAsync(companyCreateDto);
+                    var id = await _companyService.RegisterCompanyAsync(companyCreateDto);
                     await uow.Commit();
                     return id;
                 }
@@ -40,7 +40,7 @@ namespace RestaurantManager.BusinessLayer.Facades
         {
             using (UnitOfWorkProvider.Create())
             {
-                var company = await companyService.GetWithIncludesPeopleAsync(id);
+                var company = await _companyService.GetWithIncludesPeopleAsync(id);
                 return company.People;
             }
         }

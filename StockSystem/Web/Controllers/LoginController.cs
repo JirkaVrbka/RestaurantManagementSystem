@@ -12,17 +12,20 @@ using RestaurantManager.BusinessLayer.DataTransferObjects;
 using RestaurantManager.BusinessLayer.DataTransferObjects.Dtos;
 using RestaurantManager.BusinessLayer.Facades;
 using RestaurantManager.DAL.Enums;
+using RestaurantManager.Infrastructure.EntityFramework.UnitOfWork;
 using Web.Models;
 
 namespace Web.Controllers
 {
     public class LoginController : Controller
     {
-        private PersonFacade _personFacade;
+        public PersonFacade PersonFacade { get; set; }
+        public CompanyFacade CompanyFacade { get; set; }
+    
 
-        public LoginController(PersonFacade personFacade)
+
+        public LoginController()
         {
-            _personFacade = personFacade;
         }
 
         public ActionResult Login()
@@ -33,18 +36,21 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Login(LoginModel model)
         {
-            //(bool success, var person) = await _personFacade.Login(model.Email, model.Password);
-            var success = true;
-             var person = new PersonCreateDto()
+            var res = await PersonFacade.Login(model.Email, model.Password);
+            var success = res.success;
+            /* var person = new PersonCreateDto()
              {
                  Id = 2,
                  Role = Role.Owner
              };
-
+            */
+            
             if (success)
             {
+                var person = res.person;
                 Session["Id"] = person.Id;
                 Session["Role"] = person.Role.ToString();
+                Console.WriteLine(person.Role.ToString());
 
                 //var authTicket = new FormsAuthenticationTicket(1, model.Email, DateTime.Now,
                 //    DateTime.Now.AddMinutes(30), false, person.Role.ToString());
@@ -54,7 +60,7 @@ namespace Web.Controllers
                 //HttpContext.Response.Cookies.Add(authCookie);
 
                 //var x = User.IsInRole("Owner");
-
+                 
                 return RedirectToAction("Index", "Home");
             }
 
@@ -75,8 +81,22 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(CustomerCreateDto customer)
         {
-            await _personFacade.RegisterCustomer(customer);
-            return RedirectToAction("Index", "Owner");
+            await PersonFacade.RegisterCustomer(customer);
+            return RedirectToAction("Index", "Home");
+        }
+
+
+        public ActionResult RedirectToRegisterCompany()
+        {
+            return View("RegisterCompany");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> RegisterCompany(CompanyCreateDto company)
+        {
+            company.JoinDate = DateTime.Now;
+            await CompanyFacade.RegisterCompany(company);
+            return RedirectToAction("Login");
         }
     }
 }

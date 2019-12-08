@@ -14,8 +14,8 @@ namespace RestaurantManager.BusinessLayer.Facades
     public class PersonFacade : FacadeBase
     {
         private readonly PersonService _personService;
-        private readonly CompanyService _companyService;
-        public PersonFacade(IUnitOfWorkProvider unitOfWorkProvider, PersonService personService, CompanyService companyService) : base(unitOfWorkProvider)
+
+        public PersonFacade(IUnitOfWorkProvider unitOfWorkProvider, PersonService personService) : base(unitOfWorkProvider)
         {
             this._personService = personService;
         }
@@ -43,8 +43,6 @@ namespace RestaurantManager.BusinessLayer.Facades
                 try
                 {
                     var id = await _personService.RegisterUserAsync(person);
-
-                    var companyId = await _companyService.RegisterCompanyAsync(company);
 
                     await uow.Commit();
                     return id;

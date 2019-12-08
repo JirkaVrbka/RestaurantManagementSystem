@@ -2,7 +2,7 @@
 
 namespace RestaurantManager.DAL
 {
-    class RestaurantManagerInitializer : DropCreateDatabaseAlways<RestaurantManagerDbContext>
+    class RestaurantManagerInitializer : CreateDatabaseIfNotExists<RestaurantManagerDbContext>
     {
         protected override void Seed(RestaurantManagerDbContext context)
         {
