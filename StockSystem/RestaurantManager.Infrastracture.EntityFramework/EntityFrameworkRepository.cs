@@ -19,6 +19,8 @@ namespace RestaurantManager.Infrastructure.EntityFramework
         public EntityFrameworkRepository(IUnitOfWorkProvider provider)
         {
             this.provider = provider;
+            // hack to force msbuild to load EF into Debug
+            var ensureDLLIsCopied = System.Data.Entity. SqlServer.SqlProviderServices.Instance;
         }
 
         public void Create(TEntity entity)
