@@ -28,6 +28,11 @@ namespace RestaurantManager.BusinessLayer.Config
 
             config.CreateMap<QueryResult<Company>, QueryResultDto<CompanyDto, CompanyFilterDto>>();
             config.CreateMap<QueryResult<Employee>, QueryResultDto<EmployeeDto, EmployeeFilterDto>>();
+            config.CreateMap<QueryResult<MenuItem>, QueryResultDto<MenuItemDto, MenuItemFilterDto>>();
+            config.CreateMap<QueryResult<Order>, QueryResultDto<OrderDto, OrderFilterDto>>();
+            config.CreateMap<QueryResult<OrderItem>, QueryResultDto<OrderItemDto, OrderFilterDto>>();
+            config.CreateMap<QueryResult<Payment>, QueryResultDto<PaymentDto, PaymentFilterDto>>();
+            config.CreateMap<QueryResult<StockItem>, QueryResultDto<StockItemDto, StockItemFilterDto>>();
         }
     }
 }

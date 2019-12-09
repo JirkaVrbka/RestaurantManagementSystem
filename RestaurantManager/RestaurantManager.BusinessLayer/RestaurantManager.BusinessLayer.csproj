@@ -40,10 +40,6 @@
     <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="RestaurantManager.BusinessLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Web\Bin\RestaurantManager.BusinessLayer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -70,9 +66,19 @@
     <Compile Include="DTOs\Common\DtoBase.cs" />
     <Compile Include="DTOs\DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\Common\FilterDtoBase.cs" />
+    <Compile Include="DTOs\Filters\StockItemFilterDto.cs" />
     <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
+    <Compile Include="DTOs\Filters\MenuItemFilterDto.cs" />
+    <Compile Include="DTOs\Filters\OrderFilterDto.cs" />
+    <Compile Include="DTOs\Filters\OrderItemFilterDto.cs" />
+    <Compile Include="DTOs\Filters\PaymentFilterDto.cs" />
     <Compile Include="Facades\Common\FacadeCrudBase.cs" />
     <Compile Include="Facades\EmployeeFacade.cs" />
+    <Compile Include="Facades\MenuItemFacade.cs" />
+    <Compile Include="Facades\OrderFacade.cs" />
+    <Compile Include="Facades\OrderItemFacade.cs" />
+    <Compile Include="Facades\PaymentFacade.cs" />
+    <Compile Include="Facades\StockItemFacade.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
     <Compile Include="QueryObjects\QueryResultDto.cs" />
     <Compile Include="DTOs\DTOs\StockItemDto.cs" />
@@ -85,6 +91,11 @@
     <Compile Include="Services\Common\ServiceBase.cs" />
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\MenuItemService.cs" />
+    <Compile Include="Services\OrderItemService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
+    <Compile Include="Services\StockItemService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -35,5 +35,49 @@ namespace RestaurantManager.BusinessLayer.Facades
                 }
             }
         }
+
+        public async Task Create(CompanyDto employee)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                _companyService.Create(employee);
+                await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+            }
+        }
+
+        public async Task Delete(CompanyDto employee)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                _companyService.DeleteProduct(employee.Id);
+                await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+            }
+        }
+
+        public async Task Delete(int employeeId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                _companyService.DeleteProduct(employeeId);
+                await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+            }
+        }
+
+        public async Task Update(CompanyDto employee)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                await _companyService.Update(employee);
+                await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+            }
+        }
+
+        public async Task<CompanyDto> GetAsync(int employeeId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _companyService.GetAsync(employeeId, false);
+            }
+        }
     }
 }

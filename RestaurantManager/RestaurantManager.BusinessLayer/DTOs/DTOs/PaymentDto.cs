@@ -2,9 +2,8 @@
 
 namespace RestaurantManager.BusinessLayer.DTOs.DTOs
 {
-    public class PaymentDto
+    public class PaymentDto : DtoBase
     {
-        public int Id { get; set; }
         public int CompanyId { get; set; }
         public int Amount { get; set; }
         public int ReceivedAmount { get; set; }
