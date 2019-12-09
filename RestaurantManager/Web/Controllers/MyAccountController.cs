@@ -7,9 +7,11 @@ using RestaurantManager.BusinessLayer.DTOs.DTOs;
 
 namespace Web.Controllers
 {
+    [Authorize]
     public class MyAccountController : Controller
     {
         // GET: MyAccount
+        
         public ActionResult MyAccount()
         {
             var accountTest = new EmployeeDto()

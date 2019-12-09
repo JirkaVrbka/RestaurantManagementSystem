@@ -33,14 +33,14 @@
 
                     @if (User.IsInRole("Owner"))
                     {
-                        <li>@Html.ActionLink("Statistics", "Statistics", "Home")</li>
-                        <li>@Html.ActionLink("Payments", "Payments", "Home")</li>
-                        <li>@Html.ActionLink("My Company", "MyCompany", "Home")</li>
+                        <li>@Html.ActionLink("Statistics", "Statistics", "Statistics")</li>
+                        <li>@Html.ActionLink("Payments", "Payments", "Payments")</li>
+                        <li>@Html.ActionLink("My Company", "MyCompany", "MyCompany")</li>
                     }
 
                     @if (User.IsInRole("Owner") || User.IsInRole("Manager") || User.IsInRole("Employee"))
                     {
-                        <li>@Html.ActionLink("My account", "MyAccount", "Home")</li>
+                        <li>@Html.ActionLink("My account", "MyAccount", "MyAccount")</li>
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                     }
 

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
+using Web.Models;
 
 namespace Web.Controllers
 {
+    [Authorize(Roles = "Owner, Manager")]
     public class StockController : Controller
     {
         // GET: Stock
@@ -27,7 +29,12 @@ namespace Web.Controllers
 
         public ActionResult ChangeAmountOfStockItem()
         {
-            return View();
+            var asd = new ChangeAmountModel()
+            {
+                Amount = 5
+            };
+
+            return View(asd);
         }
     }
 }

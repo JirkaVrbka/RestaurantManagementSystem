@@ -7,9 +7,11 @@ using RestaurantManager.BusinessLayer.DTOs.DTOs;
 
 namespace Web.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class MyCompanyController : Controller
     {
         // GET: MyCompany
+        
         public ActionResult MyCompany()
         {
             var companyTest = new CompanyDto()
@@ -19,6 +21,11 @@ namespace Web.Controllers
                 JoinDate = DateTime.Now
             };
             return View("MyCompany", companyTest);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return View();
         }
     }
 }

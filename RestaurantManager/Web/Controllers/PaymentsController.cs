@@ -7,6 +7,7 @@ using RestaurantManager.BusinessLayer.DTOs.DTOs;
 
 namespace Web.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class PaymentsController : Controller
     {
         // GET: Payments
