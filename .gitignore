@@ -34,3 +34,7 @@ RestaurantManager/RestaurantManager.BusinessLayer/bin/Debug/
 RestaurantManager/Web/obj/Debug/
 
 RestaurantManager/Web/bin/
+
+RestaurantManager/RestaurantManager.BusinessLayer.Test/bin/Debug/
+
+RestaurantManager/RestaurantManager.BusinessLayer.Test/obj/Debug/

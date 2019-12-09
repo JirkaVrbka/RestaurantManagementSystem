@@ -31,7 +31,7 @@ namespace RestaurantManager.BusinessLayer.Services
         {
             var company = Mapper.Map<Company>(companyCreateDto);
 
-            if (await GetIfCompanyExistsAsync(company.Ico))
+            if (await IsCompanyAlreadyInDb(company.Ico))
             {
                 throw new ArgumentException("Company with this Ico already exists!");
             }
@@ -41,7 +41,7 @@ namespace RestaurantManager.BusinessLayer.Services
             return company.Id;
         }
 
-        private async Task<bool> GetIfCompanyExistsAsync(int ico)
+        private async Task<bool> IsCompanyAlreadyInDb(int ico)
         {
             var queryResult = await Query.ExecuteQuery(new CompanyFilterDto() { Ico = ico });
             return (queryResult.Items.Count() == 1);

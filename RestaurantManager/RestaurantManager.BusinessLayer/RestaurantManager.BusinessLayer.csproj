@@ -41,6 +41,7 @@
       <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
@@ -64,6 +65,7 @@
     <Compile Include="DTOs\Common\DtoBase.cs" />
     <Compile Include="DTOs\DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\Common\FilterDtoBase.cs" />
+    <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
     <Compile Include="QueryObjects\QueryResultDto.cs" />
     <Compile Include="DTOs\DTOs\StockDto.cs" />
@@ -75,6 +77,7 @@
     <Compile Include="Services\Common\CrudQueryServiceBase.cs" />
     <Compile Include="Services\Common\ServiceBase.cs" />
     <Compile Include="Services\CompanyService.cs" />
+    <Compile Include="Services\EmployeeService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
