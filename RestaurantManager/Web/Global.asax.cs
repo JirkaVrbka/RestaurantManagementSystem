@@ -36,6 +36,14 @@ namespace Web
             // set controller factory
             var controllerFactory = new WindsorControllerFactory(Container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
+
+
+            //foreach (var handler in Container.Kernel.GetAssignableHandlers(typeof(object)))
+            //{
+            //    System.Diagnostics.Debug.WriteLine("{0} {1}",
+            //        handler.ComponentModel.Services,
+            //        handler.ComponentModel.Implementation);
+            //}
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)

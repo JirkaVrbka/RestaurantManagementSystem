@@ -68,6 +68,12 @@ namespace Web.Controllers
             try
             {
                 await EmployeeFacade.RegisterCustomer(customer);
+                await CompanyFacade.RegisterCompany(new CompanyDto()
+                {
+                    Ico = customer.Ico,
+                    JoinDate = DateTime.Today,
+                    Name = customer.Name
+                }, customer.Email);
 
                 var authTicket = new FormsAuthenticationTicket(1, customer.Email, DateTime.Now,
                     DateTime.Now.AddMinutes(30), false, "Owner");

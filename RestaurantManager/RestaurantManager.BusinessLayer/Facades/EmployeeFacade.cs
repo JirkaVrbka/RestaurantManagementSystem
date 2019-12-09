@@ -86,5 +86,29 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _employeeService.AuthorizeUserAsync(email, password);
             }
         }
+
+        public async Task<EmployeeDto> GetByEmailAsync(string email)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _employeeService.GetEmployeeByEmail(email);
+            }
+        }
+
+        public async Task RegisterEmployee(EmployeeDto employee)
+        {
+            using (var uow = UnitOfWorkProvider.Create())
+            {
+                try
+                {
+                    await _employeeService.RegisterEmployeeAsync(employee);
+                    await uow.Commit();
+                }
+                catch (ArgumentException)
+                {
+                    throw;
+                }
+            }
+        }
     }
 }

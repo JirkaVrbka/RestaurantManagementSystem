@@ -22,14 +22,14 @@ namespace RestaurantManager.BusinessLayer.Services
         private const int PBKDF2SubkeyLength = 160 / 8;
         private const int saltSize = 128 / 8;
 
-        private readonly IRepository<Employee> employeeRepository;
+        private readonly IRepository<Employee> _repository;
 
         private readonly QueryObjectBase<EmployeeDto, Employee, EmployeeFilterDto, IQuery<Employee>>
             _query;
 
-        public EmployeeService(IMapper mapper, IRepository<Employee> repository, QueryObjectBase<EmployeeDto, Employee, EmployeeFilterDto, IQuery<Employee>> query, IRepository<Employee> employeeRepository) : base(mapper, repository, query)
+        public EmployeeService(IMapper mapper, IRepository<Employee> repository, QueryObjectBase<EmployeeDto, Employee, EmployeeFilterDto, IQuery<Employee>> query) : base(mapper, repository, query)
         {
-            this.employeeRepository = employeeRepository;
+            _repository = repository;
             _query = query;
         }
 
@@ -63,7 +63,7 @@ namespace RestaurantManager.BusinessLayer.Services
             customer.PasswordHash = password.Item1;
             customer.PasswordSalt = password.Item2;
 
-            employeeRepository.Create(customer);
+            _repository.Create(customer);
         }
 
         private Tuple<string, string> CreateHash(string password)
@@ -97,6 +97,22 @@ namespace RestaurantManager.BusinessLayer.Services
                 var generatedSubkey = deriveBytes.GetBytes(PBKDF2SubkeyLength);
                 return hashedPasswordBytes.SequenceEqual(generatedSubkey);
             }
+        }
+
+        public async Task RegisterEmployeeAsync(EmployeeDto employee)
+        {
+            var customer = Mapper.Map<Employee>(employee);
+
+            if (await GetEmployeeByEmail(customer.Email) != null)
+            {
+                throw new ArgumentException();
+            }
+
+            var password = CreateHash(employee.Password);
+            customer.PasswordHash = password.Item1;
+            customer.PasswordSalt = password.Item2;
+
+            _repository.Create(customer);
         }
     }
 }

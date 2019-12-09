@@ -19,7 +19,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             this._companyService = companyService;
         }
 
-        public async Task<int> RegisterCompany(CompanyDto companyCreateDto)
+        public async Task<int> RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
         {
             using (var uow = UnitOfWorkProvider.Create())
             {
