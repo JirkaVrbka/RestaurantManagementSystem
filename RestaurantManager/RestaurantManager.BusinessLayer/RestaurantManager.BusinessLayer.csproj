@@ -40,6 +40,10 @@
     <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.5.0.1\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="RestaurantManager.BusinessLayer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Web\Bin\RestaurantManager.BusinessLayer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -66,6 +70,8 @@
     <Compile Include="DTOs\DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\Common\FilterDtoBase.cs" />
     <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
+    <Compile Include="Facades\Common\FacadeCrudBase.cs" />
+    <Compile Include="Facades\EmployeeFacade.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
     <Compile Include="QueryObjects\QueryResultDto.cs" />
     <Compile Include="DTOs\DTOs\StockItemDto.cs" />
