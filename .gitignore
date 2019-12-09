@@ -1,58 +1,36 @@
 
-StockSystem/Demo/obj/Debug/
+RestaurantManager/.vs/
 
-StockSystem/StockSystem/obj/Debug/
+RestaurantManager/RestaurantManager.DAL/obj/Debug/
 
-*.cache
+RestaurantManager/packages/
 
-StockSystem/.vs/
+RestaurantManager/RestaurantManager.Utils/obj/Debug/
 
-StockSystem/RestaurantManager.Infrastucture/obj/Debug/
+RestaurantManager/RestaurantManager.DAL.Test/obj/Debug/
 
-StockSystem/RestaurantManager.Infrastucture/obj/
+RestaurantManager/RestaurantManager.DAL.Test/bin/Debug/
 
-StockSystem/StockSystem/obj/
+RestaurantManager/RestaurantManager.DAL/bin/Debug/
 
-StockSystem/RestaurantManager.Infrastructure.EntityFramework/obj/
+RestaurantManager/RestaurantManager.Utils/bin/Debug/
 
-StockSystem/StockSystem/bin/Debug/
+RestaurantManager/RestaurantManager.Infrastructure/obj/Debug/
 
-StockSystem/RestaurantManager.Infrastucture/bin/Debug/
+RestaurantManager/RestaurantManager.Infrastructure.EF/obj/Debug/
 
-StockSystem/RestaurantManager.Infrastructure.EntityFramework/bin/Debug/
+RestaurantManager/RestaurantManager.Infrastructure/bin/Debug/
 
-StockSystem/Demo/bin/Debug/
+RestaurantManager/RestaurantManager.Infrastructure.EF.Test/bin/Debug/
 
-StockSystem/.idea/
+RestaurantManager/RestaurantManager.Infrastructure.EF.Test/obj/Debug/
 
-StockSystem/RestaurantManager.Utils/bin/Debug/
+RestaurantManager/RestaurantManager.Infrastructure.EF/bin/Debug/
 
-StockSystem/RestaurantManager.Utils/obj/Debug/
+RestaurantManager/RestaurantManager.BusinessLayer/obj/Debug/
 
-StockSystem/RestaurantManager.BussinessLayer/bin/Debug/
+RestaurantManager/RestaurantManager.BusinessLayer/bin/Debug/
 
-StockSystem/RestaurantManager.BussinessLayer/obj/Debug/
+RestaurantManager/Web/obj/Debug/
 
-StockSystem/RestaurantManager.DAL.Tests/obj/Debug/
-
-StockSystem/RestaurantManager.DAL.Tests/bin/Debug/
-
-StockSystem/RestaurantManager.BussinessLayer.Test/bin/Debug/
-
-StockSystem/RestaurantManager.BussinessLayer.Test/obj/Debug/
-
-StockSystem/Web/obj/Debug/
-
-StockSystem/RestaurantManager.DAL/bin/Debug/
-
-StockSystem/RestaurantManager.DAL/obj/Debug/
-
-StockSystem/RestaurantManager.Infrastracture.EntityFramework/bin/Debug/
-
-StockSystem/RestaurantManager.Infrastracture.EntityFramework/obj/Debug/
-
-StockSystem/RestaurantManager.Infrastructure/bin/Debug/
-
-StockSystem/RestaurantManager.Infrastructure/obj/Debug/
-
-StockSystem/Web/bin/
+RestaurantManager/Web/bin/
