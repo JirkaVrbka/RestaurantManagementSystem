@@ -1,58 +1,16 @@
 
-StockSystem/Demo/obj/Debug/
+RestaurantManager/.vs/
 
-StockSystem/StockSystem/obj/Debug/
+RestaurantManager/RestaurantManager.DAL/obj/Debug/
 
-*.cache
+RestaurantManager/packages/
 
-StockSystem/.vs/
+RestaurantManager/RestaurantManager.Utils/obj/Debug/
 
-StockSystem/RestaurantManager.Infrastucture/obj/Debug/
+RestaurantManager/RestaurantManager.DAL.Test/obj/Debug/
 
-StockSystem/RestaurantManager.Infrastucture/obj/
+RestaurantManager/RestaurantManager.DAL.Test/bin/Debug/
 
-StockSystem/StockSystem/obj/
+RestaurantManager/RestaurantManager.DAL/bin/Debug/
 
-StockSystem/RestaurantManager.Infrastructure.EntityFramework/obj/
-
-StockSystem/StockSystem/bin/Debug/
-
-StockSystem/RestaurantManager.Infrastucture/bin/Debug/
-
-StockSystem/RestaurantManager.Infrastructure.EntityFramework/bin/Debug/
-
-StockSystem/Demo/bin/Debug/
-
-StockSystem/.idea/
-
-StockSystem/RestaurantManager.Utils/bin/Debug/
-
-StockSystem/RestaurantManager.Utils/obj/Debug/
-
-StockSystem/RestaurantManager.BussinessLayer/bin/Debug/
-
-StockSystem/RestaurantManager.BussinessLayer/obj/Debug/
-
-StockSystem/RestaurantManager.DAL.Tests/obj/Debug/
-
-StockSystem/RestaurantManager.DAL.Tests/bin/Debug/
-
-StockSystem/RestaurantManager.BussinessLayer.Test/bin/Debug/
-
-StockSystem/RestaurantManager.BussinessLayer.Test/obj/Debug/
-
-StockSystem/Web/obj/Debug/
-
-StockSystem/RestaurantManager.DAL/bin/Debug/
-
-StockSystem/RestaurantManager.DAL/obj/Debug/
-
-StockSystem/RestaurantManager.Infrastracture.EntityFramework/bin/Debug/
-
-StockSystem/RestaurantManager.Infrastracture.EntityFramework/obj/Debug/
-
-StockSystem/RestaurantManager.Infrastructure/bin/Debug/
-
-StockSystem/RestaurantManager.Infrastructure/obj/Debug/
-
-StockSystem/Web/bin/
+RestaurantManager/RestaurantManager.Utils/bin/Debug/
