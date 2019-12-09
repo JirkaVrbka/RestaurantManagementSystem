@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RestaurantManager.BussinessLayer.Test")]
+[assembly: AssemblyTitle("RestaurantManager.Utils")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RestaurantManager.BussinessLayer.Test")]
+[assembly: AssemblyProduct("RestaurantManager.Utils")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2954fdcc-f7a7-4d1f-8a05-4705996e5b75")]
+[assembly: Guid("7f3ef631-7873-476a-9343-5e9d343e9548")]
 
 // Version information for an assembly consists of the following four values:
 //

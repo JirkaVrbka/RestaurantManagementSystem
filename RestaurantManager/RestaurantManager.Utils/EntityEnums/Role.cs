@@ -1,4 +1,4 @@
-﻿namespace RestaurantManager.DAL.Enums
+﻿namespace RestaurantManager.Utils.EntityEnums
 {
     public enum Role
     {
