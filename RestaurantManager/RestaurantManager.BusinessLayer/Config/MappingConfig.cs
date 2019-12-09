@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using RestaurantManager.BusinessLayer.DTOs;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
+using RestaurantManager.BusinessLayer.DTOs.Filters;
+using RestaurantManager.BusinessLayer.QueryObjects;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.Infrastructure.Query;
 
@@ -23,6 +25,8 @@ namespace RestaurantManager.BusinessLayer.Config
             config.CreateMap<Payment, PaymentDto>().ReverseMap();
             config.CreateMap<Stock, StockDto>().ReverseMap();
             config.CreateMap<Company, CompanyWithIncludesDto>().ReverseMap();
+
+            config.CreateMap<QueryResult<Company>, QueryResultDto<CompanyDto, CompanyFilterDto>>();
         }
     }
 }
