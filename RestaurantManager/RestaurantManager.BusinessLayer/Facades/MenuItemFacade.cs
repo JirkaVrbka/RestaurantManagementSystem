@@ -19,47 +19,47 @@ namespace RestaurantManager.BusinessLayer.Facades
         }
 
 
-        public async Task Create(MenuItemDto employee)
+        public async Task Create(MenuItemDto menuItem)
         {
             using (UnitOfWorkProvider.Create())
             {
-                _menuItemService.Create(employee);
+                _menuItemService.Create(menuItem);
                 await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }
 
-        public async Task Delete(MenuItemDto employee)
+        public async Task Delete(MenuItemDto menuItem)
         {
             using (UnitOfWorkProvider.Create())
             {
-                _menuItemService.DeleteProduct(employee.Id);
+                _menuItemService.DeleteProduct(menuItem.Id);
                 await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }
 
-        public async Task Delete(int employeeId)
+        public async Task Delete(int menuItemId)
         {
             using (UnitOfWorkProvider.Create())
             {
-                _menuItemService.DeleteProduct(employeeId);
+                _menuItemService.DeleteProduct(menuItemId);
                 await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }
 
-        public async Task Update(MenuItemDto employee)
+        public async Task Update(MenuItemDto menuItem)
         {
             using (UnitOfWorkProvider.Create())
             {
-                await _menuItemService.Update(employee);
+                await _menuItemService.Update(menuItem);
                 await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }
 
-        public async Task<MenuItemDto> GetAsync(int employeeId)
+        public async Task<MenuItemDto> GetAsync(int menuItemId)
         {
             using (UnitOfWorkProvider.Create())
             {
-                return await _menuItemService.GetAsync(employeeId, false);
+                return await _menuItemService.GetAsync(menuItemId, false);
             }
         }
     }
