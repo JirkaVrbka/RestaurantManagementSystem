@@ -25,11 +25,6 @@ namespace RestaurantManager.Infrastructure.EF.Test
             Container.Install(new EFTestInstaller());
         }
 
-        [TestCleanup]
-        public void Dispose()
-        {
-
-        }
 
         [TestMethod]
         public async Task SimpleSingleCompany()
@@ -251,9 +246,50 @@ namespace RestaurantManager.Infrastructure.EF.Test
 
             Assert.AreEqual(3, company.MenuItems.Count);
             Assert.AreEqual(3, company.Orders.Count);
-            //Assert.AreEqual(3, company.Orders[0].Items.Count);
             Assert.AreEqual("Bear", company.Name);
             Assert.AreEqual(2, company.Employees.Count);
         }
+
+        [TestMethod]
+        public async Task SimpleUpdate()
+        {
+            IUnitOfWorkProvider unitOfWorkProvider = Container.Resolve<IUnitOfWorkProvider>();
+            IRepository<Company> companyRepository = Container.Resolve<IRepository<Company>>();
+
+            using (unitOfWorkProvider.Create())
+            {
+
+                Company company = await companyRepository.GetAsync(1);
+                company.Name = "Horse";
+                
+                companyRepository.Update(company);
+                await unitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+
+                company = await companyRepository.GetAsync(1);
+
+                Assert.AreEqual("Horse", company.Name);
+            }
+
+        }
+
+
+        [TestMethod]
+        public async Task SimpleDelete()
+        {
+            IUnitOfWorkProvider unitOfWorkProvider = Container.Resolve<IUnitOfWorkProvider>();
+            IRepository<Company> companyRepository = Container.Resolve<IRepository<Company>>();
+
+            using (unitOfWorkProvider.Create())
+            {
+                companyRepository.Delete(1);
+                await unitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+
+                Company company = await companyRepository.GetAsync(1);
+
+                Assert.IsNull(company);
+            }
+        }
+
+
     }
 }
