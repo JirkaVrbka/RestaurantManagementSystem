@@ -1,10 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestaurantManager.Infrastructure;
 using RestaurantManager.Utils.EntityEnums;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class Employee
+    public class Employee : IEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }

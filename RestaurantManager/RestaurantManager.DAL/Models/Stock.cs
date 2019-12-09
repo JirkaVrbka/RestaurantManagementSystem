@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class Stock
+    public class Stock : IEntity
     {
         [ForeignKey("MenuItem")]
         public int Id { get; set; }

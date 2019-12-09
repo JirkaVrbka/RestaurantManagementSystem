@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class MenuItem
+    public class MenuItem : IEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }

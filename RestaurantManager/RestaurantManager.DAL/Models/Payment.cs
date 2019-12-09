@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class Payment
+    public class Payment : IEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }

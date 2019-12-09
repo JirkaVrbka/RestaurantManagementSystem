@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class OrderItem
+    public class OrderItem : IEntity
     {
         public int Id { get; set; }
         public int OrderId { get; set; }
