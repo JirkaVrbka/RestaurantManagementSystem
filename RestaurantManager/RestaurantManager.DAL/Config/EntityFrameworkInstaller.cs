@@ -20,7 +20,8 @@ namespace RestaurantManager.DAL.Config
             container.Register(
                 Component.For<Func<DbContext>>()
                     .Instance(() => new RestaurantManagerDbContext())
-                    .LifestyleTransient(),
+                    .LifestyleTransient()
+                    .IsFallback(),
                 Component.For<IUnitOfWorkProvider>()
                     .ImplementedBy<EFUnitOfWorkProvider>()
                     .LifestyleSingleton(),

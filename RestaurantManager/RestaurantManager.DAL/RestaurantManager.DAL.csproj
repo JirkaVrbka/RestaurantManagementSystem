@@ -70,7 +70,7 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Payment.cs" />
-    <Compile Include="Models\Stock.cs" />
+    <Compile Include="Models\StockItem.cs" />
     <Compile Include="RestaurantManagerDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

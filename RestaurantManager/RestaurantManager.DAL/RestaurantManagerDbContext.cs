@@ -11,7 +11,7 @@ namespace RestaurantManager.DAL
         public DbSet<MenuItem> MenuItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Payment> Payments { get; set; }
-        public DbSet<Stock> StockItems { get; set; }
+        public DbSet<StockItem> StockItems { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
 
         public RestaurantManagerDbContext() : base(EntityFrameworkInstaller.ConnectionString)

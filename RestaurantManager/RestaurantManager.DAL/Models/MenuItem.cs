@@ -14,7 +14,7 @@ namespace RestaurantManager.DAL.Models
         public string Name { get; set; }
         [Required]
         public int Price { get; set; }
-        public virtual Stock InStock { get; set; }
+        public virtual StockItem InStockItem { get; set; }
 
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.MenuItems);

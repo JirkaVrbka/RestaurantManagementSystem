@@ -1,6 +1,6 @@
 ﻿namespace RestaurantManager.BusinessLayer.DTOs.DTOs
 {
-    public class StockDto
+    public class StockItemDto
     {
         public int Id { get; set; }
         public int CompanyId { get; set; }

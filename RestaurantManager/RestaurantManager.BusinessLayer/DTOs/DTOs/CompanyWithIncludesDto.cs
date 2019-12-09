@@ -11,7 +11,7 @@ namespace RestaurantManager.BusinessLayer.DTOs.DTOs
         public virtual List<EmployeeDto> Employees { get; set; }
         public virtual List<MenuItemDto> MenuItems { get; set; }
         public virtual List<OrderDto> Orders { get; set; }
-        public virtual List<StockDto> Stock { get; set; }
+        public virtual List<StockItemDto> Stock { get; set; }
         public virtual List<PaymentDto> Payments { get; set; }
     }
 }

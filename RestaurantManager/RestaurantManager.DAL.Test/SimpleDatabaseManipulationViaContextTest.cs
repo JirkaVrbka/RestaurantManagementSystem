@@ -29,7 +29,7 @@ namespace RestaurantManager.DAL.Test
                 MenuItems = new List<MenuItem>(),
                 Orders = new List<Order>(),
                 Payments = new List<Payment>(),
-                Stock = new List<Stock>()
+                Stock = new List<StockItem>()
             };
 
             context.Companies.Add(company);
@@ -52,7 +52,7 @@ namespace RestaurantManager.DAL.Test
                 MenuItems = new List<MenuItem>(),
                 Orders = new List<Order>(),
                 Payments = new List<Payment>(),
-                Stock = new List<Stock>()
+                Stock = new List<StockItem>()
             };
 
             var menuItems = new List<MenuItem>() { 
@@ -111,9 +111,9 @@ namespace RestaurantManager.DAL.Test
                 }
             };
 
-            var stockItems = new List<Stock>()
+            var stockItems = new List<StockItem>()
             {
-                new Stock()
+                new StockItem()
                 {
                     Id = menuItems[0].Id,
                     MenuItem = menuItems[0],
@@ -121,7 +121,7 @@ namespace RestaurantManager.DAL.Test
                     BuyPrice = 10,
                     Company = company
                 },
-                new Stock()
+                new StockItem()
                 {
                     Id = 1,
                     MenuItem = menuItems[1],
@@ -129,7 +129,7 @@ namespace RestaurantManager.DAL.Test
                     BuyPrice = 15,
                     Company = company
                 },
-                new Stock()
+                new StockItem()
                 {
                     Id = 2,
                     MenuItem = menuItems[2],

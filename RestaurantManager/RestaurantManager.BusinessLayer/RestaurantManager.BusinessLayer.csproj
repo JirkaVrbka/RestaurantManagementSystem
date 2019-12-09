@@ -68,7 +68,7 @@
     <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
     <Compile Include="QueryObjects\QueryResultDto.cs" />
-    <Compile Include="DTOs\DTOs\StockDto.cs" />
+    <Compile Include="DTOs\DTOs\StockItemDto.cs" />
     <Compile Include="DTOs\Filters\CompanyFilterDto.cs" />
     <Compile Include="Facades\Common\FacadeBase.cs" />
     <Compile Include="Facades\CompanyFacade.cs" />

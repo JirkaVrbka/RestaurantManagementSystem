@@ -4,7 +4,7 @@ using RestaurantManager.Infrastructure;
 
 namespace RestaurantManager.DAL.Models
 {
-    public class Stock : IEntity
+    public class StockItem : IEntity
     {
         [ForeignKey("MenuItem")]
         public int Id { get; set; }

@@ -28,7 +28,7 @@
 
                     @if (User.IsInRole("Owner") || User.IsInRole("Manager"))
                     {
-                        <li>@Html.ActionLink("Stock", "Stock", "Home")</li>
+                        <li>@Html.ActionLink("StockItem", "Stock", "Home")</li>
                     }
 
                     @if (User.IsInRole("Owner"))
