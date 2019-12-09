@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using RestaurantManager.BusinessLayer.DTOs;
+using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.DTOs.Filters;
 using RestaurantManager.DAL.Models;
 using RestaurantManager.Infrastructure.Query;

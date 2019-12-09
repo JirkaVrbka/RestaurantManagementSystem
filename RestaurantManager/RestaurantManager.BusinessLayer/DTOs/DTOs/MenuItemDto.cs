@@ -1,4 +1,4 @@
-﻿namespace RestaurantManager.BusinessLayer.DTOs
+﻿namespace RestaurantManager.BusinessLayer.DTOs.DTOs
 {
     public class MenuItemDto
     {

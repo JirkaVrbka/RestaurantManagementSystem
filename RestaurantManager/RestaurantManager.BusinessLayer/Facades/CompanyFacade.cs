@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestaurantManager.BusinessLayer.DTOs;
+using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades.Common;
 using RestaurantManager.BusinessLayer.Services;
 using RestaurantManager.Infrastructure.UnitOfWork;
