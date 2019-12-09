@@ -46,6 +46,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UnitOfWork\IUnitOfWork.cs" />
     <Compile Include="UnitOfWork\IUnitOfWorkProvider.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkBase.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkProviderBase.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
