@@ -72,6 +72,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantManager.Infrastructure.EF\RestaurantManager.Infrastructure.EF.csproj">
+      <Project>{7A6453A0-E09B-4B29-8EAC-8AFC1C9E2B15}</Project>
+      <Name>RestaurantManager.Infrastructure.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Infrastructure\RestaurantManager.Infrastructure.csproj">
       <Project>{6DFC8261-A01A-4F86-B09C-DFC2991A6312}</Project>
       <Name>RestaurantManager.Infrastructure</Name>

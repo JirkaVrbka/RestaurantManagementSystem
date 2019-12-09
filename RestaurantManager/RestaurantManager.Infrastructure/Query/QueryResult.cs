@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantManager.Infrastructure.Query
 {
-    public abstract class QueryResult<TEntity> where TEntity : IEntity
+    public class QueryResult<TEntity> where TEntity : IEntity
     {
         public QueryResult(IList<TEntity> items, long totalItemsCount, int pageSize = 10, int? requestedPageNumber = null)
         {

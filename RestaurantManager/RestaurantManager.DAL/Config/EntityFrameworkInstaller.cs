@@ -3,6 +3,11 @@ using System.Data.Entity;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using RestaurantManager.Infrastructure;
+using RestaurantManager.Infrastructure.EF;
+using RestaurantManager.Infrastructure.EF.UnitOfWork;
+using RestaurantManager.Infrastructure.Query;
+using RestaurantManager.Infrastructure.UnitOfWork;
 
 namespace RestaurantManager.DAL.Config
 {
@@ -15,20 +20,16 @@ namespace RestaurantManager.DAL.Config
             container.Register(
                 Component.For<Func<DbContext>>()
                     .Instance(() => new RestaurantManagerDbContext())
-                    .LifestyleTransient()
-                /*
-                TODO uncomment after implementation of commented classes 
-                ,
+                    .LifestyleTransient(),
                 Component.For<IUnitOfWorkProvider>()
-                    .ImplementedBy<EntityFrameworkUnitOfWorkProvider>()
+                    .ImplementedBy<EFUnitOfWorkProvider>()
                     .LifestyleSingleton(),
                 Component.For(typeof(IRepository<>))
-                    .ImplementedBy(typeof(EntityFrameworkRepository<>))
+                    .ImplementedBy(typeof(EFRepository<>))
                     .LifestyleTransient(),
                 Component.For(typeof(IQuery<>))
-                    .ImplementedBy(typeof(EntityFrameworkQuery<>))
+                    .ImplementedBy(typeof(EFQuery<>))
                     .LifestyleTransient()
-                    */
             );
         }
     }
