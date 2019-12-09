@@ -2,18 +2,18 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("RestaurantManager.DAL.Tests")]
+[assembly: AssemblyTitle("RestaurantManager.DAL.Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("RestaurantManager.DAL.Tests")]
+[assembly: AssemblyProduct("RestaurantManager.DAL.Test")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: Guid("492face7-40bc-4433-b1e0-bb9dda716205")]
+[assembly: Guid("9d9bb7f7-3c48-4d12-939b-3f226e607e49")]
 
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
