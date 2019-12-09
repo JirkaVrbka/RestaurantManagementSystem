@@ -1,4 +1,4 @@
-﻿@model Web.Models.CompanyModel
+﻿@model RestaurantManager.BusinessLayer.DTOs.DTOs.CompanyDto
 
 @{
     ViewBag.Title = "MyCompany";
@@ -20,14 +20,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Ico)
         </dt>
 
@@ -35,6 +27,13 @@
             @Html.DisplayFor(model => model.Ico)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.JoinDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JoinDate)
+        </dd>
     </dl>
 </div>
 <p>

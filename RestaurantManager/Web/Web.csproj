@@ -129,18 +129,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Windsor\PresentationLayerInstaller.cs" />
     <Compile Include="App_Start\Windsor\WindsorControllerFactory.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MyAccountController.cs" />
+    <Compile Include="Controllers\MyCompanyController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
+    <Compile Include="Controllers\StatisticsController.cs" />
+    <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CompanyModel.cs" />
-    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
-    <Compile Include="Models\MenuItemModel.cs" />
-    <Compile Include="Models\MyAccountModel.cs" />
-    <Compile Include="Models\PaymentModel.cs" />
-    <Compile Include="Models\StockItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,17 +204,15 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Home\Employees.cshtml" />
-    <Content Include="Views\Home\MenuItems.cshtml" />
-    <Content Include="Views\Home\MyAccount.cshtml" />
-    <Content Include="Views\Home\MyCompany.cshtml" />
-    <Content Include="Views\Home\Payments.cshtml" />
-    <Content Include="Views\Home\Statistics.cshtml" />
-    <Content Include="Views\Home\Stock.cshtml" />
+    <Content Include="Views\Employees\Employees.cshtml" />
+    <Content Include="Views\MyAccount\MyAccount.cshtml" />
+    <Content Include="Views\MyCompany\MyCompany.cshtml" />
+    <Content Include="Views\Payments\Payments.cshtml" />
+    <Content Include="Views\Statistics\Statistics.cshtml" />
+    <Content Include="Views\Stock\Stock.cshtml" />
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="webfonts\fa-brands-400.svg" />
     <Content Include="webfonts\fa-regular-400.svg" />
