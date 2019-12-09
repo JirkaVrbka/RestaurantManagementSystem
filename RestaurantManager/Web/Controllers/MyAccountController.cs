@@ -25,5 +25,19 @@ namespace Web.Controllers
             var employee = await EmployeeFacade.GetAsync(id);
             return View(employee);
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Save(EmployeeDto employee)
+        {
+            try
+            {
+                await EmployeeFacade.Update(employee);
+                return View("MyAccount");
+            }
+            catch (Exception)
+            {
+                return View("Edit");
+            }
+        }
     }
 }

@@ -71,7 +71,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task RegisterCustomer(NewCustomerDto customer)
+        public async Task RegisterCustomer(EmployeeDto customer)
         {
             using (var uow = UnitOfWorkProvider.Create())
             {
@@ -94,5 +94,42 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _employeeService.AuthorizeUserAsync(email, password);
             }
         }
+<<<<<<< Updated upstream
+=======
+
+        public async Task<EmployeeDto> GetByEmailAsync(string email)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _employeeService.GetEmployeeByEmail(email);
+            }
+        }
+
+        public async Task RegisterEmployee(EmployeeDto employee, string email)
+        {
+            using (var uow = UnitOfWorkProvider.Create())
+            {
+                try
+                {
+                    await _employeeService.RegisterEmployeeAsync(employee);
+                    await uow.Commit();
+                }
+                catch (ArgumentException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public List<EmployeeDto> GetAllEmplayes(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public EmployeeDto GetEmployee(string identityName, int id)
+        {
+            throw new NotImplementedException();
+        }
+>>>>>>> Stashed changes
     }
 }

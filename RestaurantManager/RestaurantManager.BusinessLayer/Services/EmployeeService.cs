@@ -50,7 +50,7 @@ namespace RestaurantManager.BusinessLayer.Services
             return queryResult.Items.SingleOrDefault();
         }
 
-        public async Task RegisterCustomerAsync(NewCustomerDto userDto)
+        public async Task RegisterCustomerAsync(EmployeeDto userDto)
         {
             var customer = Mapper.Map<Employee>(userDto);
 

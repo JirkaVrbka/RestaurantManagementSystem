@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
+using RestaurantManager.BusinessLayer.Facades;
 using Web.Models;
 
 namespace Web.Controllers
@@ -11,30 +12,26 @@ namespace Web.Controllers
     [Authorize(Roles = "Owner, Manager")]
     public class StockController : Controller
     {
+        public StockItemFacade StockItemFacade { get; set; }
         // GET: Stock
         public ActionResult Stock()
         {
-            var itemsTest = new List<StockItemDto>()
-            {
-                new StockItemDto()
-                {
-                    Name = "Beer",
-                    Amount = 5,
-                    BuyPrice = 20
-                }
-            };
+            List<StockItemDto> stockItems = StockItemFacade.GetAllStockItems(User.Identity.Name);
 
-            return View("Stock", itemsTest);
+            return View("Stock", stockItems);
         }
 
-        public ActionResult ChangeAmountOfStockItem()
+        public ActionResult Edit(int id)
         {
-            var asd = new ChangeAmountModel()
-            {
-                Amount = 5
-            };
+            var item = StockItemFacade.GetAsync(id);
+            return View(item);
+        }
 
-            return View(asd);
+        [HttpPost]
+        public ActionResult Save(StockItemDto item)
+        {
+            StockItemFacade.Update(item);
+            return View("Stock");
         }
     }
 }

@@ -10,5 +10,7 @@ namespace RestaurantManager.BusinessLayer.DTOs.DTOs
         [Required(ErrorMessage = "Your company has to have an Ico")]
         public int Ico { get; set; }
         public DateTime? JoinDate { get; set; }
+
+        public EmployeeDto Owner { get; set; }
     }
 }

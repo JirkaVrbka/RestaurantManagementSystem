@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RestaurantManager.BusinessLayer.DTOs.DTOs
 {
@@ -7,5 +8,8 @@ namespace RestaurantManager.BusinessLayer.DTOs.DTOs
         public int CompanyId { get; set; }
         public DateTime OrderStartTime { get; set; }
 
+        public int TableNumber { get; set; }
+
+        public List<OrderItemDto> OrderItems { get; set; }
     }
 }

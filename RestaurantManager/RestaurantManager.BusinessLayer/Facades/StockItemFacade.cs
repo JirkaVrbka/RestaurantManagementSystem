@@ -69,5 +69,10 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _stockItemService.GetAsync(stockItemId, false);
             }
         }
+
+        public List<StockItemDto> GetAllStockItems(string identityName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

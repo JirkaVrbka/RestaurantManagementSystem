@@ -69,5 +69,15 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _orderService.GetAsync(orderId, false);
             }
         }
+
+        public List<OrderDto> GetAllOrders(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateNewOrder(string email, OrderDto order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

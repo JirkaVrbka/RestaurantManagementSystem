@@ -14,8 +14,10 @@ namespace RestaurantManager.BusinessLayer.Facades
     public class CompanyFacade : FacadeBase
     {
         private CompanyService _companyService;
-        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService) : base(unitOfWorkProvider)
+        private EmployeeService _employeeService;
+        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService, EmployeeService employeeService) : base(unitOfWorkProvider)
         {
+            _employeeService = employeeService;
             this._companyService = companyService;
         }
 
@@ -25,6 +27,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 try
                 {
+                    var employee = _employeeService.GetEmployeeByEmail(ownerEmail);
                     var id = await _companyService.RegisterCompanyAsync(companyCreateDto);
                     await uow.Commit();
                     return id;
@@ -78,6 +81,16 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 return await _companyService.GetAsync(employeeId, false);
             }
+        }
+
+        public CompanyDto GetCompany(string email)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditCompany(CompanyDto company, string email)
+        {
+            throw new NotImplementedException();
         }
     }
 }
