@@ -7,7 +7,7 @@ namespace RestaurantManager.DAL.Models
 {
     public class Employee : IEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
         [MaxLength(256)]

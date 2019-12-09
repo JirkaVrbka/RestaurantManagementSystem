@@ -6,6 +6,7 @@ namespace RestaurantManager.DAL.Models
 {
     public class OrderItem : IEntity
     {
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int OrderId { get; set; }
         public virtual Order Order { get; set; }

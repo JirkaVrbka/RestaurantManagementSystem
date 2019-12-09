@@ -6,7 +6,7 @@ namespace RestaurantManager.DAL.Models
 {
     public class MenuItem : IEntity
     {
-        [Key, DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
