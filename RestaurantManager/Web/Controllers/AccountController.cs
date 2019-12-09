@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.UI;
 using RestaurantManager.BusinessLayer.DTOs;
+using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades;
 using RestaurantManager.Utils.EntityEnums;
 using Web.Models;
