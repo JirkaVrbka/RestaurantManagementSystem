@@ -18,10 +18,11 @@ namespace RestaurantManager.Infrastructure.EF.Test
     {
         internal static readonly IWindsorContainer Container = new WindsorContainer();
 
-        [TestInitialize]
-        public void Init()
+        [ClassInitialize]
+        public static void Init(TestContext context)
         {
             Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantManagerDbContext>());
+            
             Container.Install(new EFTestInstaller());
         }
 
