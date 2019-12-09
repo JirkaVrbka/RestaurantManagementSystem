@@ -26,3 +26,11 @@ RestaurantManager/RestaurantManager.Infrastructure.EF.Test/bin/Debug/
 RestaurantManager/RestaurantManager.Infrastructure.EF.Test/obj/Debug/
 
 RestaurantManager/RestaurantManager.Infrastructure.EF/bin/Debug/
+
+RestaurantManager/RestaurantManager.BusinessLayer/obj/Debug/
+
+RestaurantManager/RestaurantManager.BusinessLayer/bin/Debug/
+
+RestaurantManager/Web/obj/Debug/
+
+RestaurantManager/Web/bin/
