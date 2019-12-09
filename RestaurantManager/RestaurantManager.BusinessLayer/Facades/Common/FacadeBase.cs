@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RestaurantManager.BusinessLayer.DTOs;
 using RestaurantManager.Infrastructure.UnitOfWork;
 
 namespace RestaurantManager.BusinessLayer.Facades.Common
