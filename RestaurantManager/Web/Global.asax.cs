@@ -15,7 +15,7 @@ namespace Web
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        public static readonly IWindsorContainer Container = new WindsorContainer();
+        private static readonly IWindsorContainer Container = new WindsorContainer();
 
         protected void Application_Start()
         {

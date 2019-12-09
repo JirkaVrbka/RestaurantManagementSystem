@@ -130,9 +130,17 @@
     <Compile Include="App_Start\Windsor\PresentationLayerInstaller.cs" />
     <Compile Include="App_Start\Windsor\WindsorControllerFactory.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\EmployeeModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\MenuItemModel.cs" />
+    <Compile Include="Models\MyAccountModel.cs" />
+    <Compile Include="Models\PaymentModel.cs" />
+    <Compile Include="Models\StockItemModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,10 +179,20 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\Register.cshtml" />
+    <Content Include="Views\Login\RegisterCompany.cshtml" />
+    <Content Include="Views\Home\Employees.cshtml" />
+    <Content Include="Views\Home\MenuItems.cshtml" />
+    <Content Include="Views\Home\MyAccount.cshtml" />
+    <Content Include="Views\Home\MyCompany.cshtml" />
+    <Content Include="Views\Home\Payments.cshtml" />
+    <Content Include="Views\Home\Statistics.cshtml" />
+    <Content Include="Views\Home\Stock.cshtml" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -193,6 +211,10 @@
     <ProjectReference Include="..\RestaurantManager.BusinessLayer\RestaurantManager.BusinessLayer.csproj">
       <Project>{45579049-6321-43C8-9156-5DF8468C53DC}</Project>
       <Name>RestaurantManager.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
+      <Project>{7F3EF631-7873-476A-9343-5E9D343E9548}</Project>
+      <Name>RestaurantManager.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
