@@ -53,11 +53,10 @@ namespace RestaurantManager.BusinessLayer.Services.Common
         /// Creates new entity
         /// </summary>
         /// <param name="entityDto">entity details</param>
-        public virtual int Create(TDto entityDto)
+        public virtual void Create(TDto entityDto)
         {
             var entity = Mapper.Map<TEntity>(entityDto);
             Repository.Create(entity);
-            return entity.Id;
         }
 
         /// <summary>
