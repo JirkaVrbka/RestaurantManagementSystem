@@ -77,6 +77,11 @@
     <Compile Include="DTOs\Filters\PaymentFilterDto.cs" />
     <Compile Include="Facades\Common\FacadeCrudBase.cs" />
     <Compile Include="Facades\EmployeeFacade.cs" />
+    <Compile Include="Facades\MenuItemFacade.cs" />
+    <Compile Include="Facades\OrderFacade.cs" />
+    <Compile Include="Facades\OrderItemFacade.cs" />
+    <Compile Include="Facades\PaymentFacade.cs" />
+    <Compile Include="Facades\StockItemFacade.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
     <Compile Include="QueryObjects\QueryResultDto.cs" />
     <Compile Include="DTOs\DTOs\StockItemDto.cs" />
