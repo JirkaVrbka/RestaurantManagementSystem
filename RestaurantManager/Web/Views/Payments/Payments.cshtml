@@ -1,11 +1,11 @@
-﻿@model IEnumerable<Web.Models.EmployeeModel>
+﻿@model IEnumerable<RestaurantManager.BusinessLayer.DTOs.DTOs.PaymentDto>
 
 @{
-    ViewBag.Title = "Employees";
+    ViewBag.Title = "Payments";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h2>Employees</h2>
+<h2>Payments</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,13 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
+            @Html.DisplayNameFor(model => model.DateOfPayment)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.DueDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReceivedAmount)
         </th>
         <th></th>
     </tr>
@@ -27,13 +30,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
+            @Html.DisplayFor(modelItem => item.DateOfPayment)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.LastName)
+            @Html.DisplayFor(modelItem => item.DueDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReceivedAmount)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

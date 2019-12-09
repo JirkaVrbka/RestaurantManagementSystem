@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Web.Models.StockItemModel>
+﻿@model IEnumerable<RestaurantManager.BusinessLayer.DTOs.DTOs.StockItemDto>
 
 @{
     ViewBag.Title = "StockItem";
@@ -19,9 +19,6 @@
             @Html.DisplayNameFor(model => model.BuyPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SellPrice)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Amount)
         </th>
         <th></th>
@@ -36,15 +33,12 @@
             @Html.DisplayFor(modelItem => item.BuyPrice)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SellPrice)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Amount)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Change Amount", "ChangeAmountOfStockItem", new {  id=item.Id  })
+            @*|@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
         </td>
     </tr>
 }
