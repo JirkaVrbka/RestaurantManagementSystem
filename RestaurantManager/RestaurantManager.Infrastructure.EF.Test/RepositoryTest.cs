@@ -22,7 +22,6 @@ namespace RestaurantManager.Infrastructure.EF.Test
         public static void Init(TestContext context)
         {
             Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantManagerDbContext>());
-            
             Container.Install(new EFTestInstaller());
         }
 
