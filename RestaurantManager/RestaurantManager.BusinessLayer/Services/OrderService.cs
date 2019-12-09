@@ -24,5 +24,11 @@ namespace RestaurantManager.BusinessLayer.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<List<OrderDto>> GetStockItemsIdOfCompany(int companyId)
+        {
+            var queryResult = await Query.ExecuteQuery(new OrderFilterDto { CompanyId = companyId });
+            return queryResult.Items.ToList();
+        }
     }
 }

@@ -18,6 +18,14 @@ namespace RestaurantManager.BusinessLayer.Facades
             _stockItemService = stockItemService;
         }
 
+        public async Task<List<StockItemDto>> GetStockItems(int companyId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _stockItemService.GetStockItemsOfCompany(companyId);
+            }
+        }
+
         public async Task Create(StockItemDto stockItem)
         {
             using (UnitOfWorkProvider.Create())

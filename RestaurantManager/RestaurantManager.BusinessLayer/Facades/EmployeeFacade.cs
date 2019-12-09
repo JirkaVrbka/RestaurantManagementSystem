@@ -19,6 +19,14 @@ namespace RestaurantManager.BusinessLayer.Facades
             _employeeService = employeeService;
         }
 
+        public async Task<List<EmployeeDto>> GetEmployees(int companyId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _employeeService.GetEmployeesOfCompany(companyId);
+            }
+        }
+
         public async Task Create(EmployeeDto employee)
         {
             using (UnitOfWorkProvider.Create())
@@ -84,30 +92,6 @@ namespace RestaurantManager.BusinessLayer.Facades
             using (UnitOfWorkProvider.Create())
             {
                 return await _employeeService.AuthorizeUserAsync(email, password);
-            }
-        }
-
-        public async Task<EmployeeDto> GetByEmailAsync(string email)
-        {
-            using (UnitOfWorkProvider.Create())
-            {
-                return await _employeeService.GetEmployeeByEmail(email);
-            }
-        }
-
-        public async Task RegisterEmployee(EmployeeDto employee)
-        {
-            using (var uow = UnitOfWorkProvider.Create())
-            {
-                try
-                {
-                    await _employeeService.RegisterEmployeeAsync(employee);
-                    await uow.Commit();
-                }
-                catch (ArgumentException)
-                {
-                    throw;
-                }
             }
         }
     }

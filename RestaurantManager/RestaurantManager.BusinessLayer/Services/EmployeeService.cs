@@ -38,10 +38,10 @@ namespace RestaurantManager.BusinessLayer.Services
             return Repository.GetAsync(entityId, nameof(Employee.Company));
         }
 
-        public async Task<int[]> GetEmployeesIdOfCompany(int companyId)
+        public async Task<List<EmployeeDto>> GetEmployeesOfCompany(int companyId)
         {
             var queryResult = await Query.ExecuteQuery(new EmployeeFilterDto { CompanyId = companyId });
-            return queryResult.Items.Select(e => e.Id).ToArray();
+            return queryResult.Items.ToList();
         }
 
         public async Task<EmployeeDto> GetEmployeeByEmail(String email)
