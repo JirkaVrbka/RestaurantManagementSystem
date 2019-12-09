@@ -22,6 +22,7 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
 
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+            // TODO this does not drop DB with every new test
             container.Register(
                 Component.For<Func<DbContext>>()
                     .Instance(InitializeDatabase)
