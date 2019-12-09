@@ -8,5 +8,7 @@ namespace RestaurantManager.BusinessLayer.DTOs.Filters
 {
     public class OrderItemFilterDto : FilterDtoBase
     {
+        public int OrderId { get; set; }
+        public int MenuItemId { get; set; }
     }
 }

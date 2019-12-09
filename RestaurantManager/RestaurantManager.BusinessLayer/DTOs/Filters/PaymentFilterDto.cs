@@ -8,5 +8,6 @@ namespace RestaurantManager.BusinessLayer.DTOs.Filters
 {
     public class PaymentFilterDto : FilterDtoBase
     {
+        public int CompanyId { get; set; }
     }
 }

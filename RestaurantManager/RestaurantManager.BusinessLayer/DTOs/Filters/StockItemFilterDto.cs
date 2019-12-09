@@ -2,5 +2,6 @@
 {
     public class StockItemFilterDto : FilterDtoBase
     {
+        public int CompanyId { get; set; }
     }
 }
