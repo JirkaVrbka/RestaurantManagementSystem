@@ -35,12 +35,13 @@ namespace RestaurantManager.Infrastructure.EF.Test
 
             using (unitOfWorkProvider.Create())
             {
-                companyRepository.Create(new Company()
+                var companyToCreate = new Company()
                 {
                     Ico = 11111111,
                     JoinDate = DateTime.Now,
                     Name = "Koala"
-                });
+                };
+                companyRepository.Create(companyToCreate);
 
                 await unitOfWorkProvider.GetUnitOfWorkInstance().Commit();
                 Company firstCompany = await companyRepository.GetAsync(1);
@@ -66,7 +67,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
                 MenuItems = new List<MenuItem>(),
                 Orders = new List<Order>(),
                 Payments = new List<Payment>(),
-                Stock = new List<Stock>()
+                Stock = new List<StockItem>()
             };
 
             var menuItems = new List<MenuItem>() {
@@ -119,23 +120,23 @@ namespace RestaurantManager.Infrastructure.EF.Test
                 }
             };
 
-            var stockItems = new List<Stock>()
+            var stockItems = new List<StockItem>()
             {
-                new Stock()
+                new StockItem()
                 {
                     MenuItem = menuItems[0],
                     Amount = 5,
                     BuyPrice = 10,
                     Company = company
                 },
-                new Stock()
+                new StockItem()
                 {
                     MenuItem = menuItems[1],
                     Amount = 52,
                     BuyPrice = 15,
                     Company = company
                 },
-                new Stock()
+                new StockItem()
                 {
                     MenuItem = menuItems[2],
                     Amount = 4,
@@ -223,7 +224,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
             IRepository<Company> companyRepository = Container.Resolve<IRepository<Company>>();
             IRepository<MenuItem> menuItemRepository = Container.Resolve<IRepository<MenuItem>>();
             IRepository<Payment> paymentRepository = Container.Resolve<IRepository<Payment>>();
-            IRepository<Stock> stockRepository = Container.Resolve<IRepository<Stock>>();
+            IRepository<StockItem> stockRepository = Container.Resolve<IRepository<StockItem>>();
             IRepository<Order> orderRepository = Container.Resolve<IRepository<Order>>();
             IRepository<OrderItem> orderItemRepository = Container.Resolve<IRepository<OrderItem>>();
             IRepository<Employee> employeeRepository = Container.Resolve<IRepository<Employee>>();

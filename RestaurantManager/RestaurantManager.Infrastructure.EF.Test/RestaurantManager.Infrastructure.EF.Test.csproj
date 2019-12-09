@@ -77,6 +77,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RestaurantManager.BusinessLayer\RestaurantManager.BusinessLayer.csproj">
+      <Project>{45579049-6321-43C8-9156-5DF8468C53DC}</Project>
+      <Name>RestaurantManager.BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.DAL\RestaurantManager.DAL.csproj">
       <Project>{9A3056BA-6714-46AB-B258-D13516B2E1D0}</Project>
       <Name>RestaurantManager.DAL</Name>

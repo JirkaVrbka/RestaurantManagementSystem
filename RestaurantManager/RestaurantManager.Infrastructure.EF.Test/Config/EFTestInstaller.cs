@@ -53,7 +53,7 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
                 MenuItems = new List<MenuItem>(),
                 Orders = new List<Order>(),
                 Payments = new List<Payment>(),
-                Stock = new List<Stock>()
+                Stock = new List<StockItem>()
             };
 
             var menuItems = new List<MenuItem>() {
@@ -106,23 +106,23 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
                 }
             };
 
-            var stockItems = new List<Stock>()
+            var stockItems = new List<StockItem>()
             {
-                new Stock()
+                new StockItem()
                 {
                     MenuItem = menuItems[0],
                     Amount = 5,
                     BuyPrice = 10,
                     Company = company
                 },
-                new Stock()
+                new StockItem()
                 {
                     MenuItem = menuItems[1],
                     Amount = 52,
                     BuyPrice = 15,
                     Company = company
                 },
-                new Stock()
+                new StockItem()
                 {
                     MenuItem = menuItems[2],
                     Amount = 4,
