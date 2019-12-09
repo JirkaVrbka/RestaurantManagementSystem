@@ -43,6 +43,7 @@ namespace RestaurantManager.BusinessLayer.Config
                     .LifestyleSingleton()
             );
 
+            container.Kernel.Resolver.AddSubResolver(new CollectionResolver(container.Kernel));
         }
     }
 }

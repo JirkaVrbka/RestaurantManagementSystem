@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using RestaurantManager.BusinessLayer.DTOs;
 
-namespace RestaurantManager.BusinessLayer.DTOs
+namespace RestaurantManager.BusinessLayer.QueryObjects
 {
     public class QueryResultDto<TDto, TFilter> where TFilter : FilterDtoBase
     {
