@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace Web.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class StatisticsController : Controller
     {
         // GET: Statistics

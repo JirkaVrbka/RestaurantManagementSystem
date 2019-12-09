@@ -8,6 +8,7 @@ using RestaurantManager.Utils.EntityEnums;
 
 namespace Web.Controllers
 {
+    [Authorize(Roles = "Owner")]
     public class EmployeesController : Controller
     {
         // GET: Employees
