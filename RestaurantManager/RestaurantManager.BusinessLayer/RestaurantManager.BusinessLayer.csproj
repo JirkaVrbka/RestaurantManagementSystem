@@ -69,7 +69,12 @@
     <Compile Include="DTOs\Common\DtoBase.cs" />
     <Compile Include="DTOs\DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\Common\FilterDtoBase.cs" />
+    <Compile Include="DTOs\Filters\StockItemFilterDto.cs" />
     <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
+    <Compile Include="DTOs\Filters\MenuItemFilterDto.cs" />
+    <Compile Include="DTOs\Filters\OrderFilterDto.cs" />
+    <Compile Include="DTOs\Filters\OrderItemFilterDto.cs" />
+    <Compile Include="DTOs\Filters\PaymentFilterDto.cs" />
     <Compile Include="Facades\Common\FacadeCrudBase.cs" />
     <Compile Include="Facades\EmployeeFacade.cs" />
     <Compile Include="QueryObjects\CompanyQueryObject.cs" />
@@ -84,6 +89,11 @@
     <Compile Include="Services\Common\ServiceBase.cs" />
     <Compile Include="Services\CompanyService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
+    <Compile Include="Services\MenuItemService.cs" />
+    <Compile Include="Services\OrderItemService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PaymentService.cs" />
+    <Compile Include="Services\StockItemService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
