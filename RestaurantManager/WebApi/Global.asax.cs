@@ -9,6 +9,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
 using RestaurantManager.BusinessLayer.Config;
+using WebApi.App_Start.Windsor;
 
 namespace WebApi
 {

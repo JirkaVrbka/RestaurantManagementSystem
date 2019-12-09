@@ -16,7 +16,7 @@ namespace WebApi.App_Start.Windsor
             container.Register(
                 Classes.FromThisAssembly()
                     .BasedOn<IHttpController>()
-                    .LifestylePerWebRequest()
+                    //.LifestylePerWebRequest()
             );
         }
     }

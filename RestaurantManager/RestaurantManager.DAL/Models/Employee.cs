@@ -18,7 +18,10 @@ namespace RestaurantManager.DAL.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-        public string HashedPassword { get; set; }
+        public string PasswordHash { get; set; }
+
+        public string PasswordSalt { get; set; }
+
         [Required(ErrorMessage = "An employee has to have a role in company")]
         public Role Role { get; set; }
 

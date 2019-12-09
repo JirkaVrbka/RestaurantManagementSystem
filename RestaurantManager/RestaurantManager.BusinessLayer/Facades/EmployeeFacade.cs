@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades.Common;
 using RestaurantManager.BusinessLayer.Services;
@@ -59,6 +60,30 @@ namespace RestaurantManager.BusinessLayer.Facades
             using (UnitOfWorkProvider.Create())
             {
                 return await _employeeService.GetAsync(employeeId, false);
+            }
+        }
+
+        public async Task RegisterCustomer(NewCustomerDto customer)
+        {
+            using (var uow = UnitOfWorkProvider.Create())
+            {
+                try
+                {
+                    await _employeeService.RegisterCustomerAsync(customer);
+                    await uow.Commit();
+                }
+                catch (ArgumentException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        public async Task<(bool success, string role)> Login(string email, string password)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _employeeService.AuthorizeUserAsync(email, password);
             }
         }
     }
