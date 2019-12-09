@@ -16,3 +16,5 @@ RestaurantManager/RestaurantManager.DAL/bin/Debug/
 RestaurantManager/RestaurantManager.Utils/bin/Debug/
 
 RestaurantManager/RestaurantManager.Infrastructure/obj/Debug/
+
+RestaurantManager/RestaurantManager.Infrastructure.EF/obj/Debug/
