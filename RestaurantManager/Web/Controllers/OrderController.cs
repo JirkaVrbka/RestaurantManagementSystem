@@ -24,7 +24,7 @@ namespace Web.Controllers
 
         public ActionResult NewOrder()
         {
-            List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", Price = 123}, new MenuItemDto(){Name = "vodka", Price = 456}};
+            List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", SellPrice = 123, BuyPrice = 10}, new MenuItemDto(){Name = "vodka", SellPrice = 456, BuyPrice = 11}};
             ViewBag.datasource = menuItems;
             return View();
         }
