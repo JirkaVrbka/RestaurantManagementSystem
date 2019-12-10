@@ -17,15 +17,27 @@ namespace Web.Controllers
         // GET: Order
         public async Task<ActionResult> Order()
         {
-            List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name);
+            List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
             orders = orders.OrderBy(x => x.OrderStartTime).ToList();
             return View(orders);
         }
 
         public ActionResult NewOrder()
         {
-            List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", SellPrice = 123, BuyPrice = 10}, new MenuItemDto(){Name = "vodka", SellPrice = 456, BuyPrice = 11}};
-            ViewBag.datasource = menuItems;
+            List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", Price = 123}, new MenuItemDto(){Name = "vodka", Price = 456}};
+
+            var list = new List<SelectListItem>();
+            foreach (var item in menuItems)
+            {
+                var x = new SelectListItem()
+                {
+                    Text = item.Name,
+                    Value = item.Id.ToString()
+                };
+                list.Add(x);
+            }
+
+            //ViewBag.datasource = menuItems;
             return View();
         }
 
@@ -33,6 +45,13 @@ namespace Web.Controllers
         public async Task<ActionResult> Create(OrderDto order)
         {
             await CompanyFacade.CreateNewOrderForCompany(User.Identity.Name, order);
+            return View("Order");
+        }
+
+        [HttpPost]
+        public ActionResult Finish()
+        {
+            OrderFacade.CloseTheDay(User.Identity.Name, DateTime.Today);
             return View("Order");
         }
     }

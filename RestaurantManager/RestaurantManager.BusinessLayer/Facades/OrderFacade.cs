@@ -69,5 +69,10 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _orderService.GetAsync(orderId, false);
             }
         }
+
+        public void CloseTheDay(string identityName, DateTime today)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

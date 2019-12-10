@@ -9,6 +9,7 @@
 
 <p>
     @Html.ActionLink("Create New", "NewOrder")
+    
 </p>
 <table class="table">
     <tr>
@@ -21,20 +22,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrderStartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TableNumber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderStartTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TableNumber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+    @Html.ActionLink("Finish day", "Finish")
 
 </table>

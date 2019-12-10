@@ -148,7 +148,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task<List<OrderDto>> GetAllOrders(String employeeEmail)
+        public async Task<List<OrderDto>> GetAllOrders(String employeeEmail, DateTime date)
         {
             using (UnitOfWorkProvider.Create())
             {
