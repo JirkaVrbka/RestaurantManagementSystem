@@ -74,5 +74,10 @@ namespace RestaurantManager.BusinessLayer.Facades
         {
             throw new System.NotImplementedException("Not implemented yet");
         }
+
+        public void CreateNewStockItem(string email, StockItemDto item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -35,5 +35,27 @@ namespace Web.Controllers
             await StockItemFacade.Update(item);
             return View("Stock");
         }
+
+        public ActionResult Create()
+        {
+            var item = new StockItemDto();
+            return View(item);
+        }
+
+        [HttpPost]
+        public ActionResult Create(StockItemDto item)
+        {
+            try
+            {
+                StockItemFacade.CreateNewStockItem(User.Identity.Name, item);
+                return View("Stock");
+            }
+            catch (Exception)
+            {
+                return View("Create");
+            }
+            
+
+        }
     }
 }
