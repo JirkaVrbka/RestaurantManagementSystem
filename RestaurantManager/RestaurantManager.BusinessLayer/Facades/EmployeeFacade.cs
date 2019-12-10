@@ -111,15 +111,5 @@ namespace RestaurantManager.BusinessLayer.Facades
                 }
             }
         }
-
-        public List<EmployeeDto> GetAllEmplayes(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        public EmployeeDto GetEmployee(string identityName, int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

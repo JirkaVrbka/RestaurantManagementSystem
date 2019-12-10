@@ -18,6 +18,11 @@ namespace RestaurantManager.BusinessLayer.Config
         public static void ConfigureMapping(IMapperConfigurationExpression config)
         {
             config.CreateMap<Company, CompanyDto>().ReverseMap();
+            config.CreateMap<Company, CompanyWithEmployeesDto>().ReverseMap();
+            config.CreateMap<Company, CompanyWithMenuItemsDto>().ReverseMap();
+            config.CreateMap<Company, CompanyWithOrdersDto>().ReverseMap();
+            config.CreateMap<Company, CompanyWithPaymentsDto>().ReverseMap();
+            config.CreateMap<Company, CompanyWithStockItemsDto>().ReverseMap();
             config.CreateMap<Employee, EmployeeDto>().ReverseMap();
             config.CreateMap<MenuItem, MenuItemDto>().ReverseMap();
             config.CreateMap<Order, OrderDto>().ReverseMap();

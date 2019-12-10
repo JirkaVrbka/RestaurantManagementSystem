@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Threading.Tasks;
 using Castle.Windsor;
@@ -78,6 +79,69 @@ namespace RestaurantManager.BusinessLayer.Test
             Assert.IsNotNull(actualCompanyDtoByIco);
             Assert.AreEqual(originalCompanyDto.Name, actualCompanyDtoByIco.Name);
             Assert.AreEqual(originalCompanyDto.Ico, actualCompanyDtoByIco.Ico);
+        }
+
+        [TestMethod]
+        public async Task CompanyServiceGetEmployees()
+        {
+            IUnitOfWorkProvider unitOfWorkProvider = Container.Resolve<IUnitOfWorkProvider>();
+            CompanyService companyService = Container.Resolve<CompanyService>();
+            EmployeeService employeeService = Container.Resolve<EmployeeService>();
+
+            CompanyDto actualCompanyDtoByIco;
+            var originalCompanyDto = new CompanyDto
+            {
+                Ico = 87654321,
+                Name = "Kitty",
+                JoinDate = DateTime.Now
+
+            };
+            CompanyWithEmployeesDto companyWithEmployees;
+
+            using (unitOfWorkProvider.Create())
+            {
+                companyService.Create(originalCompanyDto);
+
+                await unitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+
+                actualCompanyDtoByIco = await companyService.GetByIco(originalCompanyDto.Ico);
+
+                await employeeService.RegisterEmployeeAsync(new EmployeeDto
+                {
+                    CompanyId = actualCompanyDtoByIco.Id,
+                    Email = "an@email.com",
+                    FirstName = "name",
+                    LastName = "Surmane",
+                    PasswordHash = "1111"
+                });
+
+                await employeeService.RegisterEmployeeAsync(new EmployeeDto
+                {
+                    CompanyId = actualCompanyDtoByIco.Id,
+                    Email = "asn@email.com",
+                    FirstName = "ndame",
+                    LastName = "Surmane",
+                    PasswordHash = "1111"
+                });
+
+                await employeeService.RegisterEmployeeAsync(new EmployeeDto
+                {
+                    CompanyId = actualCompanyDtoByIco.Id,
+                    Email = "asn@email.com",
+                    FirstName = "name",
+                    LastName = "Surdmane",
+                    PasswordHash = "1111"
+                });
+
+
+                await unitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+
+                companyWithEmployees = await companyService.GetAsyncWithEmployees(actualCompanyDtoByIco.Id);
+
+            }
+
+            Assert.IsNotNull(companyWithEmployees);
+            Assert.AreEqual(3, companyWithEmployees.Employees.Count);
         }
     }
 }

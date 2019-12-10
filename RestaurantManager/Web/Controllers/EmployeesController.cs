@@ -15,10 +15,11 @@ namespace Web.Controllers
     public class EmployeesController : Controller
     {
         public EmployeeFacade EmployeeFacade { get; set; }
+        public CompanyFacade CompanyFacade { get; set; }
 
-        public ActionResult Employees()
+        public async Task<ActionResult> Employees()
         {
-            List<EmployeeDto> employees = EmployeeFacade.GetAllEmplayes(User.Identity.Name);
+            List<EmployeeDto> employees = await CompanyFacade.GetAllEmployees(User.Identity.Name); //E mployeeFacade.GetAllEmployees(User.Identity.Name);
             return View("Employees", employees);
         }
 
@@ -30,11 +31,11 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(EmployeeDto employee)
+        public async Task<ActionResult> Create(EmployeeDto employee)
         {
             try
             {
-                EmployeeFacade.RegisterEmployee(employee, User.Identity.Name);
+                await EmployeeFacade.RegisterEmployee(employee, User.Identity.Name);
 
 
                 return RedirectToAction("Employees", "Employees");
@@ -46,9 +47,9 @@ namespace Web.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            EmployeeFacade.Delete(id);
+            await EmployeeFacade.Delete(id);
             return View("Employees");
         }
 
@@ -60,11 +61,11 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(EmployeeDto employee)
+        public async Task<ActionResult> Save(EmployeeDto employee)
         {
             try
             {
-                EmployeeFacade.Update(employee);
+                await EmployeeFacade.Update(employee);
                 return View("Employees");
             }
             catch (Exception)

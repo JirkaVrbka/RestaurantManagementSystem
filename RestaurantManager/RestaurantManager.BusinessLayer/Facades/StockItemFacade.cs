@@ -72,7 +72,7 @@ namespace RestaurantManager.BusinessLayer.Facades
 
         public List<StockItemDto> GetAllStockItems(string identityName)
         {
-            throw new NotImplementedException();
+            throw new System.NotImplementedException("Not implemented yet");
         }
     }
 }

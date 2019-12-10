@@ -49,6 +49,35 @@ namespace RestaurantManager.BusinessLayer.Services
         {
             return await Repository.GetAsync(entityId, new string[] { nameof(CompanyWithIncludesDto.Employees), nameof(CompanyWithIncludesDto.MenuItems), nameof(CompanyWithIncludesDto.Orders), nameof(CompanyWithIncludesDto.Payments), nameof(CompanyWithIncludesDto.Stock) });
         }
-        
+
+        public async Task<CompanyWithEmployeesDto> GetAsyncWithEmployees(int entityId)
+        {
+            Company company =  await Repository.GetAsync(entityId, new string[] { nameof(CompanyWithIncludesDto.Employees)});
+            return Mapper.Map<Company, CompanyWithEmployeesDto>(company);
+        }
+
+        public async Task<CompanyWithMenuItemsDto> GetAsyncWithMenuItems(int entityId)
+        {
+            Company company = await Repository.GetAsync(entityId, new string[] { nameof(Company.MenuItems) });
+            return Mapper.Map<Company, CompanyWithMenuItemsDto>(company);
+        }
+
+        public async Task<CompanyWithOrdersDto> GetAsyncWithOrders(int entityId)
+        {
+            Company company = await Repository.GetAsync(entityId, new string[] { nameof(Company.Orders) });
+            return Mapper.Map<Company, CompanyWithOrdersDto>(company);
+        }
+
+        public async Task<CompanyWithStockItemsDto> GetAsyncWithStock(int entityId)
+        {
+            Company company = await Repository.GetAsync(entityId, new string[] { nameof(Company.Stock) });
+            return Mapper.Map<Company, CompanyWithStockItemsDto>(company);
+        }
+
+        public async Task<CompanyWithPaymentsDto> GetAsyncWithPayments(int entityId)
+        {
+            Company company = await Repository.GetAsync(entityId, new string[] { nameof(Company.Payments) });
+            return Mapper.Map<Company, CompanyWithPaymentsDto>(company);
+        }
     }
 }

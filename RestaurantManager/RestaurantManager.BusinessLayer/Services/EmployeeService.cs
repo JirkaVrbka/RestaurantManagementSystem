@@ -38,6 +38,8 @@ namespace RestaurantManager.BusinessLayer.Services
             return Repository.GetAsync(entityId, nameof(Employee.Company));
         }
 
+
+
         public async Task<List<EmployeeDto>> GetEmployeesOfCompany(int companyId)
         {
             var queryResult = await Query.ExecuteQuery(new EmployeeFilterDto { CompanyId = companyId });

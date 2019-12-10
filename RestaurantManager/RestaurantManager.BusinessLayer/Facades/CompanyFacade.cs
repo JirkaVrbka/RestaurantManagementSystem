@@ -16,11 +16,13 @@ namespace RestaurantManager.BusinessLayer.Facades
     {
         private CompanyService _companyService;
         private EmployeeService _employeeService;
-        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService, EmployeeService employeeService) : base(unitOfWorkProvider)
+        private OrderService _orderService;
+        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService, EmployeeService employeeService, OrderService orderService) : base(unitOfWorkProvider)
         {
             _employeeService = employeeService;
             this._companyService = companyService;
             this._employeeService = employeeService;
+            _orderService = orderService;
         }
 
         public async Task RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
@@ -125,12 +127,64 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task<CompanyDto> FindCompanyByUserEmail(String email)
+
+        public async Task<CompanyDto> FindCompanyByEmployeeEmail(String employeeEmail)
         {
             using (UnitOfWorkProvider.Create())
             {
-                int companyId = (await _employeeService.GetEmployeeByEmail(email)).CompanyId;
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
                 return companyId == 0 ? null : (await _companyService.GetAsync(companyId, false));
+            }
+        }
+
+        public async Task<List<EmployeeDto>> GetAllEmployees(String employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithEmployees(companyId)).Employees;
+            }
+        }
+
+        public async Task<List<OrderDto>> GetAllOrders(String employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithOrders(companyId)).Orders;
+            }
+        }
+
+        public async Task<List<MenuItemDto>> GetAllMenuItems(String employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithMenuItems(companyId)).MenuItems;
+            }
+        }
+
+        public async Task<List<StockItemDto>> GetAllStockItems(String employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithStock(companyId)).Stock;
+            }
+        }
+
+        public async Task CreateNewOrderForCompany(string employeeEmail, OrderDto order)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                if (companyId == 0)
+                {
+                    throw new ArgumentException("Unable to create new order for company with employee having email " + employeeEmail +". No company found");
+                }
+
+                order.CompanyId = companyId;
+                _orderService.Create(order);
             }
         }
     }

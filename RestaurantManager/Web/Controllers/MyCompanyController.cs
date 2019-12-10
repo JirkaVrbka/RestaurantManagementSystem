@@ -17,7 +17,7 @@ namespace Web.Controllers
         
         public async Task<ActionResult> MyCompany()
         {
-            CompanyDto company = await CompanyFacade.FindCompanyByUserEmail(User.Identity.Name);
+            CompanyDto company = await CompanyFacade.FindCompanyByEmployeeEmail(User.Identity.Name);
             return View("MyCompany", company);
         }
 

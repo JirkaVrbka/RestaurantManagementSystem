@@ -22,7 +22,7 @@ namespace RestaurantManager.BusinessLayer.Services
 
         protected override Task<Payment> GetWithIncludesAsync(int entityId)
         {
-            throw new NotImplementedException();
+            return Repository.GetAsync(entityId, new string[] { nameof(Payment.Company) });
         }
     }
 }

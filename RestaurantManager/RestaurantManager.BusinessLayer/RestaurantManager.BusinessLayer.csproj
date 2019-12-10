@@ -56,7 +56,12 @@
   <ItemGroup>
     <Compile Include="Config\BusinessLayerInstaller.cs" />
     <Compile Include="Config\MappingConfig.cs" />
+    <Compile Include="DTOs\DTOs\CompanyWithEmployeesDto.cs" />
     <Compile Include="DTOs\DTOs\CompanyWithIncludesDto.cs" />
+    <Compile Include="DTOs\DTOs\CompanyWithMenuItemsDto.cs" />
+    <Compile Include="DTOs\DTOs\CompanyWithOrdersDto.cs" />
+    <Compile Include="DTOs\DTOs\CompanyWithPaymentsDto.cs" />
+    <Compile Include="DTOs\DTOs\CompanyWithStockItemsDto.cs" />
     <Compile Include="DTOs\DTOs\EmployeeCreateDto.cs" />
     <Compile Include="DTOs\DTOs\NewCustomerDto.cs" />
     <Compile Include="DTOs\DTOs\MenuItemDto.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
@@ -11,11 +12,12 @@ namespace Web.Controllers
     public class OrderController : Controller
     {
         public OrderFacade OrderFacade { get; set; }
+        public CompanyFacade CompanyFacade { get; set; }
 
         // GET: Order
-        public ActionResult Order()
+        public async Task<ActionResult> Order()
         {
-            List<OrderDto> orders = OrderFacade.GetAllOrders(User.Identity.Name);
+            List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name);
             return View(orders);
         }
 
@@ -25,9 +27,9 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(OrderDto order)
+        public async Task<ActionResult> Create(OrderDto order)
         {
-            OrderFacade.CreateNewOrder(User.Identity.Name, order);
+            await CompanyFacade.CreateNewOrderForCompany(User.Identity.Name, order);
             return View("Order");
         }
     }
