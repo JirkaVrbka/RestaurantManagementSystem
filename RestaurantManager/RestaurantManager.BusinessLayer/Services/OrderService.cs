@@ -30,5 +30,11 @@ namespace RestaurantManager.BusinessLayer.Services
             var queryResult = await Query.ExecuteQuery(new OrderFilterDto { CompanyId = companyId });
             return queryResult.Items.ToList();
         }
+
+        public async Task<OrderWithOrderItemDepDto> GetAsyncWithOrderItems(int entityId)
+        {
+            Order order = await Repository.GetAsync(entityId, new string[] { nameof(Order.Items) });
+            return Mapper.Map<Order, OrderWithOrderItemDepDto>(order);
+        }
     }
 }

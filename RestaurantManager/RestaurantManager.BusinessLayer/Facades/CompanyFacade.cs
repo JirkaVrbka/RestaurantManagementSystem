@@ -213,6 +213,7 @@ namespace RestaurantManager.BusinessLayer.Facades
 
                 order.CompanyId = companyId;
                 _orderService.Create(order);
+                await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }
 

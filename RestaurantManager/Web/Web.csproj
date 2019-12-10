@@ -150,6 +150,8 @@
     </Compile>
     <Compile Include="Models\ChangeAmountModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\NewItemToOrder.cs" />
+    <Compile Include="Models\StatiscicsModel.cs" />
     <Compile Include="Models\StockItemCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -250,6 +252,8 @@
     <Content Include="Views\MenuItems\Create.cshtml" />
     <Content Include="Views\MenuItems\MenuItems.cshtml" />
     <Content Include="Views\MenuItems\Edit.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

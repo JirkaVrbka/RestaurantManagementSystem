@@ -74,5 +74,13 @@ namespace RestaurantManager.BusinessLayer.Facades
         {
             throw new NotImplementedException();
         }
+
+        public async Task<OrderWithOrderItemDepDto> GetAsyncWithDependencies(int orderId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _orderService.GetAsyncWithOrderItems(orderId);
+            }
+        }
     }
 }

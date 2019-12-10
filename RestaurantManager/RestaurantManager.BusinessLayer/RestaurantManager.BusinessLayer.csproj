@@ -74,6 +74,8 @@
     <Compile Include="DTOs\DTOs\MenuItemDto.cs" />
     <Compile Include="DTOs\DTOs\OrderDto.cs" />
     <Compile Include="DTOs\DTOs\OrderItemDto.cs" />
+    <Compile Include="DTOs\DTOs\OrderItemWithMenuItemDto.cs" />
+    <Compile Include="DTOs\DTOs\OrderWithOrderItemDepDto.cs" />
     <Compile Include="DTOs\DTOs\PaymentDto.cs" />
     <Compile Include="DTOs\DTOs\CompanyDto.cs" />
     <Compile Include="DTOs\Common\DtoBase.cs" />

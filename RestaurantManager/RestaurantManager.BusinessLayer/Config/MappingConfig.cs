@@ -27,7 +27,9 @@ namespace RestaurantManager.BusinessLayer.Config
             config.CreateMap<Employee, EmployeeDto>().ReverseMap();
             config.CreateMap<MenuItem, MenuItemDto>().ReverseMap();
             config.CreateMap<Order, OrderDto>().ReverseMap();
+            config.CreateMap<Order, OrderWithOrderItemDepDto>().ReverseMap();
             config.CreateMap<OrderItem, OrderItemDto>().ReverseMap();
+            config.CreateMap<OrderItem, OrderItemWithMenuItemDto>().ReverseMap();
             config.CreateMap<Payment, PaymentDto>().ReverseMap();
             config.CreateMap<StockItem, StockItemDto>().ReverseMap();
             config.CreateMap<Company, CompanyWithIncludesDto>().ReverseMap();
