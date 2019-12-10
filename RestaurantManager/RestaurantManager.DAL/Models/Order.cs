@@ -14,6 +14,7 @@ namespace RestaurantManager.DAL.Models
         public virtual Company Company { get; set; }
         public virtual List<OrderItem> Items { get; set; }
         public DateTime OrderStartTime { get; set; }
+        public int OrderTable { get; set; }
 
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Orders);
