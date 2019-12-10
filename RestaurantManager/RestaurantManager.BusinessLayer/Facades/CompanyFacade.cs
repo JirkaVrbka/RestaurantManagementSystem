@@ -102,11 +102,13 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task Update(CompanyDto employee)
+        public async Task Update(CompanyUpdateNameDto company)
         {
             using (UnitOfWorkProvider.Create())
             {
-                await _companyService.Update(employee);
+                var dbCompany = await _companyService.GetAsync(company.Id);
+                dbCompany.Name = company.Name;
+                await _companyService.Update(dbCompany);
                 await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }

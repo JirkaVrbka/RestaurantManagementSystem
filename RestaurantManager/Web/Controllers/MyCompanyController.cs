@@ -24,20 +24,23 @@ namespace Web.Controllers
         public async Task<ActionResult> Edit(int id)
         {
             CompanyDto company = await CompanyFacade.GetAsync(id);
-            return View(company);
+            return View(new CompanyUpdateNameDto{Id = company.Id, Name = company.Name});
         }
 
         [HttpPost]
-        public async Task<ActionResult> Save(CompanyDto company)
+        public async Task<ActionResult> Save(CompanyUpdateNameDto companyUpdate)
         {
+
+            CompanyDto company = await CompanyFacade.GetAsync(companyUpdate.Id);
             try
             {
-                await CompanyFacade.Update(company);
-                return View("MyCompany");
+                await CompanyFacade.Update(companyUpdate);
+                company.Name = companyUpdate.Name;
+                return View("MyCompany", company);
             }
             catch(Exception)
             {
-                return View("Edit");
+                return View("Edit", new CompanyUpdateNameDto { Id = company.Id, Name = company.Name });
             }
         }
     }

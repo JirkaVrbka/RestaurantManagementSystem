@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Config\BusinessLayerInstaller.cs" />
     <Compile Include="Config\MappingConfig.cs" />
+    <Compile Include="DTOs\DTOs\CompanyUpdateNameDto.cs" />
     <Compile Include="DTOs\DTOs\CompanyWithEmployeesDto.cs" />
     <Compile Include="DTOs\DTOs\CompanyWithIncludesDto.cs" />
     <Compile Include="DTOs\DTOs\CompanyWithMenuItemsDto.cs" />
