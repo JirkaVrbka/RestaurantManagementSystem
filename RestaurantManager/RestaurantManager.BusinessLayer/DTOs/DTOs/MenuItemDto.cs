@@ -4,6 +4,8 @@
     {
         public int CompanyId { get; set; }
         public string Name { get; set; }
-        public int Price { get; set; }
+        public int SellPrice { get; set; }
+        public int BuyPrice { get; set; }
+        public int Amount { get; set; }
     }
 }

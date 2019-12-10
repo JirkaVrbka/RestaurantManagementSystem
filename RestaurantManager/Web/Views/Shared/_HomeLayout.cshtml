@@ -1,93 +1,94 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Restaurant Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (User.IsInRole("Manager") || User.IsInRole("Employee"))
-                    {
-                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
-                    }
-
-
-                    @if (User.IsInRole("Owner") || User.IsInRole("Manager"))
-                    {
-                        <li>@Html.ActionLink("StockItem", "Stock", "Stock")</li>
-                    }
-
-                    @if (User.IsInRole("Owner"))
-                    {
-                        <li>@Html.ActionLink("Statistics", "Statistics", "Statistics")</li>
-                        <li>@Html.ActionLink("Payments", "Payments", "Payments")</li>
-                        <li>@Html.ActionLink("My Employees", "Employees", "Employees")</li>
-                        <li>@Html.ActionLink("My Company", "MyCompany", "MyCompany")</li>
-                    }
-
-                    @if (User.IsInRole("Owner") || User.IsInRole("Manager") || User.IsInRole("Employee"))
-                    {
-                        <li>@Html.ActionLink("My account", "MyAccount", "MyAccount")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                    }
-
-                </ul>
-
-                <ul class="navbar-nav">
-                    @if (Request.IsAuthenticated)
-                    {
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><span class="fa fa-user"></span> @User.Identity.Name.Split('@')[0] <b class="caret grey"></b></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Account management</div>
-                                <div class="dropdown-divider"></div>
-                                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item" })
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><span class="fa fa-user"></span><b class="caret grey"></b></a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                                <div class="dropdown-header">Get started</div>
-                                <div class="dropdown-divider"></div>
-                                @Html.ActionLink("Register", "Register", "Account", null, new { @class = "dropdown-item" })
-                                <div class="dropdown-divider"></div>
-                                @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "dropdown-item" })
-                            </div>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-
-    </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Restaurant Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @if (User.IsInRole("Manager") || User.IsInRole("Employee") || User.IsInRole("Owner"))
+                    {
+                        <li>@Html.ActionLink("Menu", "MenuItems", "MenuItems")</li>
+                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
+                    }
+
+
+                    @if (User.IsInRole("Owner") || User.IsInRole("Manager"))
+                    {
+                        <li>@Html.ActionLink("StockItem", "Stock", "Stock")</li>
+                    }
+
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <li>@Html.ActionLink("Statistics", "Statistics", "Statistics")</li>
+                        <li>@Html.ActionLink("Payments", "Payments", "Payments")</li>
+                        <li>@Html.ActionLink("My Employees", "Employees", "Employees")</li>
+                        <li>@Html.ActionLink("My Company", "MyCompany", "MyCompany")</li>
+                    }
+
+                    @if (User.IsInRole("Owner") || User.IsInRole("Manager") || User.IsInRole("Employee"))
+                    {
+                        <li>@Html.ActionLink("My account", "MyAccount", "MyAccount")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+
+                </ul>
+
+                <ul class="navbar-nav">
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><span class="fa fa-user"></span> @User.Identity.Name.Split('@')[0] <b class="caret grey"></b></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Account management</div>
+                                <div class="dropdown-divider"></div>
+                                @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><span class="fa fa-user"></span><b class="caret grey"></b></a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                <div class="dropdown-header">Get started</div>
+                                <div class="dropdown-divider"></div>
+                                @Html.ActionLink("Register", "Register", "Account", null, new { @class = "dropdown-item" })
+                                <div class="dropdown-divider"></div>
+                                @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>

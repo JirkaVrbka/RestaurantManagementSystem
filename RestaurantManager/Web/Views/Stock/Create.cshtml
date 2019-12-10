@@ -1,55 +1,61 @@
-﻿@model RestaurantManager.BusinessLayer.DTOs.DTOs.StockItemDto
+﻿@model Web.Models.StockItemCreation
 
 @{
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Create new Item</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create", "Stock", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>StockItemDto</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.BuyPrice, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.BuyPrice, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.BuyPrice, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="form-horizontal">
+    <h4>Add new item to your stock</h4>
+    <hr />
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.MenuItem.Name, "Item name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MenuItem.Name, new { htmlAttributes = new { @class = "form-control",  } })
+            @Html.ValidationMessageFor(model => model.MenuItem.Name, "", new { @class = "text-danger" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.MenuItem.SellPrice, "Sell price", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.MenuItem.SellPrice, new { htmlAttributes = new { @class = "form-control", @min = "0" } })
+            @Html.ValidationMessageFor(model => model.MenuItem.SellPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.StockItem.BuyPrice,htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StockItem.BuyPrice, new { htmlAttributes = new { @class = "form-control" , @min = "0"} })
+            @Html.ValidationMessageFor(model => model.StockItem.BuyPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.StockItem.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.StockItem.Amount, new { htmlAttributes = new { @class = "form-control" , @min = "0"} })
+            @Html.ValidationMessageFor(model => model.StockItem.Amount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("No... not really", "Stock", "Stock")
 </div>
 
 @section Scripts {

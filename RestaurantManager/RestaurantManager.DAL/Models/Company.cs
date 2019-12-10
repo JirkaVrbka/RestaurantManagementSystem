@@ -15,7 +15,6 @@ namespace RestaurantManager.DAL.Models
         [MaxLength(256)]
         public string Name { get; set; }
         [Required]
-        [Index(IsUnique = true)]
         [Range(10000000, 99999999, ErrorMessage = "Ico has to be 8 digits")]
         public int Ico { get; set; }
         public virtual List<Employee> Employees { get; set; }

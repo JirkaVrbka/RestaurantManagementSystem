@@ -69,19 +69,19 @@ namespace RestaurantManager.BusinessLayer.Test.Config
                 {
                     Name = "Snidane",
                     Company = company,
-                    Price = 10
+                    SellPrice = 10
                 },
                 new MenuItem
                 {
                     Name = "Obed",
                     Company = company,
-                    Price = 20
+                    SellPrice = 20
                 },
                 new MenuItem
                 {
                     Name = "Vecere",
                     Company = company,
-                    Price = 30
+                    SellPrice = 30
                 }
             };
 
@@ -118,21 +118,18 @@ namespace RestaurantManager.BusinessLayer.Test.Config
             {
                 new StockItem()
                 {
-                    MenuItem = menuItems[0],
                     Amount = 5,
                     BuyPrice = 10,
                     Company = company
                 },
                 new StockItem()
                 {
-                    MenuItem = menuItems[1],
                     Amount = 52,
                     BuyPrice = 15,
                     Company = company
                 },
                 new StockItem()
                 {
-                    MenuItem = menuItems[2],
                     Amount = 4,
                     BuyPrice = 140,
                     Company = company

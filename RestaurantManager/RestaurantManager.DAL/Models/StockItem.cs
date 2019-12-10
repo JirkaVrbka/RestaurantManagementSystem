@@ -6,11 +6,9 @@ namespace RestaurantManager.DAL.Models
 {
     public class StockItem : IEntity
     {
-        [ForeignKey("MenuItem")]
         public int Id { get; set; }
         public int CompanyId { get; set; }
         public Company Company { get; set; }
-        public virtual MenuItem MenuItem { get; set; }
         [Required]
         public int BuyPrice { get; set; }
         [Required]

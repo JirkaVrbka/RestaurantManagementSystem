@@ -132,6 +132,7 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\MenuItemsController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\MyCompanyController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -143,6 +144,7 @@
     </Compile>
     <Compile Include="Models\ChangeAmountModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\StockItemCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -239,6 +241,9 @@
     <Content Include="Views\Order\NewOrder.cshtml" />
     <Content Include="Views\Order\Order.cshtml" />
     <Content Include="Views\Stock\Create.cshtml" />
+    <Content Include="Views\MenuItems\Create.cshtml" />
+    <Content Include="Views\MenuItems\MenuItems.cshtml" />
+    <Content Include="Views\MenuItems\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

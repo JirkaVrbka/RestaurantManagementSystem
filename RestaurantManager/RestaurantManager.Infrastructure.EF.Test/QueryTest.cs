@@ -29,7 +29,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
             QueryResult<MenuItem> actualQueryResult;
             var menuItemQuery = Container.Resolve<IQuery<MenuItem>>();
 
-            var predicate = new SimplePredicate(nameof(MenuItem.Price), ValueComparingOperator.GreaterThan, 10);
+            var predicate = new SimplePredicate(nameof(MenuItem.SellPrice), ValueComparingOperator.GreaterThan, 10);
 
             using (unitOfWorkProvider.Create())
             {
@@ -37,8 +37,8 @@ namespace RestaurantManager.Infrastructure.EF.Test
             }
 
             Assert.AreEqual(2 , actualQueryResult.Items.Count);
-            Assert.IsTrue(actualQueryResult.Items[0].Price > 10);
-            Assert.IsTrue(actualQueryResult.Items[1].Price > 10);
+            Assert.IsTrue(actualQueryResult.Items[0].SellPrice > 10);
+            Assert.IsTrue(actualQueryResult.Items[1].SellPrice > 10);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
             QueryResult<MenuItem> actualQueryResult;
             var menuItemQuery = Container.Resolve<IQuery<MenuItem>>();
 
-            var predicate = new SimplePredicate(nameof(MenuItem.Price), ValueComparingOperator.LessThan, 0);
+            var predicate = new SimplePredicate(nameof(MenuItem.SellPrice), ValueComparingOperator.LessThan, 0);
 
             using (unitOfWorkProvider.Create())
             {
@@ -84,8 +84,8 @@ namespace RestaurantManager.Infrastructure.EF.Test
 
             var predicate = new CompositePredicate(new List<IPredicate>()
             {
-                new SimplePredicate(nameof(MenuItem.Price), ValueComparingOperator.GreaterThan, 10),
-                new SimplePredicate(nameof(MenuItem.Price), ValueComparingOperator.LessThan, 30),
+                new SimplePredicate(nameof(MenuItem.SellPrice), ValueComparingOperator.GreaterThan, 10),
+                new SimplePredicate(nameof(MenuItem.SellPrice), ValueComparingOperator.LessThan, 30),
                 new SimplePredicate(nameof(MenuItem.CompanyId), ValueComparingOperator.Equal, 1)
             }, LogicalOperator.AND);
 
@@ -95,7 +95,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
             }
 
             Assert.AreEqual(1, actualQueryResult.Items.Count);
-            Assert.IsTrue(actualQueryResult.Items[0].Price == 20);
+            Assert.IsTrue(actualQueryResult.Items[0].SellPrice == 20);
         }
 
     }

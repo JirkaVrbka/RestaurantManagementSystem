@@ -61,21 +61,21 @@ namespace RestaurantManager.DAL.Test
                     Id = 0,
                     Name = "Snidane",
                     Company = company,
-                    Price = 10
+                    SellPrice = 10
                 },
                 new MenuItem
                 {
                     Id = 1,
                     Name = "Obed",
                     Company = company,
-                    Price = 20
+                    SellPrice = 20
                 },
                 new MenuItem
                 {
                     Id = 2,
                     Name = "Vecere",
                     Company = company,
-                    Price = 30
+                    SellPrice = 30
                 }
             };
 
@@ -115,8 +115,7 @@ namespace RestaurantManager.DAL.Test
             {
                 new StockItem()
                 {
-                    Id = menuItems[0].Id,
-                    MenuItem = menuItems[0],
+                    Id = 0,
                     Amount = 5,
                     BuyPrice = 10,
                     Company = company
@@ -124,7 +123,6 @@ namespace RestaurantManager.DAL.Test
                 new StockItem()
                 {
                     Id = 1,
-                    MenuItem = menuItems[1],
                     Amount = 52,
                     BuyPrice = 15,
                     Company = company
@@ -132,7 +130,6 @@ namespace RestaurantManager.DAL.Test
                 new StockItem()
                 {
                     Id = 2,
-                    MenuItem = menuItems[2],
                     Amount = 4,
                     BuyPrice = 140,
                     Company = company

@@ -15,18 +15,28 @@ namespace Web.Controllers
     {
         public StockItemFacade StockItemFacade { get; set; }
         public CompanyFacade CompanyFacade { get; set; }
+
+        public MenuItemFacade MenuItemFacade { get; set; }
+
         // GET: Stock
         public async Task<ActionResult> Stock()
         {
-            List<StockItemDto> stockItems = await CompanyFacade.GetAllStockItems(User.Identity.Name);
+            List<MenuItemDto> stockItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
 
             return View("Stock", stockItems);
         }
 
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            var item = StockItemFacade.GetAsync(id);
+            var item = await MenuItemFacade.GetAsync(id);
             return View(item);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(MenuItemDto item)
+        {
+            await MenuItemFacade.Update(item);
+            return await Stock();
         }
 
         [HttpPost]
@@ -38,24 +48,29 @@ namespace Web.Controllers
 
         public ActionResult Create()
         {
-            var item = new StockItemDto();
-            return View(item);
+            return View(new StockItemCreation());
         }
 
         [HttpPost]
-        public ActionResult Create(StockItemDto item)
+        public async Task<ActionResult> Create(StockItemCreation item)
         {
-            try
-            {
-                StockItemFacade.CreateNewStockItem(User.Identity.Name, item);
-                return View("Stock");
-            }
-            catch (Exception)
-            {
-                return View("Create");
-            }
-            
+            int companyId = (await CompanyFacade.FindCompanyByEmployeeEmail(User.Identity.Name)).Id;
 
+            await MenuItemFacade.Create(new MenuItemDto
+            {
+                CompanyId = companyId,
+                Name = item.MenuItem.Name,
+                SellPrice = item.MenuItem.SellPrice,
+                BuyPrice = item.MenuItem.BuyPrice
+            });
+
+            await StockItemFacade.Create(new StockItemDto
+            {
+                
+            });
+
+
+            return Stock().Result;
         }
     }
 }
