@@ -17,7 +17,7 @@
             @Html.DisplayNameFor(model => model.OrderStartTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TableNumber)
+            @Html.DisplayNameFor(model => model.OrderTable)
         </th>
         <th></th>
     </tr>
@@ -29,7 +29,7 @@
                 @Html.DisplayFor(modelItem => item.OrderStartTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TableNumber)
+                @Html.DisplayFor(modelItem => item.OrderTable)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
