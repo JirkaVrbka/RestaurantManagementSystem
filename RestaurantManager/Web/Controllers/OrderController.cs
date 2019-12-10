@@ -18,11 +18,14 @@ namespace Web.Controllers
         public async Task<ActionResult> Order()
         {
             List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name);
+            orders = orders.OrderBy(x => x.OrderStartTime).ToList();
             return View(orders);
         }
 
         public ActionResult NewOrder()
         {
+            List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", Price = 123}, new MenuItemDto(){Name = "vodka", Price = 456}};
+            ViewBag.datasource = menuItems;
             return View();
         }
 

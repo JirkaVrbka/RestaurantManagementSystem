@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -22,7 +23,7 @@
                 <ul class="nav navbar-nav">
                     @if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                     {
-                        <li>@Html.ActionLink("Menu", "Order", "Order")</li>
+                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
                     }
 
 
