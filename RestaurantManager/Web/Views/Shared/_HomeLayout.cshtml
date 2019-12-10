@@ -20,33 +20,38 @@
                 @Html.ActionLink("Restaurant Manager", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (User.IsInRole("Manager") || User.IsInRole("Employee") || User.IsInRole("Owner"))
-                    {
-                        <li>@Html.ActionLink("Menu", "MenuItems", "MenuItems")</li>
-                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
-                    }
-
-
-                    @if (User.IsInRole("Owner") || User.IsInRole("Manager"))
-                    {
-                        <li>@Html.ActionLink("StockItem", "Stock", "Stock")</li>
-                    }
-
-                    @if (User.IsInRole("Owner"))
-                    {
-                        <li>@Html.ActionLink("Statistics", "Statistics", "Statistics")</li>
-                        <li>@Html.ActionLink("Payments", "Payments", "Payments")</li>
-                        <li>@Html.ActionLink("My Employees", "Employees", "Employees")</li>
-                        <li>@Html.ActionLink("My Company", "MyCompany", "MyCompany")</li>
-                    }
-
-                    @if (User.IsInRole("Owner") || User.IsInRole("Manager") || User.IsInRole("Employee"))
-                    {
-                        <li>@Html.ActionLink("My account", "MyAccount", "MyAccount")</li>
-                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                    }
-
+                <ul class="nav navbar-nav">
+
+                    @if (User.IsInRole("Owner"))
+                    {
+                    <li>@Html.ActionLink("Menu", "MenuItems", "MenuItems")</li>
+                    }
+
+                    @if (User.IsInRole("Employee"))
+                    {
+                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
+                    }
+
+                    @if (User.IsInRole("Owner") || User.IsInRole("Manager"))
+                    {
+                    <li>@Html.ActionLink("StockItem", "Stock", "Stock")</li>
+                    }
+
+                    @if (User.IsInRole("Owner"))
+                    {
+                        <li>@Html.ActionLink("Statistics", "Statistics", "Statistics")</li>
+                        <li>@Html.ActionLink("Payments", "Payments", "Payments")</li>
+                        <li>@Html.ActionLink("My Employees", "Employees", "Employees")</li>
+                        <li>@Html.ActionLink("My Company", "MyCompany", "MyCompany")</li>
+                    }
+
+                    @if (User.IsInRole("Owner") || User.IsInRole("Manager") || User.IsInRole("Employee"))
+                    {
+
+                        <li>@Html.ActionLink("My account", "MyAccount", "MyAccount")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                    }
+                    
                 </ul>
 
                 <ul class="navbar-nav">
