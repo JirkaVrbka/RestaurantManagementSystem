@@ -205,5 +205,14 @@ namespace RestaurantManager.BusinessLayer.Facades
                 await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
             }
         }
+
+        public async Task<List<OrderDto>> CloseTheDay(string employeeEmail, DateTime today)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithOrders(companyId)).Orders.FindAll(o => o.OrderStartTime.Year == today.Year && o.OrderStartTime.Month == today.Month && o.OrderStartTime.Day == today.Day);
+            }
+        }
     }
 }
