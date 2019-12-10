@@ -67,7 +67,7 @@ namespace Web.Controllers
         {
             try
             {
-                await EmployeeFacade.RegisterCustomer(customer);
+                await CompanyFacade.RegisterCompanyWithOwner(customer);
 
 
                 var authTicket = new FormsAuthenticationTicket(1, customer.Email, DateTime.Now,
