@@ -17,12 +17,14 @@ namespace RestaurantManager.BusinessLayer.Facades
         private CompanyService _companyService;
         private EmployeeService _employeeService;
         private OrderService _orderService;
-        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService, EmployeeService employeeService, OrderService orderService) : base(unitOfWorkProvider)
+        private PaymentService _paymentService;
+        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService, EmployeeService employeeService, OrderService orderService, PaymentService paymentService) : base(unitOfWorkProvider)
         {
             _employeeService = employeeService;
             this._companyService = companyService;
             this._employeeService = employeeService;
             _orderService = orderService;
+            _paymentService = paymentService;
         }
 
         public async Task RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
@@ -64,9 +66,24 @@ namespace RestaurantManager.BusinessLayer.Facades
                         Role = Role.Owner
                     };
 
+                    
+
                     // no need to create company as it is created in employee service by default
                     await _employeeService.RegisterCustomerAsync(employee);
                     await uow.Commit();
+
+                    int companyId = (await _companyService.GetByIco(customer.Ico)).Id;
+                    var payment = new PaymentDto
+                    {
+                        Amount = 300,
+                        CompanyId = companyId,
+                        DueDate = DateTime.Now.AddDays(30),
+                        VariableNumber = "1212100" + companyId
+                    };
+
+                    _paymentService.Create(payment);
+                    await uow.Commit();
+
                 }
                 catch (ArgumentException e)
                 {
@@ -145,6 +162,15 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
                 return companyId == 0 ? null : (await _companyService.GetAsyncWithEmployees(companyId)).Employees;
+            }
+        }
+
+        public async Task<List<PaymentDto>> GetAllPayments(String employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithPayments(companyId)).Payments;
             }
         }
 

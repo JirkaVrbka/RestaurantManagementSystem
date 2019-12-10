@@ -6,10 +6,8 @@
 }
 
 <h2>Payments</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h4>Here you can see your bills</h4>
+<h6>You payments send to 11-25484841/0800</h6>
 <table class="table">
     <tr>
         <th>
@@ -30,7 +28,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.DateOfPayment)
+            @if (item.DateOfPayment == null)
+            {
+                <span>---</span>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.DateOfPayment)
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DueDate)
@@ -40,9 +45,6 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ReceivedAmount)
-        </td>
-        <td>
-            @Html.ActionLink("Pay", "Pay", new { /* id=item.PrimaryKey */ }) |
         </td>
     </tr>
 }
