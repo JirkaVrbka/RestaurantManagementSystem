@@ -33,7 +33,6 @@ namespace RestaurantManager.BusinessLayer.Test
             CompanyService companyService = Container.Resolve<CompanyService>();
             EmployeeService employeeService = Container.Resolve<EmployeeService>();
 
-            CompanyDto actualCompanyDtoByIco;
             var originalCompanyDto = new CompanyDto
             {
                 Ico = 87654321,

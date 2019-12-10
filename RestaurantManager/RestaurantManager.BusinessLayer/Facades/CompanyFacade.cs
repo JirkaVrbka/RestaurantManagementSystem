@@ -125,7 +125,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task<CompanyDto> FindByUserEmail(String email)
+        public async Task<CompanyDto> FindCompanyByUserEmail(String email)
         {
             using (UnitOfWorkProvider.Create())
             {
