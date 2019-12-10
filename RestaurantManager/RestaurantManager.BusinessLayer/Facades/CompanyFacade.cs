@@ -189,5 +189,21 @@ namespace RestaurantManager.BusinessLayer.Facades
                 _orderService.Create(order);
             }
         }
+
+        public async Task RegisterEmployee(EmployeeDto employee, string employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                if (companyId == 0)
+                {
+                    throw new ArgumentException("Unable to create new order for company with employee having email " + employeeEmail + ". No company found");
+                }
+
+                employee.CompanyId = companyId;
+                await _employeeService.RegisterEmployeeAsync(employee);
+                await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+            }
+        }
     }
 }

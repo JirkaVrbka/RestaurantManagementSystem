@@ -35,7 +35,7 @@ namespace Web.Controllers
         {
             try
             {
-                await EmployeeFacade.RegisterEmployee(employee, User.Identity.Name);
+                await CompanyFacade.RegisterEmployee(employee, User.Identity.Name);
 
 
                 return RedirectToAction("Employees", "Employees");

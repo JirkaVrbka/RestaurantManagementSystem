@@ -102,6 +102,7 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 try
                 {
+
                     await _employeeService.RegisterEmployeeAsync(employee);
                     await uow.Commit();
                 }
