@@ -22,7 +22,7 @@
                 <ul class="nav navbar-nav">
                     @if (User.IsInRole("Manager") || User.IsInRole("Employee"))
                     {
-                        <li>@Html.ActionLink("Menu", "MenuItems", "Home")</li>
+                        <li>@Html.ActionLink("Menu", "Order", "Order")</li>
                     }
 
 

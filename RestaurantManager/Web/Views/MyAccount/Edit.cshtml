@@ -7,7 +7,7 @@
 
 <h2>Here you can edit your account</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Save", "MyAccount", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
