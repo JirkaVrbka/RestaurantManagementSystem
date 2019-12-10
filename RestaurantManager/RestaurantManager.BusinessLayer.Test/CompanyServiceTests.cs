@@ -11,7 +11,7 @@ using RestaurantManager.DAL;
 using RestaurantManager.Infrastructure.UnitOfWork;
 
 namespace RestaurantManager.BusinessLayer.Test
-{
+{/*
     [TestClass]
     public class CompanyServiceTests
     {
@@ -143,5 +143,5 @@ namespace RestaurantManager.BusinessLayer.Test
             Assert.IsNotNull(companyWithEmployees);
             Assert.AreEqual(3, companyWithEmployees.Employees.Count);
         }
-    }
+    }*/
 }

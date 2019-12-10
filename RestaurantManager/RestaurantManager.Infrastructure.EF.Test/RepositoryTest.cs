@@ -15,7 +15,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
 {
     [TestClass]
     public class RepositoryTest
-    {
+    {/*
         internal static readonly IWindsorContainer Container = new WindsorContainer();
 
         [ClassInitialize]
@@ -288,6 +288,6 @@ namespace RestaurantManager.Infrastructure.EF.Test
             }
         }
 
-
+        */
     }
 }

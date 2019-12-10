@@ -16,7 +16,7 @@ namespace RestaurantManager.BusinessLayer.Test
 {
     [TestClass]
     public class FacadeTests
-    {
+    {/*
         internal static readonly IWindsorContainer Container = new WindsorContainer();
 
         [ClassInitialize]
@@ -50,6 +50,6 @@ namespace RestaurantManager.BusinessLayer.Test
             Assert.AreEqual(company.Id, owner.CompanyId);
             Assert.AreEqual(Role.Owner, owner.Role);
 
-        }
+        }*/
     }
 }

@@ -34,7 +34,7 @@ namespace RestaurantManager.DAL.Test
 
             context.Companies.Add(company);
             context.SaveChanges();
-        }
+        }/*
 
         [TestMethod]
         public void CreateSingleCompanyWithDependencies()
@@ -235,6 +235,6 @@ namespace RestaurantManager.DAL.Test
             Assert.AreEqual(3, context.Companies.Find(1).Orders[0].Items.Count);
             Assert.AreEqual("Panda", context.Companies.Find(1).Name);
             Assert.AreEqual(2, context.Companies.Find(1).Employees.Count);
-        }
+        }*/
     }
 }
