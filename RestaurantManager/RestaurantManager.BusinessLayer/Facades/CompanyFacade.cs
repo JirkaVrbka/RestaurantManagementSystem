@@ -61,9 +61,8 @@ namespace RestaurantManager.BusinessLayer.Facades
                         Company = company,
                         Role = Role.Owner
                     };
-                    /*
-                    await _companyService.RegisterCompanyAsync(company);
-                    await uow.Commit();*/
+
+                    // no need to create company as it is created in employee service by default
                     await _employeeService.RegisterCustomerAsync(employee);
                     await uow.Commit();
                 }
