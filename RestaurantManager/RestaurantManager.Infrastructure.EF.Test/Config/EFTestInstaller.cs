@@ -192,7 +192,7 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
                     Email = "owner@company.com",
                     FirstName = "Owner",
                     LastName = "Serious",
-                    HashedPassword = "asds",
+                    PasswordHash = "asds",
                     Role = Role.Owner
                 },
                 new Employee()
@@ -201,7 +201,7 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
                     Email = "manager@company.com",
                     FirstName = "Manager",
                     LastName = "Serious",
-                    HashedPassword = "asss",
+                    PasswordHash = "asss",
                     Role = Role.Manager
                 }
             };

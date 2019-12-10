@@ -59,6 +59,23 @@ namespace RestaurantManager.Infrastructure.EF.Test
         }
 
         [TestMethod]
+        public async Task SimpleWhereWithNoResultViaString()
+        {
+            IUnitOfWorkProvider unitOfWorkProvider = Container.Resolve<IUnitOfWorkProvider>();
+            QueryResult<MenuItem> actualQueryResult;
+            var menuItemQuery = Container.Resolve<IQuery<MenuItem>>();
+
+            var predicate = new SimplePredicate(nameof(MenuItem.Name), ValueComparingOperator.Equal, "Vecere");
+
+            using (unitOfWorkProvider.Create())
+            {
+                actualQueryResult = await menuItemQuery.Where(predicate).ExecuteAsync();
+            }
+
+            Assert.AreEqual(1, actualQueryResult.Items.Count);
+        }
+
+        [TestMethod]
         public async Task ComplexWhereWithResult()
         {
             IUnitOfWorkProvider unitOfWorkProvider = Container.Resolve<IUnitOfWorkProvider>();

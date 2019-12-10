@@ -57,6 +57,7 @@
     <Compile Include="Config\BusinessLayerInstaller.cs" />
     <Compile Include="Config\MappingConfig.cs" />
     <Compile Include="DTOs\DTOs\CompanyWithIncludesDto.cs" />
+    <Compile Include="DTOs\DTOs\EmployeeCreateDto.cs" />
     <Compile Include="DTOs\DTOs\NewCustomerDto.cs" />
     <Compile Include="DTOs\DTOs\MenuItemDto.cs" />
     <Compile Include="DTOs\DTOs\OrderDto.cs" />

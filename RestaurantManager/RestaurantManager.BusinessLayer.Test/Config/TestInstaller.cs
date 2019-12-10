@@ -33,7 +33,7 @@ namespace RestaurantManager.BusinessLayer.Test.Config
 
             container.Register(
                 Component.For<Func<DbContext>>()
-                    .Instance(InitializeDatabase)
+                    .Instance(() => new RestaurantManagerDbContext(TestDbConnectionString))
                     .LifestyleTransient()
                     .Named("Overriding DB context")
                     .IsDefault()
@@ -47,9 +47,14 @@ namespace RestaurantManager.BusinessLayer.Test.Config
             Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantManagerDbContext>());
             RestaurantManagerDbContext context = new RestaurantManagerDbContext(TestDbConnectionString);
 
+            foreach (var c in context.Companies)
+            {
+                Console.WriteLine(c.Ico);
+            }
+
             var company = new Company
             {
-                Ico = 12345678,
+                Ico = 12355578,
                 Name = "Panda",
                 Employees = new List<Employee>(),
                 JoinDate = DateTime.Now,
@@ -195,7 +200,7 @@ namespace RestaurantManager.BusinessLayer.Test.Config
                     Email = "owner@company.com",
                     FirstName = "Owner",
                     LastName = "Serious",
-                    HashedPassword = "asds",
+                    PasswordHash = "asds",
                     Role = Role.Owner
                 },
                 new Employee()
@@ -204,7 +209,7 @@ namespace RestaurantManager.BusinessLayer.Test.Config
                     Email = "manager@company.com",
                     FirstName = "Manager",
                     LastName = "Serious",
-                    HashedPassword = "asss",
+                    PasswordHash = "asss",
                     Role = Role.Manager
                 }
             };

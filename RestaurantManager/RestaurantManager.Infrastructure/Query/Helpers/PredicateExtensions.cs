@@ -83,14 +83,14 @@ namespace RestaurantManager.Infrastructure.Query.Helpers
         }
 
         private static string GetEscapedWhereCondition(SimplePredicate simplePredicate)
-        {
+        {/*
             const string atChar = "@";
             if (simplePredicate.ComparedValue is string value && value.Contains(atChar))
             {
                 string escapedValue = value.Insert(value.IndexOf(atChar, StringComparison.Ordinal), atChar);
                 return simplePredicate.TargetPropertyName + BinaryOperations[simplePredicate.ValueComparingOperator]
                            .Invoke(escapedValue);
-            }
+            }*/
             return simplePredicate.TargetPropertyName + BinaryOperations[simplePredicate.ValueComparingOperator]
                        .Invoke(ConvertOperandToString(simplePredicate.ComparedValue));
         }

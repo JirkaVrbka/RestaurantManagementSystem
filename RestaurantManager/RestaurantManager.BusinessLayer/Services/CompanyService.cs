@@ -27,7 +27,7 @@ namespace RestaurantManager.BusinessLayer.Services
             return result.Items.SingleOrDefault();
         }
 
-        public async Task<int> RegisterCompanyAsync(CompanyDto companyCreateDto)
+        public async Task RegisterCompanyAsync(CompanyDto companyCreateDto)
         {
             var company = Mapper.Map<Company>(companyCreateDto);
 
@@ -37,8 +37,6 @@ namespace RestaurantManager.BusinessLayer.Services
             }
 
             Repository.Create(company);
-
-            return company.Id;
         }
 
         private async Task<bool> IsCompanyAlreadyInDb(int ico)

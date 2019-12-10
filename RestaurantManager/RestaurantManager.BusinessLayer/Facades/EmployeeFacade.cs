@@ -71,21 +71,14 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task RegisterCustomer(EmployeeDto customer)
+        public async Task<EmployeeDto> GetAsyncByEmail(String email)
         {
-            using (var uow = UnitOfWorkProvider.Create())
+            using (UnitOfWorkProvider.Create())
             {
-                try
-                {
-                    await _employeeService.RegisterCustomerAsync(customer);
-                    await uow.Commit();
-                }
-                catch (ArgumentException)
-                {
-                    throw;
-                }
+                return await _employeeService.GetEmployeeByEmail(email);
             }
         }
+
 
         public async Task<(bool success, string role)> Login(string email, string password)
         {

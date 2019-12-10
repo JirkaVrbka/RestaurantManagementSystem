@@ -1,8 +1,13 @@
-﻿using RestaurantManager.Utils.EntityEnums;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using RestaurantManager.Utils.EntityEnums;
 
 namespace RestaurantManager.BusinessLayer.DTOs.DTOs
 {
-    public class EmployeeDto : DtoBase
+    public class EmployeeCreateDto : DtoBase
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -11,6 +16,6 @@ namespace RestaurantManager.BusinessLayer.DTOs.DTOs
         public string PasswordSalt { get; set; }
         public Role Role { get; set; }
 
-        public int CompanyId { get; set; }
+        public CompanyDto Company { get; set; }
     }
 }

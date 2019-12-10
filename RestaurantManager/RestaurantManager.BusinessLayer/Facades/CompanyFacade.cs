@@ -8,6 +8,7 @@ using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades.Common;
 using RestaurantManager.BusinessLayer.Services;
 using RestaurantManager.Infrastructure.UnitOfWork;
+using RestaurantManager.Utils.EntityEnums;
 
 namespace RestaurantManager.BusinessLayer.Facades
 {
@@ -19,22 +20,56 @@ namespace RestaurantManager.BusinessLayer.Facades
         {
             _employeeService = employeeService;
             this._companyService = companyService;
+            this._employeeService = employeeService;
         }
 
-        public async Task<int> RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
+        public async Task RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
         {
             using (var uow = UnitOfWorkProvider.Create())
             {
                 try
                 {
-                    var employee = _employeeService.GetEmployeeByEmail(ownerEmail);
-                    var id = await _companyService.RegisterCompanyAsync(companyCreateDto);
+                    await _companyService.RegisterCompanyAsync(companyCreateDto);
                     await uow.Commit();
-                    return id;
                 }
                 catch (ArgumentException)
                 {
                     throw;
+                }
+            }
+        }
+
+        public async Task RegisterCompanyWithOwner(NewCustomerDto customer)
+        {
+            using (var uow = UnitOfWorkProvider.Create())
+            {
+                try
+                {
+                    var company = new CompanyDto
+                    {
+                        Ico = customer.Ico,
+                        JoinDate = DateTime.Now,
+                        Name = customer.Name
+                    };
+
+                    var employee = new EmployeeCreateDto()
+                    {
+                        Email = customer.Email,
+                        FirstName = customer.FirstName,
+                        LastName = customer.LastName,
+                        PasswordHash = customer.Password,
+                        Company = company,
+                        Role = Role.Owner
+                    };
+                    /*
+                    await _companyService.RegisterCompanyAsync(company);
+                    await uow.Commit();*/
+                    await _employeeService.RegisterCustomerAsync(employee);
+                    await uow.Commit();
+                }
+                catch (ArgumentException e)
+                {
+                    Console.WriteLine(e);
                 }
             }
         }
@@ -83,14 +118,12 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public CompanyDto GetCompany(string email)
+        public async Task<CompanyDto> GetAsyncByIco(int ico)
         {
-            throw new NotImplementedException();
-        }
-
-        public void EditCompany(CompanyDto company, string email)
-        {
-            throw new NotImplementedException();
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _companyService.GetByIco(ico);
+            }
         }
     }
 }

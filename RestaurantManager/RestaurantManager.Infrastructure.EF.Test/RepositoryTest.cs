@@ -60,7 +60,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
 
             var company = new Company
             {
-                Ico = 12345678,
+                Ico = 12345778,
                 Name = "Bear",
                 Employees = new List<Employee>(),
                 JoinDate = DateTime.Now,
@@ -206,7 +206,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
                     Email = "owner@company.com",
                     FirstName = "Owner",
                     LastName = "Serious",
-                    HashedPassword = "asds",
+                    PasswordHash = "asds",
                     Role = Role.Owner
                 },
                 new Employee()
@@ -215,7 +215,7 @@ namespace RestaurantManager.Infrastructure.EF.Test
                     Email = "manager@company.com",
                     FirstName = "Manager",
                     LastName = "Serious",
-                    HashedPassword = "asss",
+                    PasswordHash = "asss",
                     Role = Role.Manager
                 }
             };

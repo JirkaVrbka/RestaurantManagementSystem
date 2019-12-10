@@ -50,16 +50,16 @@ namespace RestaurantManager.BusinessLayer.Services
             return queryResult.Items.SingleOrDefault();
         }
 
-        public async Task RegisterCustomerAsync(EmployeeDto userDto)
+        public async Task RegisterCustomerAsync(EmployeeCreateDto employeeCreateDto)
         {
-            var customer = Mapper.Map<Employee>(userDto);
+            var customer = Mapper.Map<Employee>(employeeCreateDto);
 
             if (await GetEmployeeByEmail(customer.Email) != null)
             {
                 throw new ArgumentException();
             }
 
-            var password = CreateHash(userDto.Password);
+            var password = CreateHash(employeeCreateDto.PasswordHash);
             customer.PasswordHash = password.Item1;
             customer.PasswordSalt = password.Item2;
 
@@ -108,7 +108,7 @@ namespace RestaurantManager.BusinessLayer.Services
                 throw new ArgumentException();
             }
 
-            var password = CreateHash(employee.Password);
+            var password = CreateHash(employee.PasswordHash);
             customer.PasswordHash = password.Item1;
             customer.PasswordSalt = password.Item2;
 
