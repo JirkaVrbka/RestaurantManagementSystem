@@ -15,9 +15,9 @@ namespace Web.Controllers
         // GET: MyCompany
         public CompanyFacade CompanyFacade { get; set; }
         
-        public ActionResult MyCompany()
+        public async Task<ActionResult> MyCompany()
         {
-            CompanyDto company = CompanyFacade.GetCompany(User.Identity.Name);
+            CompanyDto company = await CompanyFacade.FindCompanyByUserEmail(User.Identity.Name);
             return View("MyCompany", company);
         }
 
@@ -28,11 +28,11 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(CompanyDto company)
+        public async Task<ActionResult> Save(CompanyDto company)
         {
             try
             {
-                CompanyFacade.Update(company);
+                await CompanyFacade.Update(company);
                 return View("MyCompany");
             }
             catch(Exception)

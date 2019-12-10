@@ -124,5 +124,14 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _companyService.GetByIco(ico);
             }
         }
+
+        public async Task<CompanyDto> FindByUserEmail(String email)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(email)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsync(companyId, false));
+            }
+        }
     }
 }

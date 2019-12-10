@@ -16,7 +16,7 @@ namespace Web.Controllers
         
         public async Task<ActionResult> MyAccount()
         {
-            var employee = await EmployeeFacade.GetByEmailAsync(User.Identity.Name);
+            var employee = await EmployeeFacade.GetAsyncByEmail(User.Identity.Name);
             return View("MyAccount", employee);
         }
 

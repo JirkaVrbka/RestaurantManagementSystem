@@ -87,8 +87,6 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _employeeService.AuthorizeUserAsync(email, password);
             }
         }
-<<<<<<< Updated upstream
-=======
 
         public async Task<EmployeeDto> GetByEmailAsync(string email)
         {
@@ -123,6 +121,5 @@ namespace RestaurantManager.BusinessLayer.Facades
         {
             throw new NotImplementedException();
         }
->>>>>>> Stashed changes
     }
 }
