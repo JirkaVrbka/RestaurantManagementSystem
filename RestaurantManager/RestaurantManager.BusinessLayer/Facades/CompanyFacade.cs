@@ -214,5 +214,14 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return companyId == 0 ? null : (await _companyService.GetAsyncWithOrders(companyId)).Orders.FindAll(o => o.OrderStartTime.Year == today.Year && o.OrderStartTime.Month == today.Month && o.OrderStartTime.Day == today.Day);
             }
         }
+
+        public async Task<List<OrderDto>> CloseTheDayBetween(string employeeEmail, DateTime startDate, DateTime endTime)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _companyService.GetAsyncWithOrders(companyId)).Orders.FindAll(o => o.OrderStartTime >= startDate && o.OrderStartTime <= endTime);
+            }
+        }
     }
 }
