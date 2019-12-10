@@ -42,8 +42,13 @@
         @Html.DisplayFor(modelItem => item.Role)
     </td>
     <td>
-        @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) |
-        @Html.ActionLink("Delete", "Delete", new {  id=item.Id })
+        @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) 
+        @if (!User.Identity.Name.Equals(item.Email))
+        {
+            <span>|</span>
+            @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+        }
+        
     </td>
 </tr>
 }
