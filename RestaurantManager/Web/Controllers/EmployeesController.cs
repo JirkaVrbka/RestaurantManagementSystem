@@ -50,7 +50,9 @@ namespace Web.Controllers
         public async Task<ActionResult> Delete(int id)
         {
             await EmployeeFacade.Delete(id);
-            return View("Employees");
+
+            List<EmployeeDto> employees = await CompanyFacade.GetAllEmployees(User.Identity.Name); //E mployeeFacade.GetAllEmployees(User.Identity.Name);
+            return View("Employees", employees);
         }
 
         public async Task<ActionResult> Edit(int id)
