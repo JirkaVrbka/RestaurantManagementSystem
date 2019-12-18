@@ -79,7 +79,7 @@ namespace Web.Controllers
 
                 if (isEmailAlreadyRegistered)
                 {
-                    ModelState.AddModelError("Username", "Account with that username already exists!");
+                    ModelState.AddModelError("Email", "Account with that email already exists!");
                     return View();
                 }
                 
