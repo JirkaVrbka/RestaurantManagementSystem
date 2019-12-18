@@ -15,6 +15,7 @@ namespace Web.Controllers
         public OrderFacade OrderFacade { get; set; }
         public CompanyFacade CompanyFacade { get; set; }
         public orderItemItemFacade OrderItemItemFacade { get; set; }
+        public MenuItemFacade MenuItemFacade { get; set; }
 
         // GET: Order
         public async Task<ActionResult> Order()
@@ -80,6 +81,10 @@ namespace Web.Controllers
                 IsPaid = false,
                 OrderId = order.OrderId
             });
+
+            var item = items[order.SelectedItem];
+            item.Amount--;
+            await MenuItemFacade.Update(item);
 
             List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
             var res = await OrderFacade.GetAsyncWithDependencies(order.OrderId);
