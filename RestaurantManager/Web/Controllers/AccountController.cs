@@ -36,18 +36,21 @@ namespace Web.Controllers
         public async Task<ActionResult> Login(LoginModel model)
         {
             (bool success, string role) = await EmployeeFacade.Login(model.Email, model.Password);
+            
             if (success)
             {
                 //FormsAuthentication.SetAuthCookie(model.Username, false);
-
+                /*
                 var authTicket = new FormsAuthenticationTicket(1, model.Email, DateTime.Now,
                     DateTime.Now.AddMinutes(30), false, role);
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                HttpContext.Response.Cookies.Add(authCookie);
+                HttpContext.Response.Cookies.Add(authCookie);*/
 
+                AddAuthTicket(model.Email, role);
                 return RedirectToAction("Index", "Home");
             }
+
             ModelState.AddModelError("", "Wrong username or password!");
             return View();
         }
@@ -65,25 +68,41 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Register(NewCustomerDto customer)
         {
-            try
-            {
+                var isIcoAlreadyRegistered = (await CompanyFacade.GetAsyncByIco(customer.Ico)) != null;
+                var isEmailAlreadyRegistered = (await EmployeeFacade.GetAsyncByEmail(customer.Email)) != null;
+
+                if (isIcoAlreadyRegistered)
+                {
+                    ModelState.AddModelError("Ico", "Ico is already registered");
+                    return View();
+                }
+
+                if (isEmailAlreadyRegistered)
+                {
+                    ModelState.AddModelError("Username", "Account with that username already exists!");
+                    return View();
+                }
+                
+
                 await CompanyFacade.RegisterCompanyWithOwner(customer);
-
-
+                AddAuthTicket(customer.Email, Role.Owner.ToString());
+            /*
                 var authTicket = new FormsAuthenticationTicket(1, customer.Email, DateTime.Now,
                     DateTime.Now.AddMinutes(30), false, "Owner");
                 string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
                 var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                HttpContext.Response.Cookies.Add(authCookie);
+                HttpContext.Response.Cookies.Add(authCookie);*/
 
                 return RedirectToAction("Index", "Home");
-            }
-            catch (ArgumentException)
-            {
-                ModelState.AddModelError("Username", "Account with that username already exists!");
-                return View();
-            }
-            
+        }
+
+        private void AddAuthTicket(String email, String role)
+        {
+            var authTicket = new FormsAuthenticationTicket(1, email, DateTime.Now,
+                DateTime.Now.AddMinutes(30), false, role);
+            string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+            var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
+            HttpContext.Response.Cookies.Add(authCookie);
         }
 
 
