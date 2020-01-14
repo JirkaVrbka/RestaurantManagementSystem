@@ -10,10 +10,10 @@ using RestaurantManager.Infrastructure.UnitOfWork;
 
 namespace RestaurantManager.BusinessLayer.Facades
 {
-    public class orderItemItemFacade : FacadeBase
+    public class OrderItemFacade : FacadeBase
     {
         private OrderItemService _OrderItemService;
-        public orderItemItemFacade(IUnitOfWorkProvider unitOfWorkProvider, OrderItemService OrderItemService) : base(unitOfWorkProvider)
+        public OrderItemFacade(IUnitOfWorkProvider unitOfWorkProvider, OrderItemService OrderItemService) : base(unitOfWorkProvider)
         {
             _OrderItemService = OrderItemService;
         }
