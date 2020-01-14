@@ -14,7 +14,7 @@ namespace Web.Controllers
     {
         public OrderFacade OrderFacade { get; set; }
         public CompanyFacade CompanyFacade { get; set; }
-        public orderItemItemFacade OrderItemItemFacade { get; set; }
+        public OrderItemFacade OrderItemFacade { get; set; }
         public MenuItemFacade MenuItemFacade { get; set; }
 
         // GET: Order
@@ -75,7 +75,7 @@ namespace Web.Controllers
         public async Task<ActionResult> SaveItem(NewItemToOrder order)
         {
             var items = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
-            await OrderItemItemFacade.Create(new OrderItemDto
+            await OrderItemFacade.Create(new OrderItemDto
             {
                 MenuItemId = items[order.SelectedItem].Id,
                 IsPaid = false,
@@ -100,9 +100,9 @@ namespace Web.Controllers
 
         public async Task<ActionResult> Pay(int id, int orderId)
         {
-            var orderItem = await OrderItemItemFacade.GetAsync(id);
+            var orderItem = await OrderItemFacade.GetAsync(id);
             orderItem.IsPaid = true;
-            await OrderItemItemFacade.Update(orderItem);
+            await OrderItemFacade.Update(orderItem);
 
             var res = await OrderFacade.GetAsyncWithDependencies(orderId);
             return View("Details", res);
