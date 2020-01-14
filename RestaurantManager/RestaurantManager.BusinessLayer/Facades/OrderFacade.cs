@@ -13,9 +13,11 @@ namespace RestaurantManager.BusinessLayer.Facades
     public class OrderFacade : FacadeBase
     {
         private OrderService _orderService;
-        public OrderFacade(IUnitOfWorkProvider unitOfWorkProvider, OrderService orderService) : base(unitOfWorkProvider)
+        private OrderWithDependenciesService _orderWithDependenciesService;
+        public OrderFacade(IUnitOfWorkProvider unitOfWorkProvider, OrderService orderService, OrderWithDependenciesService orderWithDependenciesService) : base(unitOfWorkProvider)
         {
             _orderService = orderService;
+            _orderWithDependenciesService = orderWithDependenciesService;
         }
 
         public async Task<List<OrderDto>> GetStockItems(int companyId)
@@ -75,11 +77,11 @@ namespace RestaurantManager.BusinessLayer.Facades
             throw new NotImplementedException();
         }
 
-        public async Task<OrderWithOrderItemDepDto> GetAsyncWithDependencies(int orderId)
+        public async Task<OrderWithFullDependencyDto> GetAsyncWithDependencies(int orderId)
         {
             using (UnitOfWorkProvider.Create())
             {
-                return await _orderService.GetAsyncWithOrderItems(orderId);
+                return await _orderWithDependenciesService.GetAsyncWithOrderItems(orderId);
             }
         }
     }

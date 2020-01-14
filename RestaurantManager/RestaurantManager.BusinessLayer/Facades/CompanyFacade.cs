@@ -17,14 +17,21 @@ namespace RestaurantManager.BusinessLayer.Facades
         private CompanyService _companyService;
         private EmployeeService _employeeService;
         private OrderService _orderService;
+        private OrderWithDependenciesService _orderWithDependenciesService;
         private PaymentService _paymentService;
-        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, CompanyService companyService, EmployeeService employeeService, OrderService orderService, PaymentService paymentService) : base(unitOfWorkProvider)
+        public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, 
+            CompanyService companyService, 
+            EmployeeService employeeService, 
+            OrderService orderService, 
+            PaymentService paymentService,
+            OrderWithDependenciesService orderWithDependenciesService) : base(unitOfWorkProvider)
         {
             _employeeService = employeeService;
             this._companyService = companyService;
             this._employeeService = employeeService;
             _orderService = orderService;
             _paymentService = paymentService;
+            _orderWithDependenciesService = orderWithDependenciesService;
         }
 
         public async Task RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
@@ -180,6 +187,15 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
                 return companyId == 0 ? null : (await _companyService.GetAsyncWithOrders(companyId)).Orders;
+            }
+        }
+
+        public async Task<List<OrderWithFullDependencyDto>> GetAllOrdersWithDependencies(String employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                return companyId == 0 ? null : (await _orderWithDependenciesService.GetStockItemsOfCompanyWithDependencies(companyId)); 
             }
         }
 
