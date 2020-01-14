@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.Resolvers.SpecializedResolvers;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using RestaurantManager.BusinessLayer.Facades;
 using RestaurantManager.BusinessLayer.Facades.Common;
 using RestaurantManager.BusinessLayer.QueryObjects;
 using RestaurantManager.BusinessLayer.Services.Common;
-using RestaurantManager.DAL;
 using RestaurantManager.DAL.Config;
 
 namespace RestaurantManager.BusinessLayer.Config
