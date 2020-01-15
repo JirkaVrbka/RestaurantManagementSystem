@@ -9,6 +9,13 @@ using System.Web.Routing;
 using System.Web.Security;
 using Castle.Windsor;
 using RestaurantManager.BusinessLayer.Config;
+using RestaurantManager.BusinessLayer.DTOs.DTOs;
+using RestaurantManager.BusinessLayer.DTOs.Filters;
+using RestaurantManager.BusinessLayer.Facades;
+using RestaurantManager.BusinessLayer.QueryObjects;
+using RestaurantManager.BusinessLayer.Services;
+using RestaurantManager.DAL.Models;
+using RestaurantManager.Infrastructure.Query;
 using Web.App_Start.Windsor;
 
 namespace Web
@@ -37,13 +44,23 @@ namespace Web
             var controllerFactory = new WindsorControllerFactory(Container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
 
+            // TODO remove to release
+            /*foreach (var handler in Container.Kernel.GetAssignableHandlers(typeof(object)))
+            {
+                System.Diagnostics.Debug.WriteLine("{0} {1}",
+                    handler.ComponentModel.Services,
+                    handler.ComponentModel.Implementation);
+            }
 
-            //foreach (var handler in Container.Kernel.GetAssignableHandlers(typeof(object)))
-            //{
-            //    System.Diagnostics.Debug.WriteLine("{0} {1}",
-            //        handler.ComponentModel.Services,
-            //        handler.ComponentModel.Implementation);
-            //}
+            IQuery<Order> o = Container.Resolve<IQuery<Order>>();
+
+            QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>> query2 =
+                Container.Resolve<QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>>>();
+
+            QueryObjectBase<OrderWithFullDependencyDto, Order, OrderFilterDto, IQuery<Order>> query =
+                Container.Resolve<QueryObjectBase<OrderWithFullDependencyDto, Order, OrderFilterDto, IQuery<Order>>>();*/
+            //CompanyFacade companyFacade = Container.Resolve<CompanyFacade>();
+            Console.WriteLine("OK");
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)

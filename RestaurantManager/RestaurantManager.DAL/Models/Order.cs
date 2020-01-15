@@ -10,10 +10,13 @@ namespace RestaurantManager.DAL.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required]
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
         public virtual List<OrderItem> Items { get; set; }
+        [Required]
         public DateTime OrderStartTime { get; set; }
+        [Required]
         public int OrderTable { get; set; }
 
         [NotMapped]

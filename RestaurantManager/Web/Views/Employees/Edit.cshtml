@@ -40,7 +40,9 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Role, EnumHelper.GetSelectList(typeof(Role)),  @Html.DisabledIf((Model.Email.Equals(User.Identity.Name)), "form-control"))
+            @Html.DropDownListFor(model => model.Role, 
+                EnumHelper.GetSelectList(typeof(Role)),  
+                @Html.DisabledIf((Model.Email.Equals(User.Identity.Name)), "form-control"))
             @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -48,7 +50,8 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Email, new { htmlAttributes = @Html.DisabledIf((Model.Email.Equals(User.Identity.Name)), "form-control") })
+            @Html.EditorFor(model => model.Email, 
+                new { htmlAttributes = @Html.DisabledIf((Model.Email.Equals(User.Identity.Name)), "form-control") })
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
     </div>

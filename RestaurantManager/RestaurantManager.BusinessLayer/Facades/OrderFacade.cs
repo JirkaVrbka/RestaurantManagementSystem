@@ -24,7 +24,7 @@ namespace RestaurantManager.BusinessLayer.Facades
         {
             using (UnitOfWorkProvider.Create())
             {
-                return await _orderService.GetStockItemsOfCompany(companyId);
+                return await _orderService.GetOrderOfCompany(companyId);
             }
         }
 

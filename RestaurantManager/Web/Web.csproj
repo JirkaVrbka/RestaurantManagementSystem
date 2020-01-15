@@ -151,7 +151,7 @@
     <Compile Include="Models\ChangeAmountModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\NewItemToOrder.cs" />
-    <Compile Include="Models\StatiscicsModel.cs" />
+    <Compile Include="Models\StatisticsModel.cs" />
     <Compile Include="Models\StockItemCreation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\HtmlExtensions.cs" />
@@ -223,7 +223,6 @@
     <Content Include="Views\MyAccount\MyAccount.cshtml" />
     <Content Include="Views\MyCompany\MyCompany.cshtml" />
     <Content Include="Views\Payments\Payments.cshtml" />
-    <Content Include="Views\Statistics\Statistics.cshtml" />
     <Content Include="Views\Stock\Stock.cshtml" />
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="webfonts\fa-brands-400.svg" />
@@ -255,6 +254,10 @@
     <Content Include="Views\MenuItems\Edit.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
     <Content Include="Views\Order\Add.cshtml" />
+    <Content Include="Views\Statistics\Statistics.cshtml" />
+    <Content Include="Views\Statistics\TodayChart.cshtml" />
+    <Content Include="Views\Statistics\MonthChart.cshtml" />
+    <Content Include="Views\Statistics\AllChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -276,6 +279,14 @@
     <ProjectReference Include="..\RestaurantManager.BusinessLayer\RestaurantManager.BusinessLayer.csproj">
       <Project>{45579049-6321-43C8-9156-5DF8468C53DC}</Project>
       <Name>RestaurantManager.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.DAL\RestaurantManager.DAL.csproj">
+      <Project>{9A3056BA-6714-46AB-B258-D13516B2E1D0}</Project>
+      <Name>RestaurantManager.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RestaurantManager.Infrastructure\RestaurantManager.Infrastructure.csproj">
+      <Project>{6DFC8261-A01A-4F86-B09C-DFC2991A6312}</Project>
+      <Name>RestaurantManager.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\RestaurantManager.Utils\RestaurantManager.Utils.csproj">
       <Project>{7F3EF631-7873-476A-9343-5E9D343E9548}</Project>

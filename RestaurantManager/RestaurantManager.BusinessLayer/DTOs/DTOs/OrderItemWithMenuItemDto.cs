@@ -10,7 +10,7 @@ namespace RestaurantManager.BusinessLayer.DTOs.DTOs
     {
         public int OrderId { get; set; }
         public int MenuItemId { get; set; }
-        public virtual MenuItemDto MenuItem { get; set; }
+        public MenuItemDto MenuItem { get; set; }
         public bool IsPaid { get; set; }
     }
 }

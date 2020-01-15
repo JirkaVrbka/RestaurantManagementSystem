@@ -8,8 +8,10 @@ namespace RestaurantManager.DAL.Models
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        [Required]
         public int OrderId { get; set; }
         public virtual Order Order { get; set; }
+        [Required]
         public int MenuItemId { get; set; }
         public virtual MenuItem MenuItem { get; set; }
         [Required]

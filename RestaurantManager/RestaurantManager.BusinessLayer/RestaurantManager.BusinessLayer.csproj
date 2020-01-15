@@ -81,6 +81,7 @@
     <Compile Include="DTOs\Common\DtoBase.cs" />
     <Compile Include="DTOs\DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\Common\FilterDtoBase.cs" />
+    <Compile Include="DTOs\Filters\OrderItemFilterByOrderDto.cs" />
     <Compile Include="DTOs\Filters\StockItemFilterDto.cs" />
     <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
     <Compile Include="DTOs\Filters\MenuItemFilterDto.cs" />
@@ -105,8 +106,9 @@
     <Compile Include="QueryObjects\Common\QueryObjectBase.cs" />
     <Compile Include="QueryObjects\MenuItemQueryObject.cs" />
     <Compile Include="QueryObjects\OrderItemQueryObject.cs" />
+    <Compile Include="QueryObjects\OrderItemWithMenuItemByOrderQuery.cs" />
     <Compile Include="QueryObjects\OrderQueryObject.cs" />
-    <Compile Include="QueryObjects\OrderWithDependenciesQueryObject.cs" />
+    <Compile Include="QueryObjects\OrderItemByOrderQueryObject.cs" />
     <Compile Include="QueryObjects\PaymentQueryObject.cs" />
     <Compile Include="QueryObjects\StockItemQueryObject.cs" />
     <Compile Include="Services\Common\CrudQueryServiceBase.cs" />

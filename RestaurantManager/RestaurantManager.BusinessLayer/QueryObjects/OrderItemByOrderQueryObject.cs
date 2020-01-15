@@ -13,18 +13,17 @@ using RestaurantManager.Infrastructure.Query.Predicates.Operators;
 
 namespace RestaurantManager.BusinessLayer.QueryObjects
 {
-    public class OrderWithDependenciesQueryObject : QueryObjectBase<OrderWithFullDependencyDto, Order, OrderFilterDto, IQuery<Order>>
+    public class OrderItemByOrderQueryObject : QueryObjectBase<OrderItemDto, OrderItem, OrderItemFilterByOrderDto, IQuery<OrderItem>>
     {
-        public OrderWithDependenciesQueryObject(IMapper mapper, IQuery<Order> query) : base(mapper, query)
+        public OrderItemByOrderQueryObject(IMapper mapper, IQuery<OrderItem> query) : base(mapper, query)
         {
         }
 
-        protected override IQuery<Order> ApplyWhereClause(IQuery<Order> query, OrderFilterDto filter)
+        protected override IQuery<OrderItem> ApplyWhereClause(IQuery<OrderItem> query, OrderItemFilterByOrderDto filter)
         {
-            return filter.CompanyId == 0
-                ? query
-                : query.Where(new SimplePredicate(nameof(Order.CompanyId), ValueComparingOperator.Equal,
-                    filter.CompanyId));
+            return  query.Where(new SimplePredicate(nameof(OrderItem.OrderId), ValueComparingOperator.Equal,
+                    filter.OrderId));
         }
+
     }
 }

@@ -17,21 +17,24 @@ namespace RestaurantManager.BusinessLayer.Facades
         private CompanyService _companyService;
         private EmployeeService _employeeService;
         private OrderService _orderService;
-        private OrderWithDependenciesService _orderWithDependenciesService;
         private PaymentService _paymentService;
+        private OrderItemService _orderItemService;
+        private MenuItemService _menuItemService;
         public CompanyFacade(IUnitOfWorkProvider unitOfWorkProvider, 
             CompanyService companyService, 
             EmployeeService employeeService, 
             OrderService orderService, 
             PaymentService paymentService,
-            OrderWithDependenciesService orderWithDependenciesService) : base(unitOfWorkProvider)
+            OrderItemService orderItemService,
+            MenuItemService menuItemService) : base(unitOfWorkProvider)
         {
             _employeeService = employeeService;
             this._companyService = companyService;
             this._employeeService = employeeService;
             _orderService = orderService;
             _paymentService = paymentService;
-            _orderWithDependenciesService = orderWithDependenciesService;
+            _orderItemService = orderItemService;
+            _menuItemService = menuItemService;
         }
 
         public async Task RegisterCompany(CompanyDto companyCreateDto, string ownerEmail)
@@ -192,11 +195,54 @@ namespace RestaurantManager.BusinessLayer.Facades
 
         public async Task<List<OrderWithFullDependencyDto>> GetAllOrdersWithDependencies(String employeeEmail)
         {
+
+            List<OrderWithFullDependencyDto> result = new List<OrderWithFullDependencyDto>();
+            List<OrderDto> orders = new List<OrderDto>();
             using (UnitOfWorkProvider.Create())
             {
                 int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
-                return companyId == 0 ? null : (await _orderWithDependenciesService.GetStockItemsOfCompanyWithDependencies(companyId)); 
+                orders = await _orderService.GetOrderOfCompany(companyId);
+                
             }
+
+            Dictionary<int, MenuItemDto> menuItems = new Dictionary<int, MenuItemDto>();
+            foreach (var o in orders)
+            {
+                using (UnitOfWorkProvider.Create())
+                {
+                    OrderWithFullDependencyDto order = new OrderWithFullDependencyDto
+                    {
+                        Id = o.Id,
+                        OrderStartTime = o.OrderStartTime,
+                        CompanyId = o.CompanyId,
+                        OrderTable = o.OrderTable,
+                        Items = new List<OrderItemWithMenuItemDto>()
+                    };
+                    var items = await _orderItemService.GetWithMenuItemByOrderId(order.Id);
+                    order.Items.AddRange(items);
+                    result.Add(order);
+                }
+            }
+
+            result.ForEach(o => o.Items.ForEach(i =>
+            {
+                if (!menuItems.ContainsKey(i.MenuItemId))
+                {
+                    menuItems.Add(i.MenuItemId, null);
+                }
+            }));
+
+            foreach (var menuItemId in menuItems.Keys.ToList())
+            {
+                using (UnitOfWorkProvider.Create())
+                {
+                    menuItems[menuItemId] = await _menuItemService.GetAsync(menuItemId, false);
+                }
+            }
+
+            result.ForEach(o => o.Items.ForEach(i => i.MenuItem = menuItems[i.MenuItemId]));
+
+            return result;
         }
 
         public async Task<List<MenuItemDto>> GetAllMenuItems(String employeeEmail)

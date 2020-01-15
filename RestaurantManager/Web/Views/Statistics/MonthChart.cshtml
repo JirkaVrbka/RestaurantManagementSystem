@@ -1,0 +1,11 @@
+﻿@model Dictionary<string, int>
+
+@{
+    var today = new Chart(width: 600, height: 400)
+        .AddTitle("Items sold this month")
+        .AddSeries(
+            name: "Items sold this month",
+            xValue: Model.Keys,
+            yValues: Model.Values)
+        .Write();
+}

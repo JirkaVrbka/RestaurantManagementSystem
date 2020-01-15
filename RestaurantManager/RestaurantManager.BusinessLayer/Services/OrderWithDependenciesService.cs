@@ -31,7 +31,7 @@ namespace RestaurantManager.BusinessLayer.Services
 
         public async Task<List<OrderWithFullDependencyDto>> GetStockItemsOfCompanyWithDependencies(int companyId)
         {
-
+            
             var queryResult = await Query.ExecuteQuery(new OrderFilterDto { CompanyId = companyId });
             return queryResult.Items.ToList();
         }

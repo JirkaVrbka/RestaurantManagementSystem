@@ -32,10 +32,23 @@ namespace RestaurantManager.BusinessLayer.Services
             return Repository.GetAsync(entityId, new string[] { nameof(Order.Company) });
         }
 
-        public async Task<List<OrderDto>> GetStockItemsOfCompany(int companyId)
+        public async Task<List<OrderDto>> GetOrderOfCompany(int companyId)
         {
             var queryResult = await Query.ExecuteQuery(new OrderFilterDto { CompanyId = companyId });
             return queryResult.Items.ToList();
         }
+
+        public async Task<List<OrderWithFullDependencyDto>> GetOrderOfCompanyWithOrderItems(int companyId)
+        {
+            var queryResult = await Query.ExecuteQuery(new OrderFilterDto { CompanyId = companyId });
+            List<OrderWithFullDependencyDto> orders = new List<OrderWithFullDependencyDto>();
+            foreach (var result in queryResult.Items)
+            {
+                orders.Add(Mapper.Map<OrderWithFullDependencyDto>(Repository.GetAsync(result.Id, nameof(Order.Items)).Result));
+            }
+
+            return orders;
+        }
+
     }
 }
