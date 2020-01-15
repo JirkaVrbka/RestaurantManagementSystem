@@ -14,12 +14,12 @@ using RestaurantManager.Infrastructure.Query;
 
 namespace RestaurantManager.BusinessLayer.Services
 {
-    public class OrderWithDependenciesService : CrudQueryServiceBase<Order, OrderWithFullDependencyDto, OrderFilterDto>
+    public class OrderWithDependenciesService : CrudQueryServiceBase<Order, OrderDto, OrderFilterDto>
     {
         public OrderWithDependenciesService(
             IMapper mapper, 
             IRepository<Order> repository,
-            QueryObjectBase<OrderWithFullDependencyDto, Order, OrderFilterDto, IQuery<Order>> query
+            QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>> query
             ) : base(mapper,repository, query)
         {
         }
@@ -27,13 +27,6 @@ namespace RestaurantManager.BusinessLayer.Services
         protected override Task<Order> GetWithIncludesAsync(int entityId)
         {
             return Repository.GetAsync(entityId, new string[] { nameof(Order.Company) });
-        }
-
-        public async Task<List<OrderWithFullDependencyDto>> GetStockItemsOfCompanyWithDependencies(int companyId)
-        {
-            
-            var queryResult = await Query.ExecuteQuery(new OrderFilterDto { CompanyId = companyId });
-            return queryResult.Items.ToList();
         }
 
         public async Task<OrderWithFullDependencyDto> GetAsyncWithOrderItems(int entityId)
