@@ -51,7 +51,6 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(MenuItemDto item)
         {
-
             List<MenuItemDto> menuItems = await MenuItemFacade.GetMenuItemsByCompanyId(item.CompanyId);
 
             if(menuItems.Find(mi => mi.Name.Equals(item.Name)) != null)
@@ -62,6 +61,7 @@ namespace Web.Controllers
             }
             else
             {
+                // Item has unique name - creation
                 await MenuItemFacade.Create(item);
                 menuItems = await MenuItemFacade.GetMenuItemsByCompanyId(item.CompanyId);
                 return View("MenuItems", menuItems);
