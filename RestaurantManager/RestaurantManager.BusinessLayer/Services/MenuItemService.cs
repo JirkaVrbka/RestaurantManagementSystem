@@ -24,5 +24,12 @@ namespace RestaurantManager.BusinessLayer.Services
         {
             return Repository.GetAsync(entityId, new string[] { nameof(MenuItem.Company)});
         }
+
+        public async Task<List<MenuItemDto>> GetByCompanyId(int companyId)
+        {
+            var filter = new MenuItemFilterDto{CompanyId = companyId};
+            var queryResult = await Query.ExecuteQuery(filter);
+            return queryResult.Items.ToList();
+        }
     }
 }

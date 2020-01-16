@@ -21,9 +21,7 @@ namespace RestaurantManager.BusinessLayer.QueryObjects
 
         protected override IQuery<MenuItem> ApplyWhereClause(IQuery<MenuItem> query, MenuItemFilterDto filter)
         {
-            return filter.CompanyId == 0
-                ? query
-                : query.Where(new SimplePredicate(nameof(MenuItem.CompanyId), ValueComparingOperator.Equal,
+            return query.Where(new SimplePredicate(nameof(MenuItem.CompanyId), ValueComparingOperator.Equal,
                     filter.CompanyId));
         }
     }

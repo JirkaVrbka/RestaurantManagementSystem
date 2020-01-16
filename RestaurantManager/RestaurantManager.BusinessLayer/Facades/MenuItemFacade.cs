@@ -62,6 +62,14 @@ namespace RestaurantManager.BusinessLayer.Facades
                 return await _menuItemService.GetAsync(menuItemId, false);
             }
         }
+
+        public async Task<List<MenuItemDto>> GetMenuItemsByCompanyId(int companyId)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _menuItemService.GetByCompanyId(companyId);
+            }
+        }
     }
 
 }

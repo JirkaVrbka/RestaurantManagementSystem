@@ -61,7 +61,8 @@ namespace Web.Controllers
                 CompanyId = companyId,
                 Name = item.MenuItem.Name,
                 SellPrice = item.MenuItem.SellPrice,
-                BuyPrice = item.MenuItem.BuyPrice
+                BuyPrice = item.MenuItem.BuyPrice,
+                Amount = 0
             });
 
             await StockItemFacade.Create(new StockItemDto

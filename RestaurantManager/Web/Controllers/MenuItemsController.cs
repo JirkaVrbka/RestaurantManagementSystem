@@ -51,11 +51,21 @@ namespace Web.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(MenuItemDto item)
         {
-            await MenuItemFacade.Create(item);
 
-            List<MenuItemDto> menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
+            List<MenuItemDto> menuItems = await MenuItemFacade.GetMenuItemsByCompanyId(item.CompanyId);
 
-            return View("MenuItems", menuItems);
+            if(menuItems.Find(mi => mi.Name.Equals(item.Name)) != null)
+            {
+                // Item with same name already exist
+                ModelState.AddModelError("Name", "Item with this name is already in your menu");
+                return View("Create", item);
+            }
+            else
+            {
+                await MenuItemFacade.Create(item);
+                menuItems = await MenuItemFacade.GetMenuItemsByCompanyId(item.CompanyId);
+                return View("MenuItems", menuItems);
+            }
         }
     }
 }
