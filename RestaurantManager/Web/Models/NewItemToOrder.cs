@@ -10,6 +10,7 @@ namespace Web.Models
     {
         public List<MenuItemDto> Items { get; set; }
         public int SelectedItem { get; set; }
+        public String SelectItem { get; set; }
         public int OrderId { get; set; }
     }
 }

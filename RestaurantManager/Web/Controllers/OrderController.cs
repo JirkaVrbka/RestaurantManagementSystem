@@ -75,18 +75,19 @@ namespace Web.Controllers
         public async Task<ActionResult> SaveItem(NewItemToOrder order)
         {
             var items = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
+
+            var currentItem = items.Find(i => i.Name.Equals(order.SelectItem));
+            
             await OrderItemFacade.Create(new OrderItemDto
             {
-                MenuItemId = items[order.SelectedItem].Id,
+                MenuItemId = currentItem.Id,
                 IsPaid = false,
                 OrderId = order.OrderId
             });
 
-            var item = items[order.SelectedItem];
-            item.Amount--;
-            await MenuItemFacade.Update(item);
+            currentItem.Amount--;
+            await MenuItemFacade.Update(currentItem);
 
-            List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
             var res = await OrderFacade.GetAsyncWithDependencies(order.OrderId);
             return View("Details", res);
         }
