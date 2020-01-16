@@ -42,6 +42,7 @@ namespace Web.Controllers
         public async Task<ActionResult> Create(OrderDto order)
         {
             order.OrderStartTime = DateTime.Now;
+            order.IsClosed = false;
             
             await CompanyFacade.CreateNewOrderForCompany(User.Identity.Name, order);
             List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
