@@ -72,7 +72,7 @@ namespace Web.Controllers
             }
             catch (Exception)
             {
-                return View("Edit");
+                return View("Edit", employee);
             }
         }
     }

@@ -31,7 +31,6 @@ namespace RestaurantManager.BusinessLayer.Config
             config.CreateMap<OrderItem, OrderItemDto>().ReverseMap();
             config.CreateMap<OrderItem, OrderItemWithMenuItemDto>().ReverseMap();
             config.CreateMap<Payment, PaymentDto>().ReverseMap();
-            config.CreateMap<StockItem, StockItemDto>().ReverseMap();
             config.CreateMap<Company, CompanyWithIncludesDto>().ReverseMap();
             config.CreateMap<Employee, EmployeeCreateDto>().ReverseMap();
 
@@ -46,7 +45,6 @@ namespace RestaurantManager.BusinessLayer.Config
             config.CreateMap<QueryResult<OrderItem>, QueryResultDto<OrderItemWithMenuItemDto, OrderItemFilterDto>>();
             config.CreateMap<QueryResult<OrderItem>, QueryResultDto<OrderItemWithMenuItemDto, OrderItemFilterByOrderDto>>();
             config.CreateMap<QueryResult<Payment>, QueryResultDto<PaymentDto, PaymentFilterDto>>();
-            config.CreateMap<QueryResult<StockItem>, QueryResultDto<StockItemDto, StockItemFilterDto>>();
         }
     }
 }

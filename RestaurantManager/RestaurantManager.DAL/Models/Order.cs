@@ -19,6 +19,9 @@ namespace RestaurantManager.DAL.Models
         [Required]
         public int OrderTable { get; set; }
 
+        [Required]
+        public bool IsClosed { get; set; }
+
         [NotMapped]
         public string TableName { get; } = nameof(RestaurantManagerDbContext.Orders);
     }

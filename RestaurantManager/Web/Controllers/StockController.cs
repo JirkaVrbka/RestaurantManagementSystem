@@ -13,7 +13,6 @@ namespace Web.Controllers
     [Authorize(Roles = "Owner, Manager")]
     public class StockController : Controller
     {
-        public StockItemFacade StockItemFacade { get; set; }
         public CompanyFacade CompanyFacade { get; set; }
 
         public MenuItemFacade MenuItemFacade { get; set; }
@@ -38,13 +37,13 @@ namespace Web.Controllers
             await MenuItemFacade.Update(item);
             return await Stock();
         }
-
-        [HttpPost]
-        public async Task<ActionResult> Save(StockItemDto item)
-        {
-            await StockItemFacade.Update(item);
-            return View("Stock");
-        }
+//
+//        [HttpPost]
+//        public async Task<ActionResult> Save(StockItemDto item)
+//        {
+//            await StockItemFacade.Update(item);
+//            return View("Stock");
+//        }
 
         public ActionResult Create()
         {
@@ -64,11 +63,11 @@ namespace Web.Controllers
                 BuyPrice = item.MenuItem.BuyPrice,
                 Amount = 0
             });
-
-            await StockItemFacade.Create(new StockItemDto
-            {
-                
-            });
+//
+//            await StockItemFacade.Create(new StockItemDto
+//            {
+//                
+//            });
 
 
             return Stock().Result;

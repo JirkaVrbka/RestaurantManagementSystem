@@ -52,8 +52,7 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
                 JoinDate = DateTime.Now,
                 MenuItems = new List<MenuItem>(),
                 Orders = new List<Order>(),
-                Payments = new List<Payment>(),
-                Stock = new List<StockItem>()
+                Payments = new List<Payment>()
             };
 
             var menuItems = new List<MenuItem>() {
@@ -103,28 +102,6 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
                     Company = company,
                     DueDate = DateTime.Now.AddDays(5),
                     VariableNumber = "111455"
-                }
-            };
-
-            var stockItems = new List<StockItem>()
-            {
-                new StockItem()
-                {
-                    Amount = 5,
-                    BuyPrice = 10,
-                    Company = company
-                },
-                new StockItem()
-                {
-                    Amount = 52,
-                    BuyPrice = 15,
-                    Company = company
-                },
-                new StockItem()
-                {
-                    Amount = 4,
-                    BuyPrice = 140,
-                    Company = company
                 }
             };
 
@@ -206,7 +183,6 @@ namespace RestaurantManager.Infrastructure.EF.Test.Config
             context.Companies.Add(company);
             context.MenuItems.AddRange(menuItems);
             context.Payments.AddRange(payments);
-            context.StockItems.AddRange(stockItems);
             context.Orders.AddRange(orders);
             context.Employees.AddRange(employees);
             context.OrderItems.AddRange(orderItems);

@@ -20,7 +20,6 @@ namespace RestaurantManager.DAL.Models
         public virtual List<Employee> Employees { get; set; }
         public virtual List<MenuItem> MenuItems { get; set; }
         public virtual List<Order> Orders { get; set; }
-        public virtual List<StockItem> Stock { get; set; }
         public virtual List<Payment> Payments { get; set; }
         public DateTime? JoinDate { get; set; }
 

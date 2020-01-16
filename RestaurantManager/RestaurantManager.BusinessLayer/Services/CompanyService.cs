@@ -68,12 +68,6 @@ namespace RestaurantManager.BusinessLayer.Services
             return Mapper.Map<Company, CompanyWithOrdersDto>(company);
         }
 
-        public async Task<CompanyWithStockItemsDto> GetAsyncWithStock(int entityId)
-        {
-            Company company = await Repository.GetAsync(entityId, new string[] { nameof(Company.Stock) });
-            return Mapper.Map<Company, CompanyWithStockItemsDto>(company);
-        }
-
         public async Task<CompanyWithPaymentsDto> GetAsyncWithPayments(int entityId)
         {
             Company company = await Repository.GetAsync(entityId, new string[] { nameof(Company.Payments) });

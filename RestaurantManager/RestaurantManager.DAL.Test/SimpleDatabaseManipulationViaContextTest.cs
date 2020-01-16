@@ -28,8 +28,7 @@ namespace RestaurantManager.DAL.Test
                 JoinDate = DateTime.Now,
                 MenuItems = new List<MenuItem>(),
                 Orders = new List<Order>(),
-                Payments = new List<Payment>(),
-                Stock = new List<StockItem>()
+                Payments = new List<Payment>()
             };
 
             context.Companies.Add(company);

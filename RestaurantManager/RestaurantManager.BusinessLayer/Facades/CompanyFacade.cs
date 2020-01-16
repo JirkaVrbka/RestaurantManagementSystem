@@ -254,15 +254,6 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public async Task<List<StockItemDto>> GetAllStockItems(String employeeEmail)
-        {
-            using (UnitOfWorkProvider.Create())
-            {
-                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
-                return companyId == 0 ? null : (await _companyService.GetAsyncWithStock(companyId)).Stock;
-            }
-        }
-
         public async Task CreateNewOrderForCompany(string employeeEmail, OrderDto order)
         {
             using (UnitOfWorkProvider.Create())
