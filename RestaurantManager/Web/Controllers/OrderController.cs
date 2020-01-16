@@ -29,19 +29,13 @@ namespace Web.Controllers
         {
             List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", SellPrice =  123}, new MenuItemDto(){Name = "vodka", SellPrice = 456}};
 
-            var list = new List<SelectListItem>();
-            foreach (var item in menuItems)
+            var order = new OrderDto()
             {
-                var x = new SelectListItem()
-                {
-                    Text = item.Name,
-                    Value = item.Id.ToString()
-                };
-                list.Add(x);
-            }
+                AllItems = menuItems
+            };
 
-            //ViewBag.datasource = menuItems;
-            return View();
+
+            return View(order);
         }
 
         [HttpPost]
