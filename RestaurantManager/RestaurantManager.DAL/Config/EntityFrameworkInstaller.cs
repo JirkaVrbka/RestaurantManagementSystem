@@ -12,8 +12,8 @@ using RestaurantManager.Infrastructure.UnitOfWork;
 namespace RestaurantManager.DAL.Config
 {
     public class EntityFrameworkInstaller : IWindsorInstaller
-    {
-        //release db
+    {
+        //release db
         internal const string ConnectionString = "Server=tcp:restaurantmanager-server.database.windows.net,1433;Initial Catalog=restaurantmanager-db;Persist Security Info=False;User ID=dbadmin;Password=KruteHeslo1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         
         //for debug

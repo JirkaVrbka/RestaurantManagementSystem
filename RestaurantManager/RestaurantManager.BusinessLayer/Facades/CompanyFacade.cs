@@ -193,6 +193,18 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
+        public async Task<List<OrderWithFullDependencyDto>> GetAllOrdersWithOrderItems(String employeeEmail)
+        {
+            List<OrderWithFullDependencyDto> orders = new List<OrderWithFullDependencyDto>();
+            using (UnitOfWorkProvider.Create())
+            {
+                int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
+                orders = await _orderService.GetOrderOfCompanyWithOrderItems(companyId);
+
+            }
+
+            return orders;
+        }
         public async Task<List<OrderWithFullDependencyDto>> GetAllOrdersWithDependencies(String employeeEmail)
         {
 

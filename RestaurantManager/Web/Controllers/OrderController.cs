@@ -20,9 +20,12 @@ namespace Web.Controllers
         // GET: Order
         public async Task<ActionResult> Order()
         {
-            List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
+            List<OrderWithFullDependencyDto> orders = await CompanyFacade.GetAllOrdersWithDependencies(User.Identity.Name);
+            List<OrderInfo> ordersInfo = new List<OrderInfo>();
+
             orders = orders.OrderBy(x => x.OrderStartTime).ToList();
-            return View(orders);
+            orders.ForEach(o => ordersInfo.Add(new OrderInfo{ Id = o.Id, OrderStartTime = o.OrderStartTime, OrderTable = o.OrderTable, isPaid = o.Items.TrueForAll(i => i.IsPaid)}));
+            return View(ordersInfo);
         }
 
         public ActionResult NewOrder()
@@ -45,9 +48,14 @@ namespace Web.Controllers
             order.IsClosed = false;
             
             await CompanyFacade.CreateNewOrderForCompany(User.Identity.Name, order);
+
+
             List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
-            orders = orders.OrderBy(x => x.OrderStartTime).ToList();
-            return View("Order", orders);
+            int id = orders.Find(o => DateTime.Compare(o.OrderStartTime, order.OrderStartTime.AddMilliseconds(-10)) > 0 && DateTime.Compare(o.OrderStartTime, order.OrderStartTime.AddMilliseconds(10)) < 0 && o.OrderTable == order.OrderTable).Id;
+
+
+            var res = await OrderFacade.GetAsyncWithDependencies(id);
+            return View("Details", res);
         }
 
         public async Task<ActionResult> Details(int id)
