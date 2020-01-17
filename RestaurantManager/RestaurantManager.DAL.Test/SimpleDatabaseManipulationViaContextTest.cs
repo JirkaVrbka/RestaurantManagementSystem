@@ -13,27 +13,29 @@ namespace RestaurantManager.DAL.Test
     {
         private const string TestDbConnectionString = "RestaurantManagerDALTest";
 
-        [TestMethod]
-        public void CreateSingleCompany()
-        {
-            Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantManagerDbContext>());
-            RestaurantManagerDbContext context = new RestaurantManagerDbContext(TestDbConnectionString);
+        //[TestMethod]
+        //public void CreateSingleCompany()
+        //{
+        //    Database.SetInitializer(new DropCreateDatabaseAlways<RestaurantManagerDbContext>());
+        //    RestaurantManagerDbContext context = new RestaurantManagerDbContext(TestDbConnectionString);
 
-            var company = new Company
-            {
-                Id = 0,
-                Ico = 12345678,
-                Name = "Panda",
-                Employees = new List<Employee>(),
-                JoinDate = DateTime.Now,
-                MenuItems = new List<MenuItem>(),
-                Orders = new List<Order>(),
-                Payments = new List<Payment>()
-            };
+        //    var company = new Company
+        //    {
+        //        Id = 0,
+        //        Ico = 12345678,
+        //        Name = "Panda",
+        //        Employees = new List<Employee>(),
+        //        JoinDate = DateTime.Now,
+        //        MenuItems = new List<MenuItem>(),
+        //        Orders = new List<Order>(),
+        //        Payments = new List<Payment>()
+        //    };
 
-            context.Companies.Add(company);
-            context.SaveChanges();
-        }/*
+        //    context.Companies.Add(company);
+        //    context.SaveChanges();
+        //}
+        
+        /*
 
         [TestMethod]
         public void CreateSingleCompanyWithDependencies()
