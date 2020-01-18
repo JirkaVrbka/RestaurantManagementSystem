@@ -22,8 +22,8 @@ namespace Web.Controllers
             orders.ForEach(o => o.Items.ForEach(i =>
             {
                 string itemName = i.MenuItem.Name;
-                int orderSellPrice = i.MenuItem.SellPrice * i.MenuItem.Amount;
-                int orderBuyPrice = i.MenuItem.BuyPrice * i.MenuItem.Amount;
+                int orderSellPrice = i.MenuItem.SellPrice;
+                int orderBuyPrice = i.MenuItem.BuyPrice;
 
                 if (!model.ItemsSellOverall.ContainsKey(itemName))
                 {
@@ -31,8 +31,8 @@ namespace Web.Controllers
                 }
 
                 model.ItemsSellOverall[itemName] += i.MenuItem.Amount;
-                model.CostsAll += orderSellPrice;
-                model.RevenuesAll += orderBuyPrice;
+                model.CostsAll += orderBuyPrice;
+                model.RevenuesAll += orderSellPrice;
 
                 if (o.OrderStartTime > DateTime.Now.AddMonths(-1))
                 {
@@ -41,10 +41,10 @@ namespace Web.Controllers
                         model.ItemsSellLastMonth.Add(itemName, 0);
                     }
 
-                    model.ItemsSellLastMonth[itemName] += i.MenuItem.Amount;
+                    model.ItemsSellLastMonth[itemName]++;
 
-                    model.CostsMonth += orderSellPrice;
-                    model.RevenuesMonth += orderBuyPrice;
+                    model.CostsMonth += orderBuyPrice;
+                    model.RevenuesMonth += orderSellPrice;
                 }
 
                 if (o.OrderStartTime > DateTime.Today)
@@ -54,10 +54,10 @@ namespace Web.Controllers
                         model.ItemsSellLastToday.Add(itemName, 0);
                     }
 
-                    model.ItemsSellLastToday[itemName] += i.MenuItem.Amount;
+                    model.ItemsSellLastToday[itemName]++;
                     
-                    model.CostsToday += orderSellPrice;
-                    model.RevenuesToday += orderBuyPrice;
+                    model.CostsToday += orderBuyPrice;
+                    model.RevenuesToday += orderSellPrice;
                 }
             }));
 
@@ -70,7 +70,7 @@ namespace Web.Controllers
             var itemsSell = new Dictionary<string, int>();
 
             (await CompanyFacade.GetAllMenuItems(User.Identity.Name)).ForEach(i => itemsSell.Add(i.Name, 0));
-            orders.FindAll(o => o.OrderStartTime > DateTime.Today).ForEach(o => o.Items.ForEach(i => itemsSell[i.MenuItem.Name] += i.MenuItem.Amount));
+            orders.FindAll(o => o.OrderStartTime > DateTime.Today).ForEach(o => o.Items.ForEach(i => itemsSell[i.MenuItem.Name]++));
 
             return PartialView("TodayChart", itemsSell);
         }
@@ -81,7 +81,6 @@ namespace Web.Controllers
             var itemsSell = new Dictionary<string, int>();
 
             (await CompanyFacade.GetAllMenuItems(User.Identity.Name)).ForEach(i => itemsSell.Add(i.Name, 0));
-            //orders.ForEach(o => o.Items.ForEach(i => itemsSell[i.MenuItem.Name] += i.MenuItem.Amount));
             var orderItems = orders.SelectMany(o => o.Items).ToList();
 
             foreach (var itemName in itemsSell.Keys.ToList())
@@ -98,7 +97,7 @@ namespace Web.Controllers
             var itemsSell = new Dictionary<string, int>();
 
             (await CompanyFacade.GetAllMenuItems(User.Identity.Name)).ForEach(i => itemsSell.Add(i.Name, 0));
-            orders.FindAll(o => o.OrderStartTime > DateTime.Now.AddMonths(-1)).ForEach(o => o.Items.ForEach(i => itemsSell[i.MenuItem.Name] += i.MenuItem.Amount));
+            orders.FindAll(o => o.OrderStartTime > DateTime.Now.AddMonths(-1)).ForEach(o => o.Items.ForEach(i => itemsSell[i.MenuItem.Name]++));
 
             return PartialView("MonthChart", itemsSell);
         }
