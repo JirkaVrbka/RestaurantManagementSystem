@@ -7,76 +7,151 @@
 
 <h2>Order</h2>
 
-<p>
-    @Html.ActionLink("Create new order", "NewOrder")
-    
-</p>
-<h3>Unpaid orders</h3>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderStartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderTable)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model.Where(order => !order.isPaid))
-    {
+@if (User.IsInRole("Manager") || User.IsInRole("Employee"))
+{
+    <p>
+        @Html.ActionLink("Create new order", "NewOrder")
+    </p>
+
+    <h3>Unpaid orders</h3>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderTable)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTable)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model.Where(order => !order.isPaid && !order.isClosed))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderTable)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-<h3>Fully paid orders</h3>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderStartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrderTable)
-        </th>
-        <th></th>
-    </tr>
+    </table>
 
-    @foreach (var item in Model.Where(order => order.isPaid))
-    {
+    <h3>Fully paid orders</h3>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderTable)
-            </td>
-            <td>
-                @Html.ActionLink("Details", "Details", new { id = item.Id })
-            </td>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTable)
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model.Where(order => order.isPaid && !order.isClosed))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderTable)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+}
+
+@if (User.IsInRole("Owner"))
+{
+    <h3>Unclosed orders</h3>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTable)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Where(order => !order.isClosed))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderTable)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <h3>Closed orders</h3>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderStartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderTable)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.Where(order => order.isClosed))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderStartTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderTable)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </table>
+}

@@ -11,6 +11,7 @@ namespace Web.Models
         public DateTime OrderStartTime { get; set; }
         public int OrderTable { get; set; }
         public bool isPaid { get; set; }
+        public bool isClosed { get; set; }
 
     }
 }

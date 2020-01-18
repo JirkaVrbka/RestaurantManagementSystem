@@ -24,7 +24,15 @@ namespace Web.Controllers
             List<OrderInfo> ordersInfo = new List<OrderInfo>();
 
             orders = orders.OrderBy(x => x.OrderStartTime).ToList();
-            orders.ForEach(o => ordersInfo.Add(new OrderInfo{ Id = o.Id, OrderStartTime = o.OrderStartTime, OrderTable = o.OrderTable, isPaid = o.Items.TrueForAll(i => i.IsPaid)}));
+            orders.ForEach(o => ordersInfo.Add(
+                new OrderInfo
+                {
+                    Id = o.Id, 
+                    OrderStartTime = o.OrderStartTime, 
+                    OrderTable = o.OrderTable, 
+                    isPaid = o.Items.TrueForAll(i => i.IsPaid),
+                    isClosed = o.IsClosed
+                }));
             return View(ordersInfo);
         }
 

@@ -27,7 +27,7 @@
                     <li>@Html.ActionLink("Menu", "MenuItems", "MenuItems")</li>
                     }
 
-                    @if (User.IsInRole("Employee") || User.IsInRole("Manager"))
+                    @if (User.IsInRole("Employee") || User.IsInRole("Manager") || User.IsInRole("Owner"))
                     {
                         <li>@Html.ActionLink("Order", "Order", "Order")</li>
                     }

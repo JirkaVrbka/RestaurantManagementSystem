@@ -70,6 +70,10 @@
     </table>
 </div>
 <p>
-    @Html.ActionLink("Add item", "Add", new { id = Model.Id }) |
+    @if (!Model.IsClosed)
+    {
+        @Html.ActionLink("Add item", "Add", new {id = Model.Id}) 
+        <br/>
+    }
     @Html.ActionLink("Back to List", "Order")
 </p>

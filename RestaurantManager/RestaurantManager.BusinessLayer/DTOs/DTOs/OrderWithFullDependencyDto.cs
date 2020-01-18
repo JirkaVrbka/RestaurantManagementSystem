@@ -8,6 +8,7 @@ namespace RestaurantManager.BusinessLayer.DTOs.DTOs
         public int CompanyId { get; set; }
         public DateTime OrderStartTime { get; set; }
         public int OrderTable { get; set; }
+        public bool IsClosed { get; set; }
         public List<OrderItemWithMenuItemDto> Items { get; set; }
     }
 }
