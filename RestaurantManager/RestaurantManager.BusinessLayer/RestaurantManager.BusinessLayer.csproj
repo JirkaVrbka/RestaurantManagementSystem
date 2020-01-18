@@ -81,6 +81,7 @@
     <Compile Include="DTOs\Common\DtoBase.cs" />
     <Compile Include="DTOs\DTOs\EmployeeDto.cs" />
     <Compile Include="DTOs\Common\FilterDtoBase.cs" />
+    <Compile Include="DTOs\Filters\OrderClosedFilterDto.cs" />
     <Compile Include="DTOs\Filters\OrderItemFilterByOrderDto.cs" />
     <Compile Include="DTOs\Filters\EmployeeFilterDto.cs" />
     <Compile Include="DTOs\Filters\MenuItemFilterDto.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryObjects\Common\QueryObjectBase.cs" />
     <Compile Include="QueryObjects\MenuItemQueryObject.cs" />
+    <Compile Include="QueryObjects\OrderClosedQueryObject.cs" />
     <Compile Include="QueryObjects\OrderItemQueryObject.cs" />
     <Compile Include="QueryObjects\OrderItemWithMenuItemByOrderQuery.cs" />
     <Compile Include="QueryObjects\OrderQueryObject.cs" />

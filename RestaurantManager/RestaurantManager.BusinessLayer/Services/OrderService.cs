@@ -20,12 +20,16 @@ namespace RestaurantManager.BusinessLayer.Services
 {
     public class OrderService : CrudQueryServiceBase<Order, OrderDto, OrderFilterDto>
     {
+        private QueryObjectBase<OrderDto, Order, OrderClosedFilterDto, IQuery<Order>> queryIsClosed;
 
-        public OrderService(IMapper mapper, 
+        public OrderService(IMapper mapper,
             IRepository<Order> repository,
-            QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>> query)
+            QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>> query,
+            QueryObjectBase<OrderDto, Order, OrderClosedFilterDto, IQuery<Order>> queryIsClosed)
             : base(mapper, repository, query)
-        {}
+        {
+            this.queryIsClosed = queryIsClosed;
+        }
 
         protected override Task<Order> GetWithIncludesAsync(int entityId)
         {
@@ -45,6 +49,18 @@ namespace RestaurantManager.BusinessLayer.Services
             foreach (var result in queryResult.Items)
             {
                 orders.Add(Mapper.Map<OrderWithFullDependencyDto>(Repository.GetAsync(result.Id, nameof(Order.Items)).Result));
+            }
+
+            return orders;
+        }
+
+        public async Task<List<OrderWithFullDependencyDto>> GetUnclosedOrdersOfCompany(int companyId)
+        {
+            var queryResult = await queryIsClosed.ExecuteQuery(new OrderClosedFilterDto { CompanyId = companyId, IsClosed = false});
+            List<OrderWithFullDependencyDto> orders = new List<OrderWithFullDependencyDto>();
+            foreach (var result in queryResult.Items)
+            {
+                orders.Add(Mapper.Map<OrderWithFullDependencyDto>(await Repository.GetAsync(result.Id, nameof(Order.Items))));
             }
 
             return orders;

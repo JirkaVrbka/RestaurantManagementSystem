@@ -36,19 +36,6 @@ namespace Web.Controllers
             return View(ordersInfo);
         }
 
-        public ActionResult NewOrder()
-        {
-            List<MenuItemDto> menuItems = new List<MenuItemDto>(){new MenuItemDto(){Name = "beer", SellPrice =  123}, new MenuItemDto(){Name = "vodka", SellPrice = 456}};
-
-            var order = new OrderDto()
-            {
-                AllItems = menuItems
-            };
-
-
-            return View(order);
-        }
-
         [HttpPost]
         public async Task<ActionResult> Create(OrderDto order)
         {
@@ -82,6 +69,11 @@ namespace Web.Controllers
             });
         }
 
+        public ActionResult NewOrder()
+        {
+            return View("NewOrder", new OrderDto());
+        }
+
         [HttpPost]
         public async Task<ActionResult> SaveItem(NewItemToOrder order)
         {
@@ -103,11 +95,11 @@ namespace Web.Controllers
             return View("Details", res);
         }
 
-        [HttpPost]
-        public ActionResult Finish()
+
+        public async Task<ActionResult> Finish()
         {
-            OrderFacade.CloseTheDay(User.Identity.Name, DateTime.Today);
-            return View("Order");
+            await CompanyFacade.ClosePaidOrders(User.Identity.Name);
+            return RedirectToAction("Order", "Order"); // RedirectToAction("Order");
         }
 
         public async Task<ActionResult> Pay(int id, int orderId)

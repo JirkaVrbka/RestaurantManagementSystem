@@ -40,6 +40,7 @@ namespace RestaurantManager.BusinessLayer.Config
             config.CreateMap<QueryResult<MenuItem>, QueryResultDto<MenuItemDto, MenuItemFilterDto>>();
             config.CreateMap<QueryResult<Order>, QueryResultDto<OrderDto, OrderFilterDto>>();
             config.CreateMap<QueryResult<Order>, QueryResultDto<OrderWithFullDependencyDto, OrderFilterDto>>();
+            config.CreateMap<QueryResult<Order>, QueryResultDto<OrderDto, OrderClosedFilterDto>>();
             config.CreateMap<QueryResult<OrderItem>, QueryResultDto<OrderItemDto, OrderItemFilterDto>>();
             config.CreateMap<QueryResult<OrderItem>, QueryResultDto<OrderItemDto, OrderItemFilterByOrderDto>>();
             config.CreateMap<QueryResult<OrderItem>, QueryResultDto<OrderItemWithMenuItemDto, OrderItemFilterDto>>();

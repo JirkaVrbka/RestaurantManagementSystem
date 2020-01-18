@@ -72,11 +72,6 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        public void CloseTheDay(string identityName, DateTime today)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<OrderWithFullDependencyDto> GetAsyncWithDependencies(int orderId)
         {
             using (UnitOfWorkProvider.Create())

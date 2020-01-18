@@ -1,4 +1,5 @@
-﻿@model RestaurantManager.BusinessLayer.DTOs.DTOs.OrderWithFullDependencyDto
+﻿@using System.Activities.Statements
+@model RestaurantManager.BusinessLayer.DTOs.DTOs.OrderWithFullDependencyDto
 
 @{
     ViewBag.Title = "Details";
@@ -42,9 +43,12 @@
             <th>
                 Is paid
             </th>
-            <th>
-                Pay
-            </th>
+            @if (User.IsInRole("Employee") || User.IsInRole("Manager"))
+            {
+                <th>
+                    Pay
+                </th>
+            }
             <th></th>
         </tr>
         @if (Model.Items != null)
@@ -61,16 +65,19 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.IsPaid)
                     </td>
-                    <td>
-                        @Html.ActionLink("Pay", "Pay",new {id = item.Id, orderId = Model.Id})
-                    </td>
+                    @if (User.IsInRole("Employee") || User.IsInRole("Manager"))
+                    {
+                        <td>
+                            @Html.ActionLink("Pay", "Pay", new {id = item.Id, orderId = Model.Id})
+                        </td>
+                    }
                 </tr>
             }
         }
     </table>
 </div>
 <p>
-    @if (!Model.IsClosed)
+    @if (!Model.IsClosed && (User.IsInRole("Employee") || User.IsInRole("Manager")))
     {
         @Html.ActionLink("Add item", "Add", new {id = Model.Id}) 
         <br/>

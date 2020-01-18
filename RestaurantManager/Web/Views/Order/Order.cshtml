@@ -8,6 +8,13 @@
 <h2>Order</h2>
 
 
+@if (User.IsInRole("Manager"))
+{
+    <p>
+        @Html.ActionLink("Close (finish) paid orders", "Finish")
+    </p>
+    <br/>
+}
 @if (User.IsInRole("Manager") || User.IsInRole("Employee"))
 {
     <p>

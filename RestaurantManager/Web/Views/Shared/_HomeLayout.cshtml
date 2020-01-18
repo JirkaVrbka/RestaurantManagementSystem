@@ -29,7 +29,7 @@
 
                     @if (User.IsInRole("Employee") || User.IsInRole("Manager") || User.IsInRole("Owner"))
                     {
-                        <li>@Html.ActionLink("Order", "Order", "Order")</li>
+                        <li>@Html.ActionLink("Orders", "Order", "Order")</li>
                     }
 
                     @if (User.IsInRole("Owner") || User.IsInRole("Manager"))

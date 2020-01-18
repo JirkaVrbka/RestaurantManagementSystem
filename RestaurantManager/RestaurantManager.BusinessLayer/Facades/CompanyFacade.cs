@@ -228,6 +228,7 @@ namespace RestaurantManager.BusinessLayer.Facades
                         OrderStartTime = o.OrderStartTime,
                         CompanyId = o.CompanyId,
                         OrderTable = o.OrderTable,
+                        IsClosed = o.IsClosed,
                         Items = new List<OrderItemWithMenuItemDto>()
                     };
                     var items = await _orderItemService.GetWithMenuItemByOrderId(order.Id);
@@ -313,6 +314,46 @@ namespace RestaurantManager.BusinessLayer.Facades
             {
                 int companyId = (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
                 return companyId == 0 ? null : (await _companyService.GetAsyncWithOrders(companyId)).Orders.FindAll(o => o.OrderStartTime >= startDate && o.OrderStartTime <= endTime);
+            }
+        }
+
+        public async Task ClosePaidOrders(string employeeEmail)
+        {
+            List<OrderWithFullDependencyDto> unclosedOrders = new List<OrderWithFullDependencyDto>();
+            int companyId = await GetCompanyId(employeeEmail);
+
+            using (UnitOfWorkProvider.Create())
+            {
+                unclosedOrders = await _orderService.GetUnclosedOrdersOfCompany(companyId);
+            }
+
+            foreach(OrderWithFullDependencyDto o in unclosedOrders)
+            {
+                if (o.Items.TrueForAll(i => i.IsPaid))
+                {
+                    o.IsClosed = true;
+                    using (UnitOfWorkProvider.Create())
+                    {
+                        await _orderService.Update(new OrderDto
+                        {
+                            CompanyId = o.CompanyId,
+                            Id = o.Id,
+                            IsClosed = true,
+                            OrderStartTime = o.OrderStartTime,
+                            OrderTable = o.OrderTable
+                        });
+
+                        await UnitOfWorkProvider.GetUnitOfWorkInstance().Commit();
+                    }
+                }
+            }
+        }
+
+        private async Task<int> GetCompanyId(string employeeEmail)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return (await _employeeService.GetEmployeeByEmail(employeeEmail)).CompanyId;
             }
         }
     }
