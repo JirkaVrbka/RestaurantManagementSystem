@@ -50,14 +50,14 @@ namespace Web.Controllers
 
 
             var res = await OrderFacade.GetAsyncWithDependencies(id);
-            return View("Details", res);
+
+            // TODO remove duplicity
+            var result = new OrderDetail();
+            result.order = await OrderFacade.GetAsyncWithDependencies(id);
+            result.menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
+            return View("Detail", result);
         }
 
-        public async Task<ActionResult> Details(int id)
-        {
-            var res = await OrderFacade.GetAsyncWithDependencies(id);
-            return View("Details", res);
-        }
 
         public async Task<ActionResult> Add(int id)
         {
@@ -74,25 +74,24 @@ namespace Web.Controllers
             return View("NewOrder", new OrderDto());
         }
 
-        [HttpPost]
-        public async Task<ActionResult> SaveItem(NewItemToOrder order)
-        {
-            var items = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
 
-            var currentItem = items.Find(i => i.Name.Equals(order.SelectItem));
-            
+        public async Task<int> AddItemToOrder(int orderId, int itemId)
+        {
+            var item = await MenuItemFacade.GetAsync(itemId);
+
             await OrderItemFacade.Create(new OrderItemDto
             {
-                MenuItemId = currentItem.Id,
+                MenuItemId = itemId,
                 IsPaid = false,
-                OrderId = order.OrderId
+                OrderId = orderId
             });
 
-            currentItem.Amount--;
-            await MenuItemFacade.Update(currentItem);
+            var orderItems = await OrderItemFacade.GetByOrderId(orderId);
+            var orderItemId = orderItems.Last().Id;
 
-            var res = await OrderFacade.GetAsyncWithDependencies(order.OrderId);
-            return View("Details", res);
+            item.Amount--;
+            await MenuItemFacade.Update(item);
+            return orderItemId;
         }
 
 
@@ -101,7 +100,7 @@ namespace Web.Controllers
             await CompanyFacade.ClosePaidOrders(User.Identity.Name);
             return RedirectToAction("Order", "Order"); // RedirectToAction("Order");
         }
-
+        /*
         public async Task<ActionResult> Pay(int id, int orderId)
         {
             var orderItem = await OrderItemFacade.GetAsync(id);
@@ -110,6 +109,27 @@ namespace Web.Controllers
 
             var res = await OrderFacade.GetAsyncWithDependencies(orderId);
             return View("Details", res);
+        }*/
+
+        public async Task Pay(int orderItemId)
+        {
+            var orderItem = await OrderItemFacade.GetAsync(orderItemId);
+            orderItem.IsPaid = true;
+            await OrderItemFacade.Update(orderItem);
         }
+
+
+        public async Task<ActionResult> Detail(int id)
+        {
+            var result = new OrderDetail();
+            result.order = await OrderFacade.GetAsyncWithDependencies(id);
+            result.menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
+            return View("Detail", result);
+        }
+        /*
+        public ActionResult PaySelected(int[] ids)
+        {
+            
+        }*/
     }
 }

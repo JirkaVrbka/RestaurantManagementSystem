@@ -62,6 +62,14 @@ namespace RestaurantManager.BusinessLayer.Facades
             }
         }
 
-        
+        public async Task<List<OrderItemDto>> GetByOrderId(int id)
+        {
+            using (UnitOfWorkProvider.Create())
+            {
+                return await _OrderItemService.GetByOrderId(id);
+            }
+        }
+
+
     }
 }

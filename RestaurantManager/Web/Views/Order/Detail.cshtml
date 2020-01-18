@@ -1,0 +1,271 @@
+﻿@using RestaurantManager.BusinessLayer.DTOs.DTOs
+@model Web.Models.OrderDetail
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+@{
+    int screenWidth = Request.Browser.ScreenPixelsWidth;
+    List<int> selectedItems = new List<int>();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Order #@Model.order.Id</title>
+    
+    <style>
+        .grid-main-parts {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            padding: 10px;
+        
+            grid-column-gap: 50px;
+        }
+
+        .grid-item-main-parts {
+        }
+
+        .grid-menu-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background-color: rgba(135,206,250, 1);
+            padding: 10px;
+
+            grid-column-gap: 10px;
+        }
+
+        .grid-item-menu-items {
+            background-color: rgba(255,255,255, 0.8);
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .grid-item-menu-items:active {
+            background-color: rgba(0,255,255, 0.8);
+        }
+
+        .selected {
+            background-color: rgba(135,206,250,1);
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input hidden id="orderId" value="" />
+
+        <h3>Order #@Model.order.Id</h3>
+        <hr />
+        <p>
+            Order started at : @Model.order.OrderStartTime
+        </p>
+
+        <p>
+            Order table : @Model.order.OrderTable
+        </p>
+        <hr />
+        <div class="grid-main-parts">
+            @if (!User.IsInRole("Owner"))
+            {
+                <div class="grid-item-main-parts">
+                    <div class="grid-menu-items">
+                        @foreach (MenuItemDto menuItem in Model.menuItems)
+                        {
+                            <div id="@menuItem.Id" price="@menuItem.SellPrice" class="grid-item-menu-items" onclick="addNewItemIntoOrder(this)">
+                                @menuItem.Name
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        <div class="grid-item-main-parts">
+            <h4>Unpaid items</h4>
+            <table style="width: 100%; font-size: 15px">
+                <tbody id="unpaid">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                    </tr>
+                    @foreach (var item in Model.order.Items.FindAll(i => !i.IsPaid))
+                    {
+                        <tr orderItemId="@item.Id" onclick="selectedBox(this)">
+                            <td>@item.MenuItem.Name</td>
+                            <td>@item.MenuItem.SellPrice</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <hr />
+        
+
+            @if (!User.IsInRole("Owner"))
+            {
+                <input type="submit" value="Pay selected" class="btn btn-default" onclick="paySelected()" />
+                <br/>
+            }
+            
+            <table style="width: 100%; font-size: 15px">
+                <tr>
+                    <td>
+                        Of sum :
+                    </td>
+                    <td id="unpaidSum">
+                        @if (User.IsInRole("Owner"))
+                        {
+                            @Model.order.Items.FindAll(i => !i.IsPaid).Select(i => i.MenuItem.SellPrice).Sum();
+                        }
+                        else
+                        {
+                            @Html.Raw(0);
+                        }
+                    </td>
+                </tr>
+            </table>
+            
+            <hr/>
+            
+            <br/>
+            <br/>
+            
+
+            <h4>Paid items</h4>
+            <table id="paid" style="width: 100%; font-size: 15px">
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                </tr>
+                @foreach (var item in Model.order.Items.FindAll(i => i.IsPaid))
+                {
+                    <tr>
+                        <td>@item.MenuItem.Name</td>
+                        <td>@item.MenuItem.SellPrice</td>
+                    </tr>
+                }
+            </table>
+
+            <hr />
+            <table style="width: 100%; font-size: 15px">
+                <tr>
+                    <td>
+                        Of sum :
+                    </td>
+                    <td id="paidSum">
+                        @Model.order.Items.FindAll(i => i.IsPaid).Select(i => i.MenuItem.SellPrice).Sum()
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        </div>
+
+        <hr />
+
+    </div>
+<p>
+    @Html.ActionLink("Back to List", "Order")
+</p>
+
+@if (!User.IsInRole("Owner"))
+{
+    <script>
+
+        function addNewItemIntoOrder(elem) {
+            id = elem.id;
+            name = elem.text;
+
+            $.ajax({
+                url: '@Url.Action("AddItemToOrder", "Order")',
+                type: "get",
+                data: { "orderId": @Html.Raw(Json.Encode(Model.order.Id)), "itemId": id },
+                dataType: "json",
+                success: function(data) {
+                    var orderItemId = parseInt(data);
+                    var tr = document.createElement('tr');
+                    tr.innerHTML =
+                        '<tr> <td>' + elem.textContent + '</td><td>' + elem.getAttribute("price") + '</td></tr>';
+                    tr.setAttribute("orderItemId", orderItemId);
+                    tr.setAttribute("onclick", "selectedBox(this)");
+
+                    document.getElementById("unpaid").appendChild(tr);
+
+                    var unpaidSum = document.getElementById("unpaidSum").textContent;
+                    unpaidSum = parseInt(unpaidSum) + parseInt(elem.getAttribute("price"));
+                    document.getElementById("unpaidSum").textContent = unpaidSum;
+
+                }
+            });
+
+        }
+
+        function getSelected() {
+            var ids = [];
+            for (var elem in document.getElementsByClassName("selected")) {
+                ids.add(elem.id);
+            }
+            return ids;
+        }
+
+        function paySelected() {
+            var elementsByClassName = document.getElementsByClassName("selected");
+            var names = [];
+
+            for (var i = 0; i < elementsByClassName.length; i++) {
+
+                var elem = elementsByClassName[i];
+                var id = elem.getAttribute("orderItemId");
+                console.log(id);
+
+                $.ajax({
+                    url: '@Url.Action("Pay", "Order")',
+                    type: "get",
+                    data: { "orderItemId": id },
+                    dataType: "json"
+                });
+
+                names.push(id);
+            }
+
+            names.forEach(name => {
+                var elem = document.querySelector("*[orderitemid='" + name + "']");
+                elem.remove();
+                document.getElementById("paid").appendChild(elem);
+                elem.classList.remove("selected");
+
+                
+                var unpaidSum = document.getElementById("unpaidSum").textContent;
+                unpaidSum = parseInt(unpaidSum) - parseInt(elem.cells[1].textContent);
+                document.getElementById("unpaidSum").textContent = unpaidSum;
+
+                
+                var paidSum = document.getElementById("paidSum").textContent;
+                paidSum = parseInt(paidSum) + parseInt(elem.cells[1].textContent);
+                document.getElementById("paidSum").textContent = paidSum;
+            });
+
+        }
+
+        function selectedBox(box) {
+            if (box.classList.contains("selected")) {
+                box.classList.remove("selected");
+                
+                var unpaidSum = document.getElementById("unpaidSum").textContent;
+                unpaidSum = parseInt(unpaidSum) - parseInt(box.cells[1].textContent);
+                document.getElementById("unpaidSum").textContent = unpaidSum;
+            } else {
+                box.classList.add("selected");
+                
+                var unpaidSum = document.getElementById("unpaidSum").textContent;
+                unpaidSum = parseInt(unpaidSum) + parseInt(box.cells[1].textContent);
+                document.getElementById("unpaidSum").textContent = unpaidSum;
+            }
+        }
+    </script>
+}
+</body>
+</html>
