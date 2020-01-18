@@ -59,15 +59,6 @@ namespace Web.Controllers
         }
 
 
-        public async Task<ActionResult> Add(int id)
-        {
-            var menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
-            return View("Add", new NewItemToOrder
-            {
-                Items = menuItems,
-                OrderId = id
-            });
-        }
 
         public ActionResult NewOrder()
         {
@@ -100,16 +91,6 @@ namespace Web.Controllers
             await CompanyFacade.ClosePaidOrders(User.Identity.Name);
             return RedirectToAction("Order", "Order"); // RedirectToAction("Order");
         }
-        /*
-        public async Task<ActionResult> Pay(int id, int orderId)
-        {
-            var orderItem = await OrderItemFacade.GetAsync(id);
-            orderItem.IsPaid = true;
-            await OrderItemFacade.Update(orderItem);
-
-            var res = await OrderFacade.GetAsyncWithDependencies(orderId);
-            return View("Details", res);
-        }*/
 
         public async Task Pay(int orderItemId)
         {
@@ -126,10 +107,5 @@ namespace Web.Controllers
             result.menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
             return View("Detail", result);
         }
-        /*
-        public ActionResult PaySelected(int[] ids)
-        {
-            
-        }*/
     }
 }
