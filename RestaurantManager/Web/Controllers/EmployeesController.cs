@@ -67,13 +67,19 @@ namespace Web.Controllers
         {
             try
             {
+                employee.CompanyId = await GetCurrentCompanyId();
                 await EmployeeFacade.Update(employee);
-                return View("Employees");
+                return RedirectToAction("Employees");
             }
             catch (Exception)
             {
                 return View("Edit", employee);
             }
+        }
+
+        private async Task<int> GetCurrentCompanyId()
+        {
+            return (await CompanyFacade.FindCompanyByEmployeeEmail(User.Identity.Name)).Id;
         }
     }
 }
