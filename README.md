@@ -14,3 +14,5 @@ Jiří Vrbka, David Sečkář
 * Všichni můžou vidět objednávky.
 * Servírka/vedoucí směny mají možnost zkasírovat objednávku.
 * Majitel může změnit role.
+
+http://restaurantmanagerappservice.azurewebsites.net/
