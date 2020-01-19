@@ -44,18 +44,10 @@ namespace Web.Controllers
             
             await CompanyFacade.CreateNewOrderForCompany(User.Identity.Name, order);
 
-
             List<OrderDto> orders = await CompanyFacade.GetAllOrders(User.Identity.Name, DateTime.Today);
-            int id = orders.Find(o => DateTime.Compare(o.OrderStartTime, order.OrderStartTime.AddMilliseconds(-10)) > 0 && DateTime.Compare(o.OrderStartTime, order.OrderStartTime.AddMilliseconds(10)) < 0 && o.OrderTable == order.OrderTable).Id;
+            int newlyCreatedOrderId = orders.Find(o => DateTime.Compare(o.OrderStartTime, order.OrderStartTime.AddMilliseconds(-10)) > 0 && DateTime.Compare(o.OrderStartTime, order.OrderStartTime.AddMilliseconds(10)) < 0 && o.OrderTable == order.OrderTable).Id;
 
-
-            var res = await OrderFacade.GetAsyncWithDependencies(id);
-
-            // TODO remove duplicity
-            var result = new OrderDetail();
-            result.order = await OrderFacade.GetAsyncWithDependencies(id);
-            result.menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
-            return View("Detail", result);
+            return RedirectToAction("Detail", new { id = newlyCreatedOrderId });
         }
 
 
