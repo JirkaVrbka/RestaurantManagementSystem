@@ -193,11 +193,6 @@
                     tr.setAttribute("onclick", "selectedBox(this)");
 
                     document.getElementById("unpaid").appendChild(tr);
-
-                    var unpaidSum = document.getElementById("unpaidSum").textContent;
-                    unpaidSum = parseInt(unpaidSum) + parseInt(elem.getAttribute("price"));
-                    document.getElementById("unpaidSum").textContent = unpaidSum;
-
                 }
             });
 
