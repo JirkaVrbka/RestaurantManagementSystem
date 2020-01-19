@@ -43,24 +43,6 @@ namespace Web
             // set controller factory
             var controllerFactory = new WindsorControllerFactory(Container.Kernel);
             ControllerBuilder.Current.SetControllerFactory(controllerFactory);
-
-            // TODO remove to release
-            /*foreach (var handler in Container.Kernel.GetAssignableHandlers(typeof(object)))
-            {
-                System.Diagnostics.Debug.WriteLine("{0} {1}",
-                    handler.ComponentModel.Services,
-                    handler.ComponentModel.Implementation);
-            }
-
-            IQuery<Order> o = Container.Resolve<IQuery<Order>>();
-
-            QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>> query2 =
-                Container.Resolve<QueryObjectBase<OrderDto, Order, OrderFilterDto, IQuery<Order>>>();
-
-            QueryObjectBase<OrderWithFullDependencyDto, Order, OrderFilterDto, IQuery<Order>> query =
-                Container.Resolve<QueryObjectBase<OrderWithFullDependencyDto, Order, OrderFilterDto, IQuery<Order>>>();*/
-            //CompanyFacade companyFacade = Container.Resolve<CompanyFacade>();
-            Console.WriteLine("OK");
         }
 
         protected void Application_PostAuthenticateRequest(Object sender, EventArgs e)
