@@ -51,6 +51,10 @@
             background-color: rgba(0,255,255, 0.8);
         }
 
+        .disabled {
+            background-color: rgba(128,128,128, 1);
+        }
+
         .selected {
             background-color: rgba(135,206,250,1);
         }
@@ -77,7 +81,13 @@
                     <div class="grid-menu-items">
                         @foreach (MenuItemDto menuItem in Model.menuItems)
                         {
-                            <div id="@menuItem.Id" price="@menuItem.SellPrice" class="grid-item-menu-items" onclick="addNewItemIntoOrder(this)">
+                            string additionalClass = "";
+                            if (menuItem.Amount <= 0)
+                            {
+                                additionalClass = "disabled";
+                            }
+
+                            <div id="@menuItem.Id" price="@menuItem.SellPrice" amount="@menuItem.Amount" class="grid-item-menu-items @additionalClass" onclick="addNewItemIntoOrder(this)" >
                                 @menuItem.Name
                             </div>
                         }
@@ -176,25 +186,39 @@
     <script>
 
         function addNewItemIntoOrder(elem) {
-            id = elem.id;
-            name = elem.text;
+            var id = elem.id;
+            var name = elem.text;
+            var amount = parseInt(elem.getAttribute("amount"));
 
-            $.ajax({
-                url: '@Url.Action("AddItemToOrder", "Order")',
-                type: "get",
-                data: { "orderId": @Html.Raw(Json.Encode(Model.order.Id)), "itemId": id },
-                dataType: "json",
-                success: function(data) {
-                    var orderItemId = parseInt(data);
-                    var tr = document.createElement('tr');
-                    tr.innerHTML =
-                        '<tr> <td>' + elem.textContent + '</td><td>' + elem.getAttribute("price") + '</td></tr>';
-                    tr.setAttribute("orderItemId", orderItemId);
-                    tr.setAttribute("onclick", "selectedBox(this)");
+            if (amount > 0) {
+                $.ajax({
+                    url: '@Url.Action("AddItemToOrder", "Order")',
+                    type: "get",
+                    data: { "orderId": @Html.Raw(Json.Encode(Model.order.Id)), "itemId": id },
+                    dataType: "json",
+                    success: function(data) {
+                        // create new order item visually
+                        var orderItemId = parseInt(data);
+                        var tr = document.createElement('tr');
+                        tr.innerHTML =
+                            '<tr> <td>' + elem.textContent + '</td><td>' + elem.getAttribute("price") + '</td></tr>';
+                        tr.setAttribute("orderItemId", orderItemId);
+                        tr.setAttribute("onclick", "selectedBox(this)");
 
-                    document.getElementById("unpaid").appendChild(tr);
-                }
-            });
+                        document.getElementById("unpaid").appendChild(tr);
+
+                        // lower amount
+                        amount = amount - 1;
+                        elem.setAttribute("amount", amount);
+                    }
+                });
+
+            }
+
+            amount = parseInt(elem.getAttribute("amount"));
+            if (amount <= 1 && !elem.classList.contains("disabled")) {
+                elem.classList.add("disabled");
+            }
 
         }
 
