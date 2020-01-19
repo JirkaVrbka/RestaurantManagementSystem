@@ -86,12 +86,6 @@ namespace Web.Controllers
 
                 await CompanyFacade.RegisterCompanyWithOwner(customer);
                 AddAuthTicket(customer.Email, Role.Owner.ToString());
-            /*
-                var authTicket = new FormsAuthenticationTicket(1, customer.Email, DateTime.Now,
-                    DateTime.Now.AddMinutes(30), false, "Owner");
-                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                HttpContext.Response.Cookies.Add(authCookie);*/
 
                 return RedirectToAction("Index", "Home");
         }
@@ -104,19 +98,5 @@ namespace Web.Controllers
             var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
             HttpContext.Response.Cookies.Add(authCookie);
         }
-
-
-        //public ActionResult RedirectToRegisterCompany()
-        //{
-        //    return View("RegisterCompany");
-        //}
-
-        //[HttpPost]
-        //public async Task<ActionResult> RegisterCompany(CompanyDto company)
-        //{
-        //    company.JoinDate = DateTime.Now;
-        //    await CompanyFacade.RegisterCompany(company);
-        //    return RedirectToAction("Login");
-        //}
     }
 }
