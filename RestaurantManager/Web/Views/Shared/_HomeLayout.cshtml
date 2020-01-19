@@ -54,19 +54,18 @@
                     
                 </ul>
 
-                <ul class="navbar-nav">
+                <ul class="nav navbar-nav" style="float:right">
 
                     @if (Request.IsAuthenticated)
                     {
-                        <li class="nav-item dropdown">
+                        <li class="dropdown">
 
-                            <a href="#" class="nav-link dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><span class="fa fa-user"></span> @User.Identity.Name.Split('@')[0] <b class="caret grey"></b></a>
+                            <a href="#" class="dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown"><span class="fa fa-user"></span> @User.Identity.Name.Split('@')[0] <b class="caret grey"></b></a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 
                                 <div class="dropdown-header">Account management</div>
 
-                                <div class="dropdown-divider"></div>
 
                                 @Html.ActionLink("Logout", "Logout", "Account", null, new { @class = "dropdown-item" })
 

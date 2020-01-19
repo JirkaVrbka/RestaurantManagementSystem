@@ -5,14 +5,13 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
-<h2>Here you can edit your account</h2>
+<h2>Edit account</h2>
 
 @using (Html.BeginForm("Save", "MyAccount", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>at your command</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.Id)
