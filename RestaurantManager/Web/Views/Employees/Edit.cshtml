@@ -20,6 +20,7 @@
     @Html.HiddenFor(model => model.Id)
     @Html.HiddenFor(model => model.PasswordHash)
     @Html.HiddenFor(model => model.PasswordSalt)
+    @Html.HiddenFor(model => model.Email)
 
     <div class="form-group">
         @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -40,9 +41,9 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Role, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DropDownListFor(model => model.Role, 
-                EnumHelper.GetSelectList(typeof(Role)),  
-                @Html.DisabledIf((Model.Email.Equals(User.Identity.Name)), "form-control"))
+            @Html.DropDownListFor(model => model.Role,
+                EnumHelper.GetSelectList(typeof(Role)),
+                @Html.DisabledIf(User.Identity.Name.Equals(Model.Email), "form-control"))
             @Html.ValidationMessageFor(model => model.Role, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -50,7 +51,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.Email, 
+            @Html.EditorFor(model => model.Email,
                 new { htmlAttributes = @Html.DisabledIf((Model.Email.Equals(User.Identity.Name)), "form-control") })
             @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
