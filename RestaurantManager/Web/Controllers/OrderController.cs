@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades;
@@ -50,13 +49,10 @@ namespace Web.Controllers
             return RedirectToAction("Detail", new { id = newlyCreatedOrderId });
         }
 
-
-
         public ActionResult NewOrder()
         {
             return View("NewOrder", new OrderDto());
         }
-
 
         public async Task<int> AddItemToOrder(int orderId, int itemId)
         {
@@ -76,12 +72,11 @@ namespace Web.Controllers
             await MenuItemFacade.Update(item);
             return orderItemId;
         }
-
-
+        
         public async Task<ActionResult> Finish()
         {
             await CompanyFacade.ClosePaidOrders(User.Identity.Name);
-            return RedirectToAction("Order", "Order"); // RedirectToAction("Order");
+            return RedirectToAction("Order", "Order");
         }
 
         public async Task Pay(int orderItemId)
@@ -91,12 +86,13 @@ namespace Web.Controllers
             await OrderItemFacade.Update(orderItem);
         }
 
-
         public async Task<ActionResult> Detail(int id)
         {
-            var result = new OrderDetail();
-            result.order = await OrderFacade.GetAsyncWithDependencies(id);
-            result.menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name);
+            var result = new OrderDetail
+            {
+                order = await OrderFacade.GetAsyncWithDependencies(id),
+                menuItems = await CompanyFacade.GetAllMenuItems(User.Identity.Name)
+            };
             return View("Detail", result);
         }
     }

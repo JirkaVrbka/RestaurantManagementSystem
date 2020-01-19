@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades;
@@ -37,13 +34,6 @@ namespace Web.Controllers
             await MenuItemFacade.Update(item);
             return await Stock();
         }
-//
-//        [HttpPost]
-//        public async Task<ActionResult> Save(StockItemDto item)
-//        {
-//            await StockItemFacade.Update(item);
-//            return View("Stock");
-//        }
 
         public ActionResult Create()
         {
@@ -63,12 +53,6 @@ namespace Web.Controllers
                 BuyPrice = item.MenuItem.BuyPrice,
                 Amount = 0
             });
-//
-//            await StockItemFacade.Create(new StockItemDto
-//            {
-//                
-//            });
-
 
             return Stock().Result;
         }

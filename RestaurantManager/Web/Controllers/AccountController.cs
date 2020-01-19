@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.ClientServices;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.Web.UI;
-using RestaurantManager.BusinessLayer.DTOs;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades;
 using RestaurantManager.Utils.EntityEnums;
@@ -39,14 +33,6 @@ namespace Web.Controllers
             
             if (success)
             {
-                //FormsAuthentication.SetAuthCookie(model.Username, false);
-                /*
-                var authTicket = new FormsAuthenticationTicket(1, model.Email, DateTime.Now,
-                    DateTime.Now.AddMinutes(30), false, role);
-                string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
-                var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
-                HttpContext.Response.Cookies.Add(authCookie);*/
-
                 AddAuthTicket(model.Email, role);
                 return RedirectToAction("Index", "Home");
             }

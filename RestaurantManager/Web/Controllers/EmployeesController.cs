@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
-using Castle.Windsor.Diagnostics.DebuggerViews;
 using RestaurantManager.BusinessLayer.DTOs.DTOs;
 using RestaurantManager.BusinessLayer.Facades;
-using RestaurantManager.Utils.EntityEnums;
 
 namespace Web.Controllers
 {
@@ -36,8 +32,6 @@ namespace Web.Controllers
             try
             {
                 await CompanyFacade.RegisterEmployee(employee, User.Identity.Name);
-
-
                 return RedirectToAction("Employees", "Employees");
             }
             catch (ArgumentException)
@@ -51,7 +45,7 @@ namespace Web.Controllers
         {
             await EmployeeFacade.Delete(id);
 
-            List<EmployeeDto> employees = await CompanyFacade.GetAllEmployees(User.Identity.Name); //E mployeeFacade.GetAllEmployees(User.Identity.Name);
+            List<EmployeeDto> employees = await CompanyFacade.GetAllEmployees(User.Identity.Name);
             return View("Employees", employees);
         }
 
