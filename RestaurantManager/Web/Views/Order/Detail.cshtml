@@ -66,13 +66,14 @@
 
         <h3>Order #@Model.order.Id</h3>
         <hr />
-        <p>
+        <p style="float: left">
             Order started at : @Model.order.OrderStartTime
         </p>
 
-        <p>
+        <p style="float: right">
             Order table : @Model.order.OrderTable
         </p>
+        <br/>
         <hr />
         <div class="grid-main-parts">
             @if (!User.IsInRole("Owner"))
