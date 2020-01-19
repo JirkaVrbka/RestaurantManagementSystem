@@ -78,22 +78,24 @@
         <div class="grid-main-parts">
             @if (!User.IsInRole("Owner"))
             {
-                <div class="grid-item-main-parts">
-                    <div class="grid-menu-items">
-                        @foreach (MenuItemDto menuItem in Model.menuItems)
+            <div class="grid-item-main-parts">
+                <div class="grid-menu-items">
+                    @foreach (MenuItemDto menuItem in Model.menuItems)
+                    {
+                        string additionalClass = "";
+                        if (menuItem.Amount <= 0)
                         {
-                            string additionalClass = "";
-                            if (menuItem.Amount <= 0)
-                            {
-                                additionalClass = "disabled";
-                            }
-
-                            <div id="@menuItem.Id" price="@menuItem.SellPrice" amount="@menuItem.Amount" class="grid-item-menu-items @additionalClass" onclick="addNewItemIntoOrder(this)" >
-                                @menuItem.Name
-                            </div>
+                            additionalClass = "disabled";
                         }
-                    </div>
+
+                        <div id="@menuItem.Id" price="@menuItem.SellPrice" amount="@menuItem.Amount" class="grid-item-menu-items @additionalClass" onclick="addNewItemIntoOrder(this)">
+                            @menuItem.Name
+                        </div>
+                    }
                 </div>
+
+                <div id="noAmountWarning" style="color: red; text-align: center; font-size: 15px"></div>
+            </div>
             }
         <div class="grid-item-main-parts">
             <h4>Unpaid items</h4>
@@ -179,7 +181,7 @@
 
     </div>
 <p>
-    @Html.ActionLink("Back to List", "Order")
+    @Html.ActionLink("Back to all orders", "Order", null, new { @class = "btn btn-default", @style= "width:100%" })
 </p>
 
 @if (!User.IsInRole("Owner"))
@@ -190,6 +192,11 @@
             var id = elem.id;
             var name = elem.text;
             var amount = parseInt(elem.getAttribute("amount"));
+
+            if (amount <= 0) {
+                document.getElementById("noAmountWarning").textContent = "No enough in a stock!";
+                clearWarningAfterFiveSecond();
+            } 
 
             if (amount > 0) {
                 $.ajax({
@@ -221,6 +228,12 @@
                 elem.classList.add("disabled");
             }
 
+        }
+
+        function clearWarningAfterFiveSecond() {
+            setTimeout(function() {
+                document.getElementById("noAmountWarning").textContent = "";
+            }, 5000);
         }
 
         function getSelected() {
