@@ -68,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.PasswordFor(model => model.Password, new {@class="form-control", placeholder="Password", pattern="[.]{5}"})
+                @Html.PasswordFor(model => model.Password, new {@class="form-control", placeholder="Password", pattern=".{5,}"})
                 @Html.ValidationMessageFor(model => model.Password, "Password has to be at least 5 characters", new { @class = "text-danger" })
             </div>
         </div>

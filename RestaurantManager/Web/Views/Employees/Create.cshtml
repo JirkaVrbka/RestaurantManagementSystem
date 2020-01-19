@@ -52,7 +52,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.PasswordHash, "Password", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", pattern="[.]{5}" } })
+            @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", pattern=".{5,}" } })
             @Html.ValidationMessageFor(model => model.PasswordHash, "Password has to be at least 5 characters", new { @class = "text-danger" })
         </div>
     </div>
