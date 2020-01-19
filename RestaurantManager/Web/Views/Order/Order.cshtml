@@ -169,18 +169,18 @@
     </div>
     @if (User.IsInRole("Manager") || User.IsInRole("Employee"))
     {
-<div class="grid-items">
-    <br/>
-    <br/>
-    <p>
-        @Html.ActionLink("Create new order          ", "NewOrder", null, new { @class = "btn btn-default", @style= "width:100%" })
-    </p>
-    @if (User.IsInRole("Manager"))
-    {
-        <p>
-            @Html.ActionLink("Close (finish) paid orders", "Finish", null, new { @class = "btn btn-default", @style= "width:100%" })
-        </p>
-    }
-</div>
+        <div class="grid-items">
+            <br/>
+            <br/>
+            <p>
+                @Html.ActionLink("Create new order          ", "NewOrder", null, new {@class = "btn btn-default", @style = "width:100%"})
+            </p>
+            @if (User.IsInRole("Manager"))
+            {
+                <p>
+                    @Html.ActionLink("Close (finish) paid orders", "Finish", null, new {@class = "btn btn-default", @style = "width:100%"})
+                </p>
+            }
+        </div>
     }
 </div>

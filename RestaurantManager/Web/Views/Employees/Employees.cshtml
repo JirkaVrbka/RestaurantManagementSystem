@@ -5,52 +5,72 @@
     Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
 
+<style>
+    .grid-main-parts {
+         display: grid;
+         grid-template-columns: 2fr 1fr;
+         padding: 10px;
+         grid-column-gap: 50px;
+     }
+
+    .grid-items {
+    }
+</style>
+
 <h2>Employees</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create", "Employees")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Role)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.FirstName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LastName)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Email)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Role)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new {  id=item.Id }) 
-        @if (!User.Identity.Name.Equals(item.Email))
-        {
-            <span>|</span>
-            @Html.ActionLink("Delete", "Delete", new {id = item.Id})
-        }
-        
-    </td>
-</tr>
-}
+<div class="grid-main-parts">
+    <div class="grid-items">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Role)
+                </th>
+                <th></th>
+            </tr>
 
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new {id = item.Id})
+                        @if (!User.Identity.Name.Equals(item.Email))
+                        {
+                            <span>|</span>
+                            @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                        }
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+    <div class="grid-items">
+        <p>
+            @Html.ActionLink("Create New", "Create", "Employees", null, new { @class = "btn btn-default", @style= "width:100%" })
+        </p>
+    </div>
+</div>
