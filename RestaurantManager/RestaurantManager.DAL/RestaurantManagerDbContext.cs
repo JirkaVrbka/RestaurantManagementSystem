@@ -19,9 +19,6 @@ namespace RestaurantManager.DAL
         {
             // force load of EntityFramework.SqlServer.dll into build
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
-
-            // TODO remove when release
-            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public RestaurantManagerDbContext(string connectionString) : base(connectionString)
